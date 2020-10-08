@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau lenh switch case</title>
+</head>
+<body>
+<form>
+    <input type="number" id="day" value="">
+    <button type="button" onclick="dayCalculate()">Tính số ngày</button>
+    <p id="result" value=""></p>
+</form>
+
+<script>
+    function dayCalculate() {
+        let day = parseInt(document.getElementById("day").value);
+        let result = document.getElementById("result");
+        switch (day) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                result.innerText = "Tháng " + day + " có 31 ngày";
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                result.innerText = "Tháng " + day + " có 30 ngày";
+                break;
+            case 2:
+                result.innerText = ("Tháng 2 có 28 hoặc 29 ngày");
+                break;
+            default:
+                result.innerText = ("Bạn đã nhập sai tháng!!");
+                break;
+        }
+    }
+
+</script>
+</body>
+</html>

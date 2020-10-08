@@ -9,14 +9,29 @@
     <input type="number" id="firstNum" value="">
     <input type="number" id="secondNum" value="">
     <br><br>
-    <input type="button" value="Addition(+)" onclick="addition();">
-    <input type="button" value="Subtraction(-)" onclick="subtraction();">
-    <input type="button" value="Multiplication(x)" onclick="multiplication();">
-    <input type="button" value="Division(/)" onclick="division();">
+    <div id="calculator">
+        <input type="button" value="+" onclick="calculate();" >
+        <input type="button" value="-" onclick="calculate();" >
+        <input type="button" value="x" onclick="calculate();">
+        <input type="button" value="/" onclick="calculate();" >
+    </div>
     <br><br>
     <label>Result</label>
     <input type="number" id="result" value="">
 </form>
-<script type="text/javascript" src="ung-dung-may-tinh.js"></script>
+<script>
+    let result = document.getElementById("result");
+    let operator = document.getElementById("calculator");
+
+    function calculate(operator.value) {
+
+        result.value = operator.value;
+    }
+    // if(calculator === "+"){
+    //     let firstNum = parseFloat(document.getElementById("firstNum").value);
+    //     let secondNum = parseFloat(document.getElementById("secondNum").value);
+    //     result.value = firstNum + secondNum;
+    // }
+</script>
 </body>
 </html>
