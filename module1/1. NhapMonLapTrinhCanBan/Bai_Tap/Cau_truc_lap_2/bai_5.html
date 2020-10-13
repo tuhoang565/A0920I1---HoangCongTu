@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh tong 20 so fibonacci dau tien</title>
+</head>
+<body>
+
+<script>
+    function fibonacci20() {
+        let a = 0;
+        let a1 = 1;
+        let a2;
+        let sum = 0;
+        for (let i = 0; i < 20; i++){
+            sum = sum + a;
+            a2 = a + a1;
+            a = a1;
+            a1 = a2;
+
+        }
+        document.write("Tong 20 so fibonacci dau tien: " + sum);
+    }
+
+    fibonacci20();
+</script>
+</body>
+</html>

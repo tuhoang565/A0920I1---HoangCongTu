@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game: Hay doan thu xem</title>
+</head>
+<body>
+<input type="button" value="Chơi" onclick="choi()">
+<script>
+    function choi() {
+        let userNumber;
+        let randomNumber = Math.floor(Math.random() * 100);
+
+        alert("Nhap 1 so trong khoang 1 - 100. Neu chinh xac ban se nhan dc phan thuong. Ban co 3 luot choi");
+        for (let i = 1; i < 4; i++) {
+            do {
+                userNumber = parseInt(prompt("Nhap 1 so trong khoang(1 -100). Luot thu " + i));
+            } while (userNumber < 1 || userNumber > 100);
+            if (userNumber == randomNumber) {
+                alert("Chuc mung");
+                break;
+            } else {
+
+                alert("Ban nhap chua dung");
+            }
+        }
+        alert("Het 3 luot choi. Chuc ban may man lan sau");
+
+
+    }
+</script>
+</body>
+</html>

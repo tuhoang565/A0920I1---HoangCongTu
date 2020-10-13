@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tim so dau tien trong day fibonacci chi het cho 5</title>
+</head>
+<body>
+
+<script>
+    function fibonacci20() {
+        let a = 0;
+        let a1 = 1;
+        let a2;
+        for (let i = 0; i < 20; i++){
+
+            if(a % 5 == 0){
+                document.writeln(a);
+                break;
+            }
+            a2 = a + a1;
+            a = a1;
+            a1 = a2;
+
+        }
+
+    }
+
+    fibonacci20();
+</script>
+</body>
+</html>

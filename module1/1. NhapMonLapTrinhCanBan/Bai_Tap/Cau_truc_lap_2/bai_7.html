@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In ra so chia het cho 3 va 5</title>
+</head>
+<body>
+
+<script>
+    function fizzBuzz() {
+        for (let i = 0; i <= 100; i++){
+            if (i % 3 == 0 && i % 5 == 0){
+                document.writeln(i + " FizzBuzz");
+                document.write("<br>");
+                continue;
+            }else if(i % 5 == 0){
+                document.writeln(i + " Buzz");
+                document.write("<br>");
+            }else if (i % 3 == 0){
+                document.writeln(i + " Fizz");
+                document.write("<br>");
+            }
+        }
+    }
+
+    fizzBuzz();
+</script>
+</body>
+</html>

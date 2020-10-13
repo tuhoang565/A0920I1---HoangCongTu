@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sử dụng vòng lặp để đếm từ 1 đến 100</title>
+</head>
+<body>
+
+<script>
+    function countNumber() {
+        for (let i = 0; i < 100; i++){
+            document.writeln(i);
+            if(i === 99){
+                document.write("finish");
+            }
+
+        }
+    }
+
+    function countNumberWhile() {
+        let i = 0;
+        while (i < 100){
+            document.writeln(i);
+            if(i === 99){
+                document.writeln("Finish");
+            }
+            i++;
+        }
+    }
+
+    countNumberWhile();
+</script>
+</body>
+</html>

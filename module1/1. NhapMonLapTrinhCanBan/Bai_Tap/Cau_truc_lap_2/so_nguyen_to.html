@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Số nguyên tố</title>
+</head>
+<body>
+
+<script>
+    let num = parseInt(prompt("Nhap so luong so nt can in ra: "));
+    let count = 0;
+
+    let N = 2;
+
+    function soNT(n) {
+        let isNT = true;
+        if (n < 2) {
+            isNT = false;
+        } else if (n == 2) {
+            isNT = true;
+        } else {
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i == 0) {
+                    isNT = false;
+                    break;
+                }
+            }
+        }
+        return isNT;
+    }
+
+    while (count < num){
+        if (soNT(N)){
+            count++;
+            document.writeln(N);
+        }
+        N++;
+    }
+</script>
+</body>
+</html>

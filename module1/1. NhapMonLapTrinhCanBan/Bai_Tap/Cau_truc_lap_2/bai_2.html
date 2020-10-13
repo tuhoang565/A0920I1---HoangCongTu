@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lay thong tin nhiet do hien tai</title>
+</head>
+<body>
+<script>
+    function temperature() {
+        let t = parseInt(prompt("Enter temperature now: "));
+
+       if(t > 100){
+           while (t > 100){
+               let d = parseInt(prompt("Decrease temperature: "));
+               t = t - d;
+           }
+           alert(t + " ok");
+       }else if(t < 20){
+           while (t < 20){
+               let i = parseInt(prompt("Increase temperature: "));
+               t = t + i;
+           }
+           alert(t + " ok");
+       }else {
+           alert( t + " ok");
+       }
+    }
+
+    temperature();
+</script>
+</body>
+</html>

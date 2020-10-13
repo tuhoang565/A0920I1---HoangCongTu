@@ -2,36 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Calculator</title>
 </head>
 <body>
 <form>
-    <input type="number" id="firstNum" value="">
-    <input type="number" id="secondNum" value="">
-    <br><br>
-    <div id="calculator">
-        <input type="button" value="+" onclick="calculate();" >
-        <input type="button" value="-" onclick="calculate();" >
-        <input type="button" value="x" onclick="calculate();">
-        <input type="button" value="/" onclick="calculate();" >
-    </div>
-    <br><br>
-    <label>Result</label>
-    <input type="number" id="result" value="">
+    <table border="1" width="200px" height="300px">
+        <tr><input type="number" id="result" value=""></tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>+</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td>0</td>
+            <td>=</td>
+            <td>/</td>
+        </tr>
+    </table>
+<!--    <input type="number" id="firstNum" value="">-->
+<!--    <input type="number" id="secondNum" value="">-->
+<!--    <br><br>-->
+
+<!--    <input type="button" id="add" value="+" onclick="calculate('+');">-->
+<!--    <input type="button" id="sub" value="-" onclick="calculate('-');">-->
+<!--    <input type="button" id="mul" value="x" onclick="calculate('x');">-->
+<!--    <input type="button" id="div" value="/" onclick="calculate('/');">-->
+
+<!--    <br><br>-->
+<!--    <label>Result</label>-->
+
 </form>
 <script>
     let result = document.getElementById("result");
-    let operator = document.getElementById("calculator");
+    let firstNum = document.getElementById("firstNum");
+    let secondNum = document.getElementById("secondNum");
+    let add = document.getElementById("add");
+    let sub = document.getElementById("sub");
+    let mul = document.getElementById("mul");
+    let div = document.getElementById("div");
 
-    function calculate(operator.value) {
-
-        result.value = operator.value;
+    function calculate(operator) {
+        if (operator == add.value) {
+            result.value = parseFloat(firstNum.value) + parseFloat(secondNum.value);
+        } else if (operator == sub.value) {
+            result.value = firstNum.value - secondNum.value;
+        } else if (operator == mul.value) {
+            result.value = firstNum.value * secondNum.value;
+        } else {
+            result.value = firstNum.value / secondNum.value;
+        }
     }
-    // if(calculator === "+"){
-    //     let firstNum = parseFloat(document.getElementById("firstNum").value);
-    //     let secondNum = parseFloat(document.getElementById("secondNum").value);
-    //     result.value = firstNum + secondNum;
-    // }
+
 </script>
 </body>
 </html>

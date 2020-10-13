@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh tong cua 30 so dau tien chia het cho 7</title>
+</head>
+<body>
+
+<script>
+    function tong30soDauTienChiaHetCho7() {
+        let a = 0;
+        let count7 = 0;
+        let sum = 0;
+        while (count7 < 30){
+            if (a % 7 == 0){
+                sum = sum + a;
+                count7++;
+            }
+            a++;
+        }
+        document.writeln("Tong 30 so dau tien chia het cho 7: " + sum);
+    }
+
+    tong30soDauTienChiaHetCho7();
+</script>
+</body>
+</html>
