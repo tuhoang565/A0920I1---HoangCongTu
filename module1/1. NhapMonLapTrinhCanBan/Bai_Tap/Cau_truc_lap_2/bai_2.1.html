@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In day fibonacci</title>
+</head>
+<body>
+<script>
+
+    function fibonacci() {
+        let numFibonacci = parseInt(prompt("Ban muon in bao nhieu so fibonacci: "));
+        let a = 0;
+        let a1 = 1;
+        let a2;
+
+        for (let i = 0; i < numFibonacci; i++){
+            document.writeln(a);
+            a2 = a + a1;
+            a = a1;
+            a1 = a2;
+        }
+    }
+
+    fibonacci();
+</script>
+</body>
+</html>

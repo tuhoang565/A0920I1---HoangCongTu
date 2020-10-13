@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cong thuc tinh lai kep</title>
+</head>
+<body>
+
+<script>
+    function laiKep() {
+        let soTienBanDau = parseFloat(prompt("Nhap so tien hien tai: "));
+        let soThangVay = parseInt(prompt("Nhap so thang vay: "));
+        let laiSuat = parseFloat(prompt("Nhap lai suat: "));
+
+        let tong = soTienBanDau * Math.pow((1 + laiSuat), soThangVay);
+        document.write("So tien: " + soTienBanDau);
+        document.write("<br>");
+        document.write("So thang vay: " + soThangVay);
+        document.write("<br>");
+        document.write("Lai suat: " + laiSuat);
+        document.write("<br>");
+        document.write("Tong phai tra: " + tong);
+    }
+
+    laiKep();
+</script>
+</body>
+</html>

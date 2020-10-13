@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In hinh chu nhat</title>
+</head>
+<body>
+<script>
+
+    let chieuRong = parseInt(prompt("Nhap chieu rong: "));
+    let chieuDai = chieuRong * 3;
+    for(let i = 0; i <= chieuRong; i++){
+        for(let j = 0; j <= chieuDai; j++){
+            if(i == 0 || i == chieuRong){
+                document.write("*");
+            }else {
+                if(j == 0 || j == chieuDai){
+                    document.write("*");
+                }else {
+                    document.write("x");
+                }
+            }
+        }
+        document.write("<br>");
+    }
+</script>
+</body>
+</html>

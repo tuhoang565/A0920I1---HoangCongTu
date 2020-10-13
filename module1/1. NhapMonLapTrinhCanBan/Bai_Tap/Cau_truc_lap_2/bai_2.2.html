@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh giai thua cua mot so nguyen duong</title>
+</head>
+<body>
+<script>
+    function giaiThua() {
+        let n = parseInt(prompt("Nhap so nguyen duong: "));
+        let giaithua = 1;
+        for (let i = 1; i <= n; i++){
+            giaithua = giaithua * i;
+        }
+        document.write("Giai thua cua " + n + " : " + giaithua);
+    }
+
+    giaiThua();
+</script>
+</body>
+</html>

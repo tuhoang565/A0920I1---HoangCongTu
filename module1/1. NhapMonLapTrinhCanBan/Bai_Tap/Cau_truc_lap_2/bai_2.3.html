@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In cac tam giac vuong</title>
+</head>
+<body>
+
+<script>
+    let n = 5;
+    function tamGiac1() {
+        for (let i = 0; i <= n; i++){
+            for (let j = 0; j < i; j++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    }
+
+    function tamGiac2() {
+        for (let i = 0; i <= n; i++){
+            for(let j = 0; j <= n - i; j++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    }
+
+    function tamGiac3() {
+        for (let i = 0; i <= n; i++){
+            for (let j = 0; j <= n; j++){
+                if(j >= (n - i)){
+                    document.write("*");
+                }else {
+                    document.write("+");
+                }
+            }
+            document.write("<br>");
+        }
+    }
+    
+    function tamGiac4() {
+        for (let i = 0; i <= n; i++){
+            for (let j = 0; j <= n; j++){
+                if(j >= i){
+                    document.write("*");
+                }else {
+                    document.write("+");
+                }
+            }
+            document.write("<br>");
+        }
+    }
+
+    tamGiac4();
+</script>
+</body>
+</html>
