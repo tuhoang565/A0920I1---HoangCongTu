@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faking textarea on typing</title>
+</head>
+<body>
+    <h1>Type anything slowly</h1>
+    <textarea cols="40" rows="10" id="inputText" onkeydown="fakingText()"></textarea>
+<script>
+    let sampleText = ["Toi la ai"];
+    let lenSampleText = sampleText.length;
+    function fakingText() {
+        let inputText = document.getElementById("inputText");
+        for (let i = 0; i < lenSampleText; i++){
+            inputText.innerText = sampleText[i];
+            break;
+        }
+    }
+</script>
+</body>
+</html>

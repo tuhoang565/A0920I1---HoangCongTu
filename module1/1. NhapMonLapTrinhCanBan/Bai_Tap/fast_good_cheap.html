@@ -5,11 +5,11 @@
     <title>Fast Good Cheap</title>
 </head>
 <body>
-<input type="checkbox" value="Fast" id="fast" onchange=""><label>Fast</label>
+<input type="checkbox" value="Fast" id="fast" onchange="change()"><label>Fast</label>
 <br>
-<input type="checkbox" value="Good" id="good" onchange=""><label>Good</label>
+<input type="checkbox" value="Good" id="good" onchange="change()"><label>Good</label>
 <br>
-<input type="checkbox" value="Cheap" id="cheap" onchange=""><label>Cheap</label>
+<input type="checkbox" value="Cheap" id="cheap" onchange="change()"><label>Cheap</label>
 
 <script>
     let fast = document.getElementById("fast");
@@ -21,7 +21,13 @@
     isCheap = cheap.checked;
 
     function change() {
-
+        if(isFast == true && isGood == true){
+            isCheap == false;
+        }else if(isFast == true && isCheap == true){
+            isGood == false;
+        }else {
+            isFast == false;
+        }
     }
 </script>
 </body>

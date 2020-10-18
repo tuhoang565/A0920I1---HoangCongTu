@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [1, 15, 24, 14, 6, 10, 99, 3, 11, 12];
+
+    let max = arr[0];
+    for (let i = 1; i < arr.length - 1; i++){
+        if(arr[i] > max){
+            max = arr[i];
+        }
+    }
+    document.writeln("Phan tu lon nhat trong mang la: " + max +" vi tri " + arr.indexOf(max));
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tu dien</title>
+</head>
+<body>
+<input type="text" value="" id="wordSearch">
+<input type="button" onclick="search()" value="Search">
+<p id="result"></p>
+<script>
+    let arrEng = ["hello", "bye", "computer"];
+    let arrVie = ["xin chao", "tam biet", "may tinh"];
+
+    function search() {
+        let wordSearch = document.getElementById("wordSearch");
+        let result = document.getElementById("result");
+        for (let i = 0; i < arrEng.length; i++) {
+            if (wordSearch.value == arrEng[i]) {
+                for (let j = i; j < arrVie.length; j++) {
+                    result.innerText = arrVie[j];
+                    break;
+                }
+                break;
+            } else {
+                result.innerText = "The word no found";
+
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
