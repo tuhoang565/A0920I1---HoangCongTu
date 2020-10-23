@@ -6,19 +6,17 @@
 </head>
 <body>
 <script>
-    var word = "bottles";
-    var count = 99;
-    while (count > 0) {
-        console.log(count + " " + word + " of beer on the wall");
-        console.log(count + " " + word + " of beer,");
-        console.log("Take one down, pass it around,");
-        count = count - 1;
-        if (count > 0) {
-            console.log(count + " " + word + " of beer on the wall.");
-        } else {
-            console.log("No more " + word + " of beer on the wall.");
-        }
+    function swap(a, b) {
+        var temp = a;
+        a = b;
+        b = temp;
+        return [a, b];
     }
+
+    var a = 5;
+    var b = 10;
+    swap(a, b);
+    document.write(swap(a,b));
 
 </script>
 </body>

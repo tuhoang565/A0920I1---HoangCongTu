@@ -15,32 +15,45 @@
 
     let board = [];
     let data = "";
-    for (let i = 0; i < 5; i++){
-        board[i] = new Array(".", ".", ".", ".", "." );
+    for (let i = 0; i < 3; i++){
+        board[i] = new Array(".", ".", "." );
     }
 
-    for (let i = 0; i < 5; i++){
+    for (let i = 0; i < 3; i++){
         data += "<br/>";
-        for(let j = 0; j < 5; j++){
-            data += board[i][j] + "&nbsp;&nbsp;";
+        for(let j = 0; j < 3; j++){
+            data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
         }
     }
 
     data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
     b.innerHTML = data;
     function changeValue() {
-        let positionX = prompt("X: ");
-        let positionY = prompt("Y: ");
-        data = "";
-        board[positionX][positionY] = "x";
-        for (let i = 0; i < 5; i++){
+        let userX = parseInt(prompt("Nguoi choi: "));
+        if(userX == 1){
+            let positionX = prompt("X: ");
+            let positionY = prompt("Y: ");
+            data = "";
+            board[positionX][positionY] = "x";
+        }else {
+            let positionX = prompt("X: ");
+            let positionY = prompt("Y: ");
+            data = "";
+            board[positionX][positionY] = "o";
+        }
+
+        for (let i = 0; i < 3; i++){
             data += "<br/>";
-            for (let j = 0; j < 5; j++){
+            for (let j = 0; j < 3; j++){
                 data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
             }
         }
         data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
         b.innerHTML = "<hr/>" + data;
+
+       if(board[0][0] = "x" && board[0][1] == "x" && board[0][2] == "x"){
+           alert("win");
+       }
     }
 </script>
 </html>

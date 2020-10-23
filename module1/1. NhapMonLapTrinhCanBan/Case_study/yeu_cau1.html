@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <table border="1">
+        <tr>
+            <td>Họ và tên</td>
+            <td><input type="text" id="name"></td>
+        </tr>
+        <tr>
+            <td>Số CMND</td>
+            <td><input type="text" id="id"></td>
+        </tr>
+        <tr>
+            <td>Ngày/tháng/năm sinh</td>
+            <td><input type="date" id="birthday"></td>
+        </tr>
+        <tr>
+            <td>Địa chỉ</td>
+            <td><input type="text" id="address"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" id="email"></td>
+        </tr>
+        <tr>
+            <td>Loại khách hàng</td>
+            <td><select id="customer">
+                <option>Diamond</option>
+                <option>Platinum</option>
+                <option>Gold</option>
+                <option>Silver</option>
+                <option>Member</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Giảm giá</td>
+            <td><select id="discount">
+                <option value="10">10%</option>
+                <option value="15">15%</option>
+                <option value="20">20%</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Số lượng</td>
+            <td><input type="number" id="quantity"></td>
+        </tr>
+        <tr>
+            <td>Số ngày thuê</td>
+            <td><input type="number" id="rentDays"></td>
+        </tr>
+        <tr>
+            <td>Loại dịch vụ</td>
+            <td><select id="service">
+                <option value="500$">Villa (500$/ngày)</option>
+                <option value="300$">House (300$/ngày)</option>
+                <option value="100$">Room (100$/ngày)</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Loại phòng</td>
+            <td><select id="room">
+                <option>Vip</option>
+                <option>Business</option>
+                <option>Normal</option>
+            </select>
+            </td>
+        </tr>
+    </table>
+</form>
+<input type="button" value="Send" onclick="showInformation()">
+<div>
+    <p id="resultName"></p>
+    <p id="resultId"></p>
+    <p id="resultBirthday"></p>
+    <p id="resultAddress"></p>
+    <p id="resultEmail"></p>
+    <p id="resultCustomer"></p>
+    <p id="resultDiscount"></p>
+    <p id="resultQuantity"></p>
+    <p id="resultRentDays"></p>
+    <p id="resultService"></p>
+    <p id="resultRoom"></p>
+    <p id="resultPrice"></p>
+</div>
+
+<script>
+    function showInformation(){
+        let name = document.getElementById("name");
+        let id = document.getElementById("id");
+        let birthday = document.getElementById("birthday");
+        let address = document.getElementById("address");
+        let email = document.getElementById("email");
+        let customer = document.getElementById("customer");
+        let discount = document.getElementById("discount");
+        let quantity = document.getElementById("quantity");
+        let rentDays = document.getElementById("rentDays");
+        let service = document.getElementById("service");
+        let room = document.getElementById("room");
+
+
+        let resultName = document.getElementById("resultName");
+        resultName.innerText = "Họ và tên: " + name.value;
+        let resultId = document.getElementById("resultId");
+        resultId.innerText = "Số CMND: " + id.value;
+        let resultBirthday = document.getElementById("resultBirthday");
+        resultBirthday.innerText = "Ngày sinh: " + birthday.value;
+        let resultAddress = document.getElementById("resultAddress");
+        resultAddress.innerText = "Địa chỉ: " + address.value;
+        let resultEmail = document.getElementById("resultEmail");
+        resultEmail.innerText = "Email: " + email.value;
+        let resultCustomer = document.getElementById("resultCustomer");
+        resultCustomer.innerText = "Loại khách hàng: " + customer.value;
+        let resultDiscount = document.getElementById("resultDiscount");
+        resultDiscount.innerText = "Giảm giá: " + discount.value;
+        let resultQuantity = document.getElementById("resultQuantity");
+        resultQuantity.innerText = "Số lượng: " + quantity.value;
+        let resultRentDays = document.getElementById("resultRentDays");
+        resultRentDays.innerText = "Số ngày thuê: " + rentDays.value;
+        let resultService = document.getElementById("resultService");
+        resultService.innerText = "Loại dịch vụ: " + service.value;
+        let resultRoom = document.getElementById("resultRoom");
+        resultRoom.innerText = "Loại phòng: " + room.value;
+
+        let price = parseInt(service.value) * parseInt(rentDays.value) * (1 - discount.value/100);
+        let resultPrice = document.getElementById("resultPrice");
+        resultPrice.innerText = "Giá phòng: " + price + "$";
+    }
+
+</script>
+</body>
+</html>

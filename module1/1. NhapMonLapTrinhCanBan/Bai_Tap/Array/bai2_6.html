@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thay the ki tu "-" bang ki tu "_"</title>
+</head>
+<body>
+<script>
+    let arr = ["a", "b-", "-", "c", "-"];
+    for (let i = 0; i < arr.length; i++){
+        if (arr[i].indexOf("-")){
+            arr[i] = arr[i].replace("-", "_");
+        }else if(arr[i] == "-"){
+            arr[i] = arr[i].replace("-", "_");
+        }
+    }
+    for (i of arr){
+        document.writeln(i);
+    }
+</script>
+</body>
+</html>
