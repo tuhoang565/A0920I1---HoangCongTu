@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrName = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe ", "Regulus"];
+    let arrStar = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+    let check = false;
+    let a = prompt("Enter a name: ");
+
+    function findStar(a) {
+        for (let i = 0; i < arrName.length; i++) {
+            if (arrName[i] === a) {
+                alert(arrStar[i]);
+                check =true;
+                break;
+            }
+        }
+        if(!check) {
+            alert("The name no found");
+        }
+    }
+
+    findStar(a);
+</script>
+</body>
+</html>

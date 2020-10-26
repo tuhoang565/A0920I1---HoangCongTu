@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem tra ky tu bat ky co trong mang</title>
+</head>
+<body>
+    <script>
+        let arr = ["hello", 9, "hello", 6, 9, 9, 9];
+
+        function checkValue(arr) {
+            let inputValue = prompt("Enter a value: ");
+            let count = 0;
+            for (let i = 0; i < arr.length; i++){
+                if(arr[i] == inputValue){
+                    count++;
+                }
+            }
+            if(count > 0){
+                alert("so lan xuat hien: " + count);
+            }else {
+                alert(-1);
+            }
+        }
+
+        checkValue(arr);
+    </script>
+</body>
+</html>

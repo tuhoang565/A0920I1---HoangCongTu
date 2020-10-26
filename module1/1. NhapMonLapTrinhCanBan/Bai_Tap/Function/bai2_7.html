@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viet ham doi cho 2 so nguyen</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    arr[1] = parseInt(prompt("Enter first number: "));
+    arr[2] = parseInt(prompt("Enter second number: "));
+
+    function swap(arr) {
+        let temp = arr[1];
+        arr[1] = arr[2];
+        arr[2] = temp;
+        for (let i = 1; i < arr.length; i++){
+            alert("Number " + i + ": " + arr[i]);
+        }
+    }
+    swap(arr);
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem tra tu doi xung</title>
+</head>
+<body>
+    <script>
+        function isPalindrome(s){
+            let check = true;
+            for (let i = 0; i < s.length/2; i++){
+                if(s.indexOf(i) != s.indexOf(s.length - 1)){
+                    check = false;
+                    break;
+                }
+            }
+            alert(check);
+        }
+
+        isPalindrome("hello");
+    </script>
+</body>
+</html>

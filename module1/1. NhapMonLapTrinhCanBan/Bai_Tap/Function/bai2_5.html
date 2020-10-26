@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrNumber = [];
+    for (let i = 0; i < 3; i++){
+        arrNumber[i] = parseFloat(prompt("Enter number " + i));
+    }
+    function minNumber(arrNumber) {
+        let min = arrNumber[0];
+        for (let i = 1; i < arrNumber.length; i++){
+            if(min > arrNumber[i]){
+                min = arrNumber[i];
+            }
+        }
+       alert("Min number: " + min);
+    }
+
+    minNumber(arrNumber);
+</script>
+</body>
+</html>
