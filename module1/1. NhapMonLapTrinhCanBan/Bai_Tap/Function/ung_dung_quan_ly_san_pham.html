@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ung dung quan ly san pham</title>
+</head>
+<body>
+<h1>Add new product</h1>
+<input type="text" id="newProduct">
+<input type="button" value="Add" onclick="addProduct()">
+<input type="button" value="View Product" onclick="viewProduct()">
+<p id="result"></p>
+
+<script>
+
+    let arrProduct = ["samsung", "iphone", "oppo", "xiaomi"];
+
+    function viewProduct() {
+        let result = ("<table width=100% border='1'>");
+        for (let i = 0; i < arrProduct.length; i++) {
+            result += ("<tr>");
+
+            result += ("<td>" + parseInt(i + 1));
+            result += ("</td>");
+            result += ("<td>" + arrProduct[i]);
+            result += ("</td>");
+            result += ("<td><button onclick='editProduct("+ i +")'>Edit</button> "
+                + "<button onclick='deleteProduct("+ i +")'>Delete</button></td>");
+
+            result += ("</tr>");
+        }
+        result += ("</table>");
+        document.getElementById("result").innerHTML = result;
+    }
+
+    function addProduct() {
+        let newProduct = document.getElementById("newProduct").value;
+        arrProduct.push(newProduct);
+        viewProduct();
+    }
+
+    function editProduct(x) {
+        let newNameProduct = prompt("Enter new name product: ");
+        arrProduct[x] = newNameProduct;
+        viewProduct();
+    }
+
+    function deleteProduct(x) {
+        arrProduct.splice(x, 1);
+        viewProduct();
+    }
+
+
+</script>
+</body>
+</html>
