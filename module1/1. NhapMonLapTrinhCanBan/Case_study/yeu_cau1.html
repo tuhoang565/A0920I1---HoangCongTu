@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<form>
+<form id="customerForm">
     <table border="1">
         <tr>
             <td>Họ và tên</td>
@@ -21,7 +21,11 @@
         </tr>
         <tr>
             <td>Địa chỉ</td>
-            <td><input type="text" id="address"></td>
+            <td><select id="address">
+                <option>Huế</option>
+                <option>Đà Nẵng</option>
+                <option>Quảng Nam</option>
+            </select></td>
         </tr>
         <tr>
             <td>Email</td>
@@ -41,9 +45,9 @@
         <tr>
             <td>Giảm giá</td>
             <td><select id="discount">
-                <option value="10">10%</option>
-                <option value="15">15%</option>
-                <option value="20">20%</option>
+                <option>10%</option>
+                <option>15%</option>
+                <option>20%</option>
             </select>
             </td>
         </tr>
@@ -58,9 +62,9 @@
         <tr>
             <td>Loại dịch vụ</td>
             <td><select id="service">
-                <option value="500$">Villa (500$/ngày)</option>
-                <option value="300$">House (300$/ngày)</option>
-                <option value="100$">Room (100$/ngày)</option>
+                <option value=500>Villa (500$/ngày)</option>
+                <option value=300>House (300$/ngày)</option>
+                <option value=100>Room (100$/ngày)</option>
             </select>
             </td>
         </tr>
@@ -76,28 +80,16 @@
     </table>
 </form>
 <br/>
+<input type="button" value="Add" onclick="addCustomer()">
 <input type="button" value="Show Info" onclick="showInformation()">
-<input type="button" value="Edit" onclick="editInfor()">
-<input type="button" value="Show Amount" onclick="">
 
-<div>
-    <p id="resultName"></p>
-    <p id="resultId"></p>
-    <p id="resultBirthday"></p>
-    <p id="resultAddress"></p>
-    <p id="resultEmail"></p>
-    <p id="resultCustomer"></p>
-    <p id="resultDiscount"></p>
-    <p id="resultQuantity"></p>
-    <p id="resultRentDays"></p>
-    <p id="resultService"></p>
-    <p id="resultRoom"></p>
-    <p id="resultPrice"></p>
-</div>
+
+<p id="result"></p>
+
 
 <script>
-    let name = document.getElementById("name");
-    let id = document.getElementById("id");
+    let nameCustomer = document.getElementById("name");
+    let idCustomer = document.getElementById("id");
     let birthday = document.getElementById("birthday");
     let address = document.getElementById("address");
     let email = document.getElementById("email");
@@ -108,44 +100,133 @@
     let service = document.getElementById("service");
     let room = document.getElementById("room");
 
-    let arrCustomer = new arrCustomer(name, id, birthday, address, email, customer, discount, quantity, rentDays, service, room);
+    let arr = [
+        ["tu", "123", "29-1-2000", "Huế", "tuhoang@gmail.com", "diamond", 0.1, 3, 5, 500, "vip"],
+        ["hoang", "124", "2-1-2000", "Đà Nẵng", "hoang@gmail.com", "gold", 0.2, 3, 8, 300, "normal"]
+    ];
 
-    function showInformation(arrCustomer){
-        let resultName = document.getElementById("resultName");
-        resultName.innerText = "Họ và tên: " + arrCustomer.name;
-        let resultId = document.getElementById("resultId");
-        resultId.innerText = "Số CMND: " + id.value;
-        let resultBirthday = document.getElementById("resultBirthday");
-        resultBirthday.innerText = "Ngày sinh: " + birthday.value;
-        let resultAddress = document.getElementById("resultAddress");
-        resultAddress.innerText = "Địa chỉ: " + address.value;
-        let resultEmail = document.getElementById("resultEmail");
-        resultEmail.innerText = "Email: " + email.value;
-        let resultCustomer = document.getElementById("resultCustomer");
-        resultCustomer.innerText = "Loại khách hàng: " + customer.value;
-        let resultDiscount = document.getElementById("resultDiscount");
-        resultDiscount.innerText = "Giảm giá: " + discount.value;
-        let resultQuantity = document.getElementById("resultQuantity");
-        resultQuantity.innerText = "Số lượng: " + quantity.value;
-        let resultRentDays = document.getElementById("resultRentDays");
-        resultRentDays.innerText = "Số ngày thuê: " + rentDays.value;
-        let resultService = document.getElementById("resultService");
-        resultService.innerText = "Loại dịch vụ: " + service.value;
-        let resultRoom = document.getElementById("resultRoom");
-        resultRoom.innerText = "Loại phòng: " + room.value;
+    function addCustomer() {
+        //tao 1 mang mot chieu, sau do them mang nay vao mang 2 chieu
+        let newArr = [];
+        newArr.push(nameCustomer.value, idCustomer.value, birthday.value, address.value, email.value, customer.value,
+            discount.value, quantity.value, rentDays.value, service.value, room.value);
 
-        let price = parseInt(service.value) * parseInt(rentDays.value) * (1 - discount.value/100);
-        let resultPrice = document.getElementById("resultPrice");
-        resultPrice.innerText = "Giá phòng: " + price + "$";
+        arr.push(newArr);
+        showInformation();
     }
 
-    function editInfor() {
-        document.writeln("Chon thuoc tinh can thay doi: ");
-        document.writeln("<br/>");
-        document.writeln("<select>" +
-            "<option>Họ và tên</option>" +
-            "<option>Số CMND</option>" +
-            "</select>");
+    function showInformation() {
+        let result = ("<table width='100%' border='1'>");
+        result += "<tr>"
+            + "<td>Họ và tên</td>"
+            + "<td>Số CMND</td>"
+            + "<td>Ngày/tháng/năm sinh</td>"
+            + "<td>Địa chỉ</td>"
+            + "<td>Email</td>"
+            + "<td>Loại khách hàng</td>"
+            + "<td>Giảm giá</td>"
+            + "<td>Số lượng</td>"
+            + "<td>Số ngày thuê</td>"
+            + "<td>Loại dịch vụ</td>"
+            + "<td>Loại phòng</td>"
+            + "</tr>";
+        for (let i = 0; i < arr.length; i++) {
+            result += "<tr>";
+            for (let j = 0; j < arr[i].length; j++) {
+                result += "<td>" + arr[i][j] + "</td>";
+
+            }
+            result += ("<td><button onclick='editInformation(" + i + ")'>Edit</button> "
+                + "<button onclick='showTotalAmount(" + i + ")'>Total</button></td>");
+            result += "</tr>";
+        }
+        result += ("</table>");
+        document.getElementById("result").innerHTML = result;
+    }
+
+    function editInformation(x) {
+        let chooseInformationEdit = parseInt(prompt("1.Họ và tên - 2.Số CMND - 3.Ngày tháng năm sinh - 4.Địa chỉ " +
+            "- 5.Email - 6.Loại khách hàng - 7.Giảm giá - 8.Số lượng người - 9.Số ngày thuê - 10.Loại dịch vụ " +
+            "- 11.Loại phòng"));
+
+        switch (chooseInformationEdit) {
+            case 1:
+                arr[x][0] = prompt("Enter new name: ");
+                break;
+            case 2:
+                arr[x][1] = prompt("Enter new id: ");
+                break;
+            case 3:
+                arr[x][2] = prompt("Enter new birthday: ");
+                break;
+            case 4:
+                arr[x][3] = prompt("Enter new address: ");
+                break;
+            case 5:
+                arr[x][4] = prompt("Enter new email: ");
+                break;
+            case 6:
+                arr[x][5] = prompt("Enter new customer: ");
+                break;
+            case 7:
+                arr[x][6] = parseFloat(prompt("Enter new discount: "));
+                break;
+            case 8:
+                arr[x][7] = parseInt(prompt("Enter new quantity of people: "));
+                break;
+            case 9:
+                arr[x][8] = parseInt(prompt("Enter new rent days: "));
+                break;
+            case 10:
+                arr[x][9] = prompt("Enter new service: ");
+                break;
+            case 11:
+                arr[x][10] = prompt("Enter new room: ");
+                break;
+            default:
+                alert("error");
+
+
+        }
+        showInformation();
+    }
+
+    function showTotalAmount(x) {
+        let discountAddress;
+        let discountrentDays;
+        let discountCustomer;
+
+        if (arr[x][3] === "Đà Nẵng") {
+            discountAddress = 20;
+        } else if (arr[x][3] === "Huế") {
+            discountAddress = 10;
+        } else {
+            discountAddress = 5;
+        }
+
+        if(arr[x][8] > 7){
+            discountrentDays = 30;
+        }else if(arr[x][8] >= 5 && arr[x][8] <= 7){
+            discountrentDays = 20;
+        }else {
+            discountrentDays = 10;
+        }
+
+        if(arr[x][5] === "Diamond"){
+            discountCustomer = 15;
+        }else if(arr[x][5] === "Platinum"){
+            discountCustomer = 10;
+        }else if(arr[x][5] === "Gold"){
+            discountCustomer = 5;
+        }else if(arr[x][5] === "Silver"){
+            discountCustomer = 2;
+        }else {
+            discountCustomer = 0;
+        }
+
+        let discountMoney = parseInt(discountAddress) + parseInt(discountrentDays) + parseInt(discountCustomer);
+        let moneyMustPaid = arr[x][9] * arr[x][8] - discountMoney;
+        alert("The amount to be paid after discount: " + moneyMustPaid + "$");
     }
 
 </script>

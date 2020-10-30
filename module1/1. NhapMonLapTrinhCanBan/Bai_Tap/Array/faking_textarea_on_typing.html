@@ -5,11 +5,21 @@
 </head>
 
 <body>
-    <h2>Type anthing slowly</h2>
-    <textarea id="txt" cols="40" rows="10" onkeydown="typeTextarea();"></textarea>
-    <script>
-        let txt = document.getElementById("txt");
-        let l = txt.
-    </script>
+<h2>Type anthing slowly</h2>
+<textarea id="txt" cols="40" rows="10" onkeydown="typeTextarea();"></textarea>
+<script>
+    let txt = document.getElementById("txt");
+    let arr = ["W", "h", "o", " ", "am", " ", "I", "?"];
+    let n = "";
+    let t = 0;
+
+    function typeTextarea() {
+        n = n + arr[t];
+        t++;
+        document.getElementById("txt").value = n;
+
+        setTimeout("typeTextarea()", 1);
+    }
+</script>
 </body>
 </html>
