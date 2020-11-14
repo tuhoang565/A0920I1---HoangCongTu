@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xay dung lop mo ta Temperature</title>
+</head>
+<body>
+<script>
+    class temperature{
+        constructor(nhietdo) {
+            this.nhietdo = nhietdo;
+        }
+
+        changeFromCToF(){
+            this.nhietdo = this.nhietdo * 1.8 + 32;
+            return this.nhietdo;
+        }
+    }
+
+   let nhietdo = new temperature(25);
+    nhietdo.changeFromCToF();
+</script>
+</body>
+</html>

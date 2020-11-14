@@ -13,7 +13,7 @@
         </tr>
         <tr>
             <td>Số CMND</td>
-            <td><input type="text" id="id"></td>
+            <td><input type="text" id="idCustomer"></td>
         </tr>
         <tr>
             <td>Ngày/tháng/năm sinh</td>
@@ -29,7 +29,7 @@
         </tr>
         <tr>
             <td>Email</td>
-            <td><input type="email" id="email"></td>
+            <td><input type="email" id="emailCustomer"></td>
         </tr>
         <tr>
             <td>Loại khách hàng</td>
@@ -80,8 +80,10 @@
     </table>
 </form>
 <br/>
-<input type="button" value="Add" onclick="addCustomer()">
+<input type="button" value="Add Customer" onclick="addCustomer()">
 <input type="button" value="Show Info" onclick="showInformation()">
+<input type="button" value="Ascending" onclick="ascendingName()">
+
 
 
 <p id="result"></p>
@@ -89,30 +91,40 @@
 
 <script>
     let nameCustomer = document.getElementById("name");
-    let idCustomer = document.getElementById("id");
+    let idCustomer = document.getElementById("idCustomer");
     let birthday = document.getElementById("birthday");
     let address = document.getElementById("address");
-    let email = document.getElementById("email");
-    let customer = document.getElementById("customer");
+    let emailCustomer = document.getElementById("emailCustomer");
+    let typeCustomer = document.getElementById("customer");
     let discount = document.getElementById("discount");
     let quantity = document.getElementById("quantity");
     let rentDays = document.getElementById("rentDays");
     let service = document.getElementById("service");
     let room = document.getElementById("room");
 
+
     let arr = [
-        ["tu", "123", "29-1-2000", "Huế", "tuhoang@gmail.com", "diamond", 0.1, 3, 5, 500, "vip"],
-        ["hoang", "124", "2-1-2000", "Đà Nẵng", "hoang@gmail.com", "gold", 0.2, 3, 8, 300, "normal"]
+        ["tu", "123456780", "29/01/2000", "Huế", "tuhoang@gmail.com", "diamond", 0.1, 3, 5, 500, "vip"],
+        ["hoang", "123456788", "02/01/2000", "Đà Nẵng", "hoang@gmail.com", "gold", 0.2, 3, 8, 300, "normal"],
+        ["an", "123456783", "20/01/2000", "Huế", "tuhoang@gmail.com", "diamond", 0.1, 3, 5, 500, "vip"],
+        ["yen", "123456786", "20/01/2000", "Huế", "tuhoang@gmail.com", "diamond", 0.1, 3, 5, 500, "vip"]
     ];
 
     function addCustomer() {
         //tao 1 mang mot chieu, sau do them mang nay vao mang 2 chieu
-        let newArr = [];
-        newArr.push(nameCustomer.value, idCustomer.value, birthday.value, address.value, email.value, customer.value,
-            discount.value, quantity.value, rentDays.value, service.value, room.value);
+        //neu cac thanh phan hop le moi them vao mang
 
-        arr.push(newArr);
-        showInformation();
+        let newArr = [];
+        if (isInvalid_Id() && isInvalidEmail() && isValidDate()) {
+            newArr.push(nameCustomer.value, idCustomer.value, birthday.value, address.value, emailCustomer.value,
+                customer.value, discount.value, quantity.value, rentDays.value, service.value, room.value);
+            newArr[2] = formatDate(birthday.value);
+            newArr[0] = formatName(nameCustomer.value);
+            newArr[3] = formatName(address.value);
+            newArr[5] = formatName(customer.value); 
+            arr.push(newArr);
+            showInformation();
+        }
     }
 
     function showInformation() {
@@ -137,7 +149,8 @@
 
             }
             result += ("<td><button onclick='editInformation(" + i + ")'>Edit</button> "
-                + "<button onclick='showTotalAmount(" + i + ")'>Total</button></td>");
+                + "<button onclick='showTotalAmount(" + i + ")'>Total</button>"
+                + "<button onclick='deleteCustomer(" + i + ")'>Delete</button></td>");
             result += "</tr>";
         }
         result += ("</table>");
@@ -188,6 +201,18 @@
 
 
         }
+        if(isInvalid_Id() && isValidDate() && isInvalidEmail()){
+            showInformation();
+        }
+
+    }
+    function deleteCustomer(x) {
+        arr.splice(x, 1);
+        showInformation();
+    }
+
+    function ascendingName() {
+        arr.sort();
         showInformation();
     }
 
@@ -204,29 +229,109 @@
             discountAddress = 5;
         }
 
-        if(arr[x][8] > 7){
+        if (arr[x][8] > 7) {
             discountrentDays = 30;
-        }else if(arr[x][8] >= 5 && arr[x][8] <= 7){
+        } else if (arr[x][8] >= 5 && arr[x][8] <= 7) {
             discountrentDays = 20;
-        }else {
+        } else {
             discountrentDays = 10;
         }
 
-        if(arr[x][5] === "Diamond"){
+        if (arr[x][5] === "Diamond") {
             discountCustomer = 15;
-        }else if(arr[x][5] === "Platinum"){
+        } else if (arr[x][5] === "Platinum") {
             discountCustomer = 10;
-        }else if(arr[x][5] === "Gold"){
+        } else if (arr[x][5] === "Gold") {
             discountCustomer = 5;
-        }else if(arr[x][5] === "Silver"){
+        } else if (arr[x][5] === "Silver") {
             discountCustomer = 2;
-        }else {
+        } else {
             discountCustomer = 0;
         }
 
         let discountMoney = parseInt(discountAddress) + parseInt(discountrentDays) + parseInt(discountCustomer);
         let moneyMustPaid = arr[x][9] * arr[x][8] - discountMoney;
         alert("The amount to be paid after discount: " + moneyMustPaid + "$");
+    }
+
+    // Phải có ký tự @ và chỉ có 1 kí tự @
+    // Ký tự @ không nằm ở vị trí đầu
+    // Phải có ít nhất một dấu . trong địa chỉ mail
+    // Phải có ít nhất 1 ký tự giữa @ và dấu . cuối cùng
+    // Phải có ít nhất một ký tự sau dấu . cuối cùng
+    // Không có khoảng trắng trong địa chỉ mail
+
+    function isInvalidEmail() {
+        let emailCustomer = document.getElementById("emailCustomer").value;
+        let at = emailCustomer.indexOf("@");
+        let count_a = (emailCustomer.match(/@/g) || []).length;
+        let dot = emailCustomer.lastIndexOf(".");
+        let space = emailCustomer.indexOf(" ");
+
+        if (at != -1 && count_a == 1 && at != 0 && dot != -1 && dot > at + 1 && dot < emailCustomer.length - 1 && space == -1) {
+            return true;
+        } else {
+            alert("Email invalid");
+            document.getElementById("emailCustomer").focus();
+            return false;
+        }
+    }
+
+    //phai co 9 chu so nguyen tu 0-9
+    function isInvalid_Id() {
+        let idCustomer = (document.getElementById("idCustomer").value);
+        let checkId = isNaN(idCustomer);
+
+        if (checkId) {
+            alert("Error id");
+            document.getElementById("idCustomer").focus();
+            return false;
+        } else {
+            if (idCustomer > 99999999 && idCustomer < 1000000000) {//id co 9 so thi phai nam trong khoang(9999 9999 - 1 000 000 000)
+                return true;
+            } else {
+                alert("Error id");
+                document.getElementById("idCustomer").focus();
+                return false;
+            }
+        }
+
+    }
+
+    function isValidDate() {
+        let birthday = document.getElementById("birthday").value;
+        birthday = new Date(birthday);
+        let day = birthday.getDate();
+        let month = birthday.getMonth();
+        let year = birthday.getFullYear();
+
+        if(day > 0 && day <= 31 && month >= 0 && month <= 11 && year > 1900 && year < 2020){
+            return true;
+        }else {
+            alert("Error birthday");
+            document.getElementById("birthday").focus();
+            return false;
+        }
+    }
+
+    function formatDate(x) {
+        x = new Date(x);
+        let day = x.getDate();
+        let month = x.getMonth();
+        let year = x.getFullYear();
+        x = day + "/" + (month + 1) + "/" + year;
+        return x;
+    }
+
+    function formatName(x) {
+        x = x.trim();
+
+        let value = [];
+        let arr = x.split(" ");
+        for( let word of arr ){
+            value.push(word[0].toUpperCase() + word.slice(1))
+        }
+        return value.join(' ');
     }
 
 </script>

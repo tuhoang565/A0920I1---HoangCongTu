@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cong tac va bong den</title>
+</head>
+<body>
+<img src="" id="lamp" alt="light"/>
+<button onclick="switchLamp()">Button</button>
+<script>
+    class ElectricLamp{
+        constructor() {
+            document.getElementById("lamp").src = "lightOff.jpg";
+        }
+        turnOn(){
+            document.getElementById("lamp").src = "lightOn.jpg";
+        }
+        turnOff(){
+            document.getElementById("lamp").src = "lightOff.jpg";
+        }
+    }
+    class SwitchButton{
+        constructor(status, electricLamp) {
+            this.status = status;
+            this.electricLamp = electricLamp;
+        }
+        switchOn(){
+            this.electricLamp.turnOn();
+            this.status = true;
+        }
+        switchOff(){
+            this.electricLamp.turnOff();
+            this.status = false;
+        }
+
+    }
+
+    let electricLamp = new ElectricLamp();
+    let switchButton = new SwitchButton(false, electricLamp);
+
+
+
+    function switchLamp(){
+        if(switchButton.status){
+            switchButton.switchOff(electricLamp);
+        }else {
+            switchButton.switchOn(electricLamp);
+        }
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

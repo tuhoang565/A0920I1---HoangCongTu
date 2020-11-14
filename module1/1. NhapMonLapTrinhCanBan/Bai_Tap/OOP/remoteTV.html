@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remote and Tv</title>
+</head>
+<body>
+<img src="" id="tv">
+<br/>
+<button onclick="turnOnOff()">On/Off</button>
+<button>VTV3</button>
+<button>VTV1</button>
+<button>++</button>
+<button>--</button>
+
+<script>
+    class Television{
+        constructor() {
+            // this.channelNow = channelNow;
+            // this.volumeNow = volumeNow;
+            document.getElementById("tv").src = "tv.jpg";
+        }
+        turnOn(){
+            document.getElementById("tv").src = "vtv1.png";
+        }
+        turnOff(){
+            document.getElementById("tv").src = "tv.jpg";
+        }
+        changeVolume(volume){
+            this.volumeNow += volume;
+            return this.volumeNow;
+        }
+        changeChannel(code){
+            this.channelNow = code;
+            return this.channelNow;
+        }
+    }
+
+    class Remote{
+        constructor(status, television) {
+            this.status = status;
+            this.television = television;
+        }
+        rTurnOn(){
+            this.television.turnOn();
+            this.status = true;
+
+        }
+        rTurnOff(){
+            this.television.turnOff();
+            this.status = false;
+
+        }
+        rChangeVolume(television, volume){
+            return this.television.changeVolume(volume);
+        }
+        rChangeChannel(television, code){
+            return this.television.changeChannel(code);
+        }
+    }
+
+    let tv1 = new Television();
+    let remote1 = new Remote(false, tv1);
+
+    function turnOnOff() {
+        if(remote1.status){
+            remote1.rTurnOff(tv1);
+        }else {
+            remote1.rTurnOn(tv1);
+        }
+    }
+</script>
+</body>
+</html>
