@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yeu cau 6 case study</title>
+</head>
+<body>
+<form id="customerForm">
+    <table border="1">
+        <tr>
+            <td>Họ và tên</td>
+            <td><input type="text" id="name"></td>
+        </tr>
+        <tr>
+            <td>Số CMND</td>
+            <td><input type="text" id="idCustomer"></td>
+        </tr>
+        <tr>
+            <td>Ngày/tháng/năm sinh</td>
+            <td><input type="text" id="birthday"></td>
+        </tr>
+        <tr>
+            <td>Địa chỉ</td>
+            <td><select id="address">
+                <option>Huế</option>
+                <option>Đà Nẵng</option>
+                <option>Quảng Nam</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" id="emailCustomer"></td>
+        </tr>
+        <tr>
+            <td>Loại khách hàng</td>
+            <td><select id="customer">
+                <option>Diamond</option>
+                <option>Platinum</option>
+                <option>Gold</option>
+                <option>Silver</option>
+                <option>Member</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Giảm giá</td>
+            <td><select id="discount">
+                <option>10%</option>
+                <option>15%</option>
+                <option>20%</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Số lượng</td>
+            <td><input type="number" id="quantity"></td>
+        </tr>
+        <tr>
+            <td>Số ngày thuê</td>
+            <td><input type="number" id="rentDays"></td>
+        </tr>
+        <tr>
+            <td>Loại dịch vụ</td>
+            <td><select id="service">
+                <option value=500>Villa (500$/ngày)</option>
+                <option value=300>House (300$/ngày)</option>
+                <option value=100>Room (100$/ngày)</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Loại phòng</td>
+            <td><select id="room">
+                <option>Vip</option>
+                <option>Business</option>
+                <option>Normal</option>
+            </select>
+            </td>
+        </tr>
+    </table>
+</form>
+<br/>
+<input type="button" value="Add Customer" onclick="addCustomer()">
+<input type="button" value="Show Info" onclick="showInformation()">
+<input type="button" value="Ascending" onclick="">
+<p id="result"></p>
+<script>
+    class Customer {
+        constructor(nameCustomer, idCustomer) {
+        }
+
+        getNameCustomer() {
+            return this.nameCustomer;
+        }
+
+        setNameCustomer(nameCustomer) {
+            this.nameCustomer = nameCustomer;
+        }
+
+        getIdCustomer() {
+            return this.idCustomer;
+        }
+
+        setIdCustomer(idCustomer) {
+            this.idCustomer = idCustomer;
+        }
+
+        getBirthday() {
+            return this.birthday;
+        }
+
+        setBirthday(birthday) {
+            this.birthday = birthday;
+        }
+
+        getAddress() {
+            return this.address;
+        }
+
+        setAddress(address) {
+            this.address = address;
+        }
+
+        getEmailCustomer() {
+            return this.emailCustomer;
+        }
+
+        setEmailCustomer(emailCustomer) {
+            this.emailCustomer = emailCustomer;
+        }
+
+        getTypeCustomer() {
+            return this.typeCustomer;
+        }
+
+        setTypeCustomer(typeCustomer) {
+            this.typeCustomer = typeCustomer;
+        }
+
+        getDiscount() {
+            return this.discount;
+        }
+
+        setDiscount(discount) {
+            this.discount = discount;
+        }
+
+        getQuantity() {
+            return this.quantity;
+        }
+
+        setQuantity(quantity) {
+            this.quantity = quantity;
+        }
+
+        getRentDays() {
+            return this.rentDays;
+        }
+
+        setRentDays(rentDays) {
+            this.rentDays = rentDays;
+        }
+
+        getService() {
+            return this.service;
+        }
+
+        setService(service) {
+            this.service = service;
+        }
+
+        getRoom() {
+            return this.room;
+        }
+
+        setRoom(room) {
+            this.room = room;
+        }
+
+        roomCost() {
+            let roomPay = this.service * this.rentDays * (1 - this.discount / 100);
+            return roomPay;
+        }
+
+    }
+
+    let listCustomers = [];
+    let cus1 = new Customer();
+    cus1.setNameCustomer("tu");
+    cus1.setIdCustomer("123456789");
+    cus1.setBirthday("20/01/1999");
+    cus1.setAddress("Huế");
+    cus1.setEmailCustomer("tu@gmail.com");
+    cus1.setTypeCustomer("Diamond");
+    cus1.setDiscount(10);
+    cus1.setQuantity(3);
+    cus1.setRentDays(5);
+    cus1.setService(500);
+    cus1.setRoom("Vip");
+
+    let cus2 = new Customer();
+    cus2.setNameCustomer("hoang");
+    cus2.setIdCustomer("123456780");
+    cus2.setBirthday("25/11/1999");
+    cus2.setAddress("Đà Nẵng");
+    cus2.setEmailCustomer("hoang@gmail.com");
+    cus2.setTypeCustomer("Gold");
+    cus2.setDiscount(15);
+    cus2.setQuantity(2);
+    cus2.setRentDays(3);
+    cus2.setService(300);
+    cus2.setRoom("Normal");
+    listCustomers.push(cus1, cus2);
+
+    function addCustomer() {
+        let cus = new Customer();
+
+        let nameCustomer = document.getElementById("name").value;
+        let idCustomer = document.getElementById("idCustomer").value;
+        let birthday = document.getElementById("birthday").value;
+        let address = document.getElementById("address").value;
+        let emailCustomer = document.getElementById("emailCustomer").value;
+        let typeCustomer = document.getElementById("customer").value;
+        let discount = document.getElementById("discount").value;
+        let quantity = document.getElementById("quantity").value;
+        let rentDays = document.getElementById("rentDays").value;
+        let service = document.getElementById("service").value;
+        let room = document.getElementById("room").value;
+
+        if (isValidDate() && isValid_Id() && isValidEmail()) {
+            cus.setNameCustomer(nameCustomer);
+            cus.setBirthday(birthday);
+            cus.setIdCustomer(idCustomer);
+            cus.setAddress(address);
+            cus.setEmailCustomer(emailCustomer);
+            cus.setTypeCustomer(typeCustomer);
+            cus.setDiscount(discount);
+            cus.setQuantity(quantity);
+            cus.setRentDays(rentDays);
+            cus.setService(service);
+            cus.setRoom(room);
+
+            listCustomers.push(cus);
+            showInformation();
+        }
+    }
+
+    function showInformation() {
+        let result = ("<table width='100%' border='1'>");
+        result += "<tr>"
+            + "<td>Họ và tên</td>"
+            + "<td>Số CMND</td>"
+            + "<td>Ngày/tháng/năm sinh</td>"
+            + "<td>Địa chỉ</td>"
+            + "<td>Email</td>"
+            + "<td>Loại khách hàng</td>"
+            + "<td>Giảm giá</td>"
+            + "<td>Số lượng</td>"
+            + "<td>Số ngày thuê</td>"
+            + "<td>Loại dịch vụ</td>"
+            + "<td>Loại phòng</td>"
+            + "</tr>";
+        for (let i = 0; i < listCustomers.length; i++) {
+            result += "<tr>";
+            result += "<td>" + listCustomers[i].getNameCustomer() + "</td>";
+            result += "<td>" + listCustomers[i].idCustomer + "</td>";
+            result += "<td>" + listCustomers[i].birthday + "</td>";
+            result += "<td>" + listCustomers[i].address + "</td>";
+            result += "<td>" + listCustomers[i].emailCustomer + "</td>";
+            result += "<td>" + listCustomers[i].typeCustomer + "</td>";
+            result += "<td>" + listCustomers[i].discount + "</td>";
+            result += "<td>" + listCustomers[i].quantity + "</td>";
+            result += "<td>" + listCustomers[i].rentDays + "</td>";
+            result += "<td>" + listCustomers[i].service + "</td>";
+            result += "<td>" + listCustomers[i].room + "</td>";
+
+            result += ("<td><button onclick='editInformation(" + i + ")'>Edit</button> "
+                + "<button onclick='deleteCustomer(" + i + ")'>Delete</button>"
+                + "<button onclick='totalPay(" + i + ")'>Total</button></td>");
+            result += "</tr>";
+        }
+        result += ("</table>");
+        document.getElementById("result").innerHTML = result;
+    }
+
+    function editInformation(x) {
+        let chooseInformationEdit = parseInt(prompt("1.Họ và tên \n2.Số CMND \n3.Ngày tháng năm sinh \n4.Địa chỉ " +
+            "\n5.Email \n6.Loại khách hàng \n7.Giảm giá \n8.Số lượng người \n9.Số ngày thuê \n10.Loại dịch vụ " +
+            "\n11.Loại phòng"));
+
+        let check = true;
+
+
+        switch (chooseInformationEdit) {
+            case 1:
+                listCustomers[x].setNameCustomer(prompt("Enter new name: "));
+                break;
+            case 2:
+                listCustomers[x].setIdCustomer(prompt("Enter new id: "));
+                check = isValid_Id();
+                break;
+            case 3:
+                listCustomers[x].setBirthday(prompt("Enter new birthday: "));
+                check = isValidDate();
+                break;
+            case 4:
+                listCustomers[x].setAddress(prompt("Enter new address: "));
+                break;
+            case 5:
+                listCustomers[x].setEmailCustomer(prompt("Enter new email: "));
+                check = isValidEmail();
+                break;
+            case 6:
+                listCustomers[x].setTypeCustomer(prompt("Enter new type customer: "));
+                break;
+            case 7:
+                listCustomers[x].setDiscount(parseFloat(prompt("Enter new discount: ")));
+                break;
+            case 8:
+                listCustomers[x].setQuantity(parseInt(prompt("Enter new quantity of people: ")));
+                break;
+            case 9:
+                listCustomers[x].setRentDays(parseInt(prompt("Enter new rent days: ")));
+                break;
+            case 10:
+                listCustomers[x].setService(prompt("Enter new service: "));
+                break;
+            case 11:
+                listCustomers[x].setRoom(prompt("Enter new room: "));
+                break;
+            default:
+                alert("error");
+
+
+
+        }
+        if (check) {
+            showInformation();
+        }
+    }
+
+    function totalPay(x) {
+        let a = listCustomers[x].roomCost();
+        alert(a + "$");
+    }
+
+    function deleteCustomer(x) {
+        listCustomers.splice(x, 1);
+        showInformation();
+    }
+
+    //phai co 9 chu so nguyen tu 0-9
+    function isValid_Id() {
+        let idCustomer = (document.getElementById("idCustomer").value);
+        let checkId = isNaN(idCustomer);
+
+        if (checkId) {
+            alert("Error id");
+            document.getElementById("idCustomer").focus();
+            return false;
+        } else {
+            if (idCustomer > 99999999 && idCustomer < 1000000000) {//id co 9 so thi phai nam trong khoang(9999 9999 - 1 000 000 000)
+                return true;
+            } else {
+                alert("Error id");
+                document.getElementById("idCustomer").focus();
+                return false;
+            }
+        }
+
+    }
+
+    function isValidDate() {
+        let birthday = document.getElementById("birthday").value;
+
+        let day = parseInt(birthday.substr(0, 2));
+        let month = parseInt(birthday.substr(3, 2));
+        let year = parseInt(birthday.substr(6, 4));
+
+        if (birthday.charAt(2) == "/" && birthday.charAt(5) == "/" &&
+            day > 0 && day <= 31 && month > 0 && month <= 12 && year > 1900 && year < 2020) {
+            return true;
+        } else {
+            alert("Error birthday");
+            document.getElementById("birthday").focus();
+            return false;
+        }
+    }
+
+    // Phải có ký tự @ và chỉ có 1 kí tự @
+    // Ký tự @ không nằm ở vị trí đầu
+    // Phải có ít nhất một dấu . trong địa chỉ mail
+    // Phải có ít nhất 1 ký tự giữa @ và dấu . cuối cùng
+    // Phải có ít nhất một ký tự sau dấu . cuối cùng
+    // Không có khoảng trắng trong địa chỉ mail
+    function isValidEmail() {
+        let emailCustomer = document.getElementById("emailCustomer").value;
+        let at = emailCustomer.indexOf("@");
+        let count_a = (emailCustomer.match(/@/g) || []).length;
+        let dot = emailCustomer.lastIndexOf(".");
+        let space = emailCustomer.indexOf(" ");
+
+        if (at != -1 && count_a == 1 && at != 0 && dot != -1 && dot > at + 1 && dot < emailCustomer.length - 1 && space == -1) {
+            return true;
+        } else {
+            alert("Email invalid");
+            document.getElementById("emailCustomer").focus();
+            return false;
+        }
+    }
+</script>
+</body>
+</html>

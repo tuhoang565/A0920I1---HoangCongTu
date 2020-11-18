@@ -6,17 +6,13 @@
 </head>
 <body>
 <script>
-    let names = ["Bob","Tom","Larry"];
-    let ages =  ["10", "20", "30"];
+    let birthday = "02/05/1999";
+    let day = birthday.substr(0, 2);
+    let month = birthday.substr(3, 2);
+    let year = birthday.substr(6, 4);
+    alert(birthday.charAt(5));
 
-    //1) combine the arrays:
-    let list = [];
-    for (var j = 0; j < names.length; j++)
-        list.push({'name': names[j], 'age': ages[j]});
 
-    for (let i = 0; i < list.length; i++){
-        document.writeln(list[i]);
-    }
 </script>
 </body>
 </html>
