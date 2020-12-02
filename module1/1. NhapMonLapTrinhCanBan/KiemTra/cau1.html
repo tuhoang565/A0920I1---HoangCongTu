@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau 1</title>
+</head>
+<body>
+<script>
+    let a = [];
+    let b = [];
+    let aLength = parseInt(prompt("Nhap so phan tu cua mang <= 50: "));;
+
+
+    for (let i = 0; i < aLength; i++) {
+        a[i] = parseInt(prompt("Nhap gia tri thu " + (i + 1) + ":"));
+    }
+
+    for (let i = 0; i < aLength; i++) {
+        if (isPrime(a[i])) {
+            b.push(a[i]);
+        }
+    }
+    document.writeln("Mang a: ");
+    for (let i = 0; i < a.length; i++) {
+        document.writeln(a[i]);
+    }
+    document.writeln("<br>");
+    document.writeln("Mang b: ");
+    for (let i = 0; i < b.length; i++) {
+        document.writeln(b[i]);
+    }
+
+
+    function isPrime(number) {
+        let count = 0;
+        for (let i = 2; i <= number/2; i++) {
+            if (number % i == 0) {
+                count++;
+            }
+        }
+
+        if (count > 0 || number < 2) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+</script>
+</body>
+</html>

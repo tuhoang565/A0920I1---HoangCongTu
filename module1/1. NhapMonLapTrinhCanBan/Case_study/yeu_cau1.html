@@ -117,11 +117,11 @@
         let newArr = [];
         if (isInvalid_Id() && isInvalidEmail() && isValidDate()) {
             newArr.push(nameCustomer.value, idCustomer.value, birthday.value, address.value, emailCustomer.value,
-                customer.value, discount.value, quantity.value, rentDays.value, service.value, room.value);
+                typeCustomer.value, discount.value, quantity.value, rentDays.value, service.value, room.value);
             newArr[2] = formatDate(birthday.value);
             newArr[0] = formatName(nameCustomer.value);
             newArr[3] = formatName(address.value);
-            newArr[5] = formatName(customer.value); 
+            newArr[5] = formatName(typeCustomer.value);
             arr.push(newArr);
             showInformation();
         }

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yeu cau 6 new</title>
+</head>
+<body>
+<script>
+    class Customer {
+        constructor(nameCustomer, customerId, birthday, emailCustomer, address, typeCustomer, discount, quantityPeople, rentDays,
+                    typeService, typeRoom) {
+            this.nameCustomer = nameCustomer;
+            this.customerId = customerId;
+            this.birthday = birthday;
+            this.emailCustomer = emailCustomer;
+            this.address = address;
+            this.typeCustomer = typeCustomer;
+            this.discount = discount;
+            this.quantityPeople = quantityPeople;
+            this.rentDays = rentDays;
+            this.typeService = typeService;
+            this.typeRoom = typeRoom;
+        }
+
+        getNameCustomer() {
+            return this.nameCustomer;
+        }
+
+        setNameCustomer(nameCustomer) {
+            this.nameCustomer = nameCustomer;
+        }
+
+        getCustomerId() {
+            return this.customerId;
+        }
+
+        setCustomerId(customerId) {
+            this.customerId = customerId;
+        }
+
+        getBirthday() {
+            return this.birthday;
+        }
+
+        setBirthday(birthday) {
+            this.birthday = birthday;
+        }
+
+        getEmailCustomer() {
+            return this.emailCustomer;
+        }
+
+        setEmailCustomer(emailCustomer) {
+            this.emailCustomer = emailCustomer;
+        }
+
+        getAddress() {
+            return this.address;
+        }
+
+        setAddress(address) {
+            this.address = address;
+        }
+
+        getTypeCustomer() {
+            return this.typeCustomer;
+        }
+
+        setTypeCustomer(typeCustomer) {
+            this.typeCustomer = typeCustomer;
+        }
+
+        getDiscount() {
+            return this.discount;
+        }
+
+        setDiscount(discount) {
+            this.discount = discount;
+        }
+
+        getQuantityPeople() {
+            return this.quantityPeople;
+        }
+
+        setQuantityPeople(quantityPeople) {
+            this.quantityPeople = quantityPeople;
+        }
+
+        getRentDays() {
+            return this.rentDays;
+        }
+
+        setRentDays(rentDays) {
+            this.rentDays = rentDays;
+        }
+
+        getTypeService() {
+            return this.typeService;
+        }
+
+        setTypeService(typeService) {
+            this.typeService = typeService;
+        }
+
+        getTypeRoom() {
+            return this.typeRoom;
+        }
+
+        setTypeRoom(typeRoom) {
+            this.typeRoom = typeRoom;
+        }
+    }
+
+    let listCustomer = [];
+    listCustomer.push(new Customer("tu", "123456789", "23/01/1995", "tu@gmail.com", "Hue", "Gold", 10, 3, 5, "Villa", "Vip"));
+    listCustomer.push(new Customer("hoang", "123456755", "23/01/1999", "hoang@gmail.com", "Da Nang", "Silver", 15, 4, 4, "House", "Business"));
+    listCustomer.push(new Customer("an", "123456766", "23/01/2000", "an@gmail.com", "Quang Nam", "Platinum", 20, 10, 3, "Room", "Normal"));
+
+    function displayCustomer() {
+        document.body.innerHTML = "";
+        let temp = "<table border='1' width='100%'>";
+        temp += "<tr>";
+        temp += "<th>Name</th>";
+        temp += "<th>Id</th>";
+        temp += "<th>Birthday</th>";
+        temp += "<th>Email</th>";
+        temp += "<th>Address</th>";
+        temp += "<th>Type Customer</th>";
+        temp += "<th>Discount</th>";
+        temp += "<th>Quantity People</th>";
+        temp += "<th>Rent Days</th>";
+        temp += "<th>Type Service</th>";
+        temp += "<th>Type Room</th>";
+
+        temp += "</tr>";
+        for (let i = 0; i < listCustomer.length; i++) {
+            temp += "<tr>";
+            temp += "<td>" + listCustomer[i].getNameCustomer() + "</td>";
+            temp += "<td>" + listCustomer[i].getCustomerId() + "</td>";
+            temp += "<td>" + listCustomer[i].getBirthday() + "</td>";
+            temp += "<td>" + listCustomer[i].getEmailCustomer() + "</td>";
+            temp += "<td>" + listCustomer[i].getAddress() + "</td>";
+            temp += "<td>" + listCustomer[i].getTypeCustomer() + "</td>";
+            temp += "<td>" + listCustomer[i].getDiscount() + "</td>";
+            temp += "<td>" + listCustomer[i].getQuantityPeople() + "</td>";
+            temp += "<td>" + listCustomer[i].getRentDays() + "</td>";
+            temp += "<td>" + listCustomer[i].getTypeService() + "</td>";
+            temp += "<td>" + listCustomer[i].getTypeRoom() + "</td>";
+            temp += "<td><button onclick='editCustomer("+ i +")'>Edit</button></td>";
+            temp += "<td><button onclick='deleteCustomer(" + i + ")'>Delete</button></td>";
+            temp += "</tr>";
+        }
+        temp += "</table>";
+        temp += "<button onclick='addCustomer()'>Add Customer</button>";
+        document.writeln(temp);
+    }
+
+    function addCustomer() {
+        document.body.innerHTML = "";
+        let temp = "<table>";
+
+        temp += "<tr>" +
+            "<td>Fullname</td>" +
+            "<td><input type='text' id='nameCustomer'></td>" +
+            "</tr>";
+        temp += "<tr>" +
+            "<td>Id</td>" +
+            "<td><input type='text' id='customerId'></td>" +
+            "</tr>";
+        temp += "<tr>" +
+            "<td>Birthday</td>" +
+            "<td><input type='text' id='birthday'></td>" +
+            "</tr>";
+        temp += "<tr>" +
+            "<td>Email</td>" +
+            "<td><input type='text' id='emailCustomer'></td>" +
+            "</tr> ";
+        temp += "<tr>" +
+            "<td>Address</td>" +
+            "<td><input type='text' id='address'></td>" +
+            "</tr> ";
+        temp += "<tr>" +
+            "<td>Type Customer</td>" +
+            "<td><select id='typeCustomer'>" +
+            "<option>Diamond</option>" +
+            "<option>Platinum</option>" +
+            "<option>Gold</option>" +
+            "<option>Silver</option>" +
+            "<option>Member</option>" +
+            "</select></td></tr><br>";
+        temp += "<tr><td>Discount</td>" +
+            "<td><select id='discount'>" +
+            "<option>10%</option>" +
+            "<option>15%</option>" +
+            "<option>20%</option>" +
+            "</select><br></td></tr> ";
+        temp += "<tr>" +
+            "<td>Quantity People</td>" +
+            "<td><input type='number' id='quantityPeople'></td>" +
+            "</tr>";
+        temp += "<tr>" +
+            "<td>Rent Days</td>" +
+            "<td><input type='number' id='rentDays'></td>" +
+            "</tr>";
+
+        temp += "<tr>" +
+            "<td>Type Service</td>" +
+            "<td><select id='typeService'>\n" +
+            "<option value=500>Villa (500$/ngày)</option>\n" +
+            "<option value=300>House (300$/ngày)</option>\n" +
+            " <option value=100>Room (100$/ngày)</option>\n" +
+            "</select><br></td></tr>";
+        temp += "<tr>" +
+            "<td>Type Room</td>" +
+            "<td><select id='typeRoom'>" +
+            "<option>Vip</option>" +
+            "<option>Business</option>" +
+            "<option>Normal</option>" +
+            "</select></td></tr>";
+
+        temp += "</table>";
+        temp += "<button onclick='successAddStudent()'>Add Customer</button>";
+        document.writeln(temp);
+    }
+
+    function successAddStudent() {
+        let nameCustomer = document.getElementById("nameCustomer").value;
+        let customerId = document.getElementById("customerId").value;
+        let birthday = document.getElementById("birthday").value;
+        let emailCustomer = document.getElementById("emailCustomer").value;
+        let address = document.getElementById("address").value;
+        let typeCustomer = document.getElementById("typeCustomer").value;
+        let discount = document.getElementById("discount").value;
+        let quantityPeople = document.getElementById("quantityPeople").value;
+        let rentDays = document.getElementById("rentDays").value;
+        let typeService = document.getElementById("typeService").value;
+        let typeRoom = document.getElementById("typeRoom").value;
+
+        listCustomer.push(new Customer(nameCustomer, customerId, birthday, emailCustomer, address, typeCustomer, discount,
+        quantityPeople, rentDays, typeService, typeRoom));
+        displayCustomer();
+    }
+
+    function editCustomer(i) {
+        document.body.innerHTML = "";
+
+        let temp = "Name <input type='text' id='nameCustomer' value='" + listCustomer[i].getNameCustomer() +"'><br>";
+        temp += "Id <input type='text' id='customerId' value='" + listCustomer[i].getCustomerId() +"'><br>";
+        temp += "Birthday <input type='text' id='birthday' value='" + listCustomer[i].getBirthday() +"'><br>";
+        temp += "Email <input type='text' id='emailCustomer' value='" + listCustomer[i].getEmailCustomer() +"'><br>";
+        temp += "Address <input type='text' id='address' value='" + listCustomer[i].getAddress() +"'><br>";
+        temp += "Type Customer <input type='text' id='typeCustomer' value='" + listCustomer[i].getTypeCustomer() +"'><br>";
+        temp += "Discount <input type='number' id='discount' value='" + listCustomer[i].getDiscount() +"'><br>";
+        temp += "Quantity People <input type='number' id='quantityPeople' value='" + listCustomer[i].getQuantityPeople() +"'><br>";
+        temp += "Rent Days <input type='number' id='rentDays' value='" + listCustomer[i].getRentDays() +"'><br>";
+        temp += "Type Service <input type='text' id='typeService' value='" + listCustomer[i].getTypeService() +"'><br>";
+        temp += "Type Room <input type='text' id='typeRoom' value='" + listCustomer[i].getTypeRoom() +"'><br>";
+        temp += "<button onclick='successEditCustomer("+ i +")'>Edit Customer</button>";
+
+        document.writeln(temp);
+    }
+
+    function successEditCustomer(i) {
+        let nameCustomer = document.getElementById("nameCustomer").value;
+        let customerId = document.getElementById("customerId").value;
+        let birthday = document.getElementById("birthday").value;
+        let emailCustomer = document.getElementById("emailCustomer").value;
+        let address = document.getElementById("address").value;
+        let typeCustomer = document.getElementById("typeCustomer").value;
+        let discount = document.getElementById("discount").value;
+        let quantityPeople = document.getElementById("quantityPeople").value;
+        let rentDays = document.getElementById("rentDays").value;
+        let typeService = document.getElementById("typeService").value;
+        let typeRoom = document.getElementById("typeRoom").value;
+
+        listCustomer[i] = (new Customer(nameCustomer, customerId, birthday, emailCustomer, address, typeCustomer, discount,
+            quantityPeople, rentDays, typeService, typeRoom));
+        displayCustomer();
+
+    }
+
+    function deleteCustomer(i) {
+        listCustomer.splice(i, 1);
+        displayCustomer();
+    }
+    displayCustomer();
+</script>
+</body>
+</html>

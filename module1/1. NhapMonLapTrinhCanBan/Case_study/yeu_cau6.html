@@ -45,9 +45,9 @@
         <tr>
             <td>Giảm giá</td>
             <td><select id="discount">
-                <option>10%</option>
-                <option>15%</option>
-                <option>20%</option>
+                <option value="10">10%</option>
+                <option value="15">15%</option>
+                <option value="20">20%</option>
             </select>
             </td>
         </tr>
@@ -82,7 +82,7 @@
 <br/>
 <input type="button" value="Add Customer" onclick="addCustomer()">
 <input type="button" value="Show Info" onclick="showInformation()">
-<input type="button" value="Ascending" onclick="">
+<!--<input type="button" value="Ascending" onclick="">-->
 <p id="result"></p>
 <script>
     class Customer {
@@ -268,7 +268,7 @@
             result += "<td>" + listCustomers[i].address + "</td>";
             result += "<td>" + listCustomers[i].emailCustomer + "</td>";
             result += "<td>" + listCustomers[i].typeCustomer + "</td>";
-            result += "<td>" + listCustomers[i].discount + "</td>";
+            result += "<td>" + listCustomers[i].discount + "%" + "</td>";
             result += "<td>" + listCustomers[i].quantity + "</td>";
             result += "<td>" + listCustomers[i].rentDays + "</td>";
             result += "<td>" + listCustomers[i].service + "</td>";

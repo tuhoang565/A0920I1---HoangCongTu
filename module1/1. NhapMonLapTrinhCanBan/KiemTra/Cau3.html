@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau 3</title>
+</head>
+<body>
+<form id="customerForm">
+    <table border="1">
+        <tr>
+            <td>Ma so(5 ki tu)</td>
+            <td><input type="text" id="maso"></td>
+        </tr>
+        <tr>
+            <td>Loai tiet kiem</td>
+            <td><input type="text" id="loaitietkiem"></td>
+        </tr>
+        <tr>
+            <td>Ho ten</td>
+            <td><input type="text" id="hoten"></td>
+        </tr>
+        <tr>
+            <td>Cmnd</td>
+            <td><input type="number" id="cmnd"></td>
+        </tr>
+        <tr>
+            <td>Ngay mo so</td>
+            <td><input type="text" id="ngaymoso"></td>
+        </tr>
+        <tr>
+            <td>So tiet gui</td>
+            <td><input type="number" id="sotiengui"></td>
+        </tr>
+    </table>
+</form>
+<br/>
+<input type="button" value="Them so TK" onclick="themSo()">
+<input type="button" value="Xem danh sach" onclick="hienthi()">
+
+<p id="result"></p>
+<script>
+    class SoTietKiem {
+        constructor(maSo, loaiTietKiem, hoTen, cmnd, ngayMoSo, soTienGui) {
+            this.maSo = maSo;
+            this.loaiTietKiem = loaiTietKiem;
+            this.hoTen = hoTen;
+            this.cmnd = cmnd;
+            this.ngayMoSo = ngayMoSo;
+            this.soTienGui = soTienGui;
+        }
+
+        setMaSo(maSo) {
+            this.maSo = maSo;
+        }
+
+        getMaSo() {
+            return this.maSo;
+        }
+
+        setLoaiTietKiem(loaiTietKiem) {
+            this.loaiTietKiem = loaiTietKiem;
+        }
+
+        getLoaiTietKiem() {
+            return this.loaiTietKiem;
+        }
+
+        setHoTen(hoTen) {
+            this.hoTen = hoTen;
+        }
+
+        getHoTen() {
+            return this.hoTen;
+        }
+
+        setcmnd(cmnd) {
+            this.cmnd = cmnd;
+        }
+
+        getCmnd() {
+            return this.cmnd;
+        }
+
+        setNgayMoSo(ngayMoSo) {
+            this.ngayMoSo = ngayMoSo;
+        }
+
+        getNgayMoSo() {
+            return this.ngayMoSo;
+        }
+
+        setSoTienGui(soTienGui) {
+            this.soTienGui = soTienGui;
+        }
+
+        getSoTienGui() {
+            return this.soTienGui;
+        }
+    }
+
+    let soTietKiem = [];
+    let so1 = new SoTietKiem("A1234", "1234567890", "tu", 123456789, "20/02/2020", 3000);
+    let so2 = new SoTietKiem("C1234", "1234567899", "an", 123456788, "20/02/2020", 3000);
+    let so3 = new SoTietKiem("B1234", "1234567888", "hoang", 123456777, "20/02/2020", 3000);
+    soTietKiem.push(so1, so2, so3);
+
+
+    function hienthi() {
+        let result = ("<table width='100%' border='1'>");
+        result += "<tr>"
+            + "<td>Ma so</td>"
+            + "<td>Loai tiet kiem</td>"
+            + "<td>Ho ten</td>"
+            + "<td>Cmnd</td>"
+            + "<td>Ngay mo so</td>"
+            + "<td>So tien gui</td>"
+            + "</tr>";
+        for (let i = 0; i < soTietKiem.length; i++) {
+            result += "<tr>";
+            result += "<td>" + soTietKiem[i].getMaSo() + "</td>";
+            result += "<td>" + soTietKiem[i].getLoaiTietKiem() + "</td>";
+            result += "<td>" + soTietKiem[i].getHoTen() + "</td>";
+            result += "<td>" + soTietKiem[i].getCmnd() + "</td>";
+            result += "<td>" + soTietKiem[i].getNgayMoSo() + "</td>";
+            result += "<td>" + soTietKiem[i].getSoTienGui() + "</td>";
+
+
+            result += ("<td><button onclick='xoaSo(" + i + ")'>Xoa</button></td>");
+            result += "</tr>";
+        }
+        result += ("</table>");
+        document.getElementById("result").innerHTML = result;
+    }
+
+    function themSo() {
+        let so = new SoTietKiem();
+
+        let maso = document.getElementById("maso").value;
+        let loaitietkiem = document.getElementById("loaitietkiem").value;
+        let hoten = document.getElementById("hoten").value;
+        let cmnd = document.getElementById("cmnd").value;
+        let ngaymoso = document.getElementById("ngaymoso").value;
+        let sotiengui = document.getElementById("sotiengui").value;
+
+        if(kiemTraMaSo()){
+            so.setMaSo(maso);
+            so.setLoaiTietKiem(loaitietkiem);
+            so.setHoTen(hoten);
+            so.setcmnd(cmnd);
+            so.setNgayMoSo(ngaymoso);
+            so.setSoTienGui(sotiengui);
+
+
+            soTietKiem.push(so);
+            hienthi();
+        }
+
+
+    }
+
+    function xoaSo(x) {
+        soTietKiem.splice(x, 1);
+        hienthi();
+    }
+
+    function kiemTraMaSo() {
+        let maso = document.getElementById("maso").value;
+
+        if (maso.length != 5){
+            alert("Nhap lai ma so chi bao gom 5 ki tu ");
+            document.getElementById("maso").focus();
+            return false;
+        }else{
+            return true;
+        }
+    }
+</script>
+</body>
+</html>
