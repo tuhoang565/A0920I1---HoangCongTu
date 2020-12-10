@@ -9,10 +9,10 @@ public class GopMang {
         int arr2Length = arr2.length;
 
         int newArr[] = new int[arr1Length + arr2Length];
-        for(int i = 0; i < arr1.length; i++){
+        for(int i = 0; i < arr1Length; i++){
             newArr[i] = arr1[i];
         }
-        for (int i = 0; i < arr2.length; i++){
+        for (int i = 0; i < arr2Length; i++){
             newArr[arr1Length + i] = arr2[i];
         }
 

@@ -11,12 +11,25 @@ public class ChenPhanTu {
         arr[2] = 4;
         arr[3] = 7;
         arr[4] = 9;
-
+        insert(arr);
 
     }
 
-    public static void insert(int[] arr, int k) {
-       
+    public static void insert(int arr[]) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter value: ");
+        int value = scanner.nextInt();
+        System.out.println("Enter index: ");
+        int index = scanner.nextInt();
+
+        for(int i = index; i < arr.length; i++){
+            arr[index + 1] = arr[i];
+            index++;
+        }
+        arr[index] = value;
+        for (int x: arr) {
+            System.out.print(x + " ");
+        }
     }
 
 
