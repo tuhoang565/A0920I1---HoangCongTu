@@ -22,12 +22,16 @@ public class ChenPhanTu {
         System.out.println("Enter index: ");
         int index = scanner.nextInt();
 
-        for(int i = index; i < arr.length; i++){
-            arr[index + 1] = arr[i];
-            index++;
+        if(index < 0 || index > arr.length-1){
+            System.out.println("Invalid index");
+        }else {
+            for(int i = arr.length - 1; i > index; i--){
+                arr[i] = arr[i - 1];
+            }
+            arr[index] = value;
         }
-        arr[index] = value;
-        for (int x: arr) {
+
+        for(int x: arr){
             System.out.print(x + " ");
         }
     }
