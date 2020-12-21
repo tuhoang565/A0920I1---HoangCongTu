@@ -1,5 +1,7 @@
 package B6_KeThua.BaiTap.Point2D;
 
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+
 public class Point2D {
     private float x, y;
 
@@ -29,7 +31,16 @@ public class Point2D {
     }
 
     public void setXY(float x, float y){
-        
+        this.x = x;
+        this.y = y;
+    }
+    public float[] getXY(){
+        float[] arrXY = {this.x, this.y};
+        return arrXY;
     }
 
+    @Override
+    public String toString(){
+         return "Point2D x: " + getX() + " y: " + getY();
+    }
 }
