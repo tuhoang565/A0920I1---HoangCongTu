@@ -19,8 +19,6 @@ public class BookingService {
     static final String PATH_HOUSE = "D:\\A0920I1_Hoang_Cong_Tu\\casestudy\\src\\data\\houses.csv";
     static final String PATH_ROOM = "D:\\A0920I1_Hoang_Cong_Tu\\casestudy\\src\\data\\rooms.csv";
     static Scanner scanner = new Scanner(System.in);
-    static List<Customer> customerList = new ArrayList<>();
-    static List<Villa> villaList = new ArrayList<>();
     static List<String> bookingServiceList = new ArrayList<>();
 
     public static void addNewBooking() {

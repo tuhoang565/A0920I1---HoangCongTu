@@ -14,14 +14,16 @@ import java.util.Date;
 public class AgeCalculatorTest {
 
     public static void main(String[] args) {
-        // setup
-        String regex = "02/02/2016";
-        LocalDate localDate1 = LocalDate.parse(regex,
-                DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        public void method(int x){
 
-        LocalDate birthDate = LocalDate.of(localDate1.getYear(), localDate1.getMonth(), localDate1.getDayOfMonth());
-        LocalDate now = LocalDate.now();
-        int actual = Period.between(birthDate, now).getYears();
-        System.out.println(actual);
+            int y = 5;
+
+            if(x > y){
+
+                int z = x + y;
+
+                }
+
+            System.out.print(z);
     }
 }
