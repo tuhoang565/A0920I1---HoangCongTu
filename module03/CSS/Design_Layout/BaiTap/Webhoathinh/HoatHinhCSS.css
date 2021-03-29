@@ -1,0 +1,53 @@
+#container{
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+}
+
+#header{
+    background: #CDCDCD;
+    grid-column: 1/11;
+}
+
+#header-link{
+    background: cornflowerblue;
+    font-size: 20px;
+    grid-column: 1/11;
+}
+
+#header-link ul{
+    text-align: center;
+    list-style-type: none;
+}
+
+#header-link li{
+    display: inline-block;
+    width: auto;
+    height: 30px;
+    line-height: 30px;
+}
+#header-link a{
+    color: white;
+    text-decoration: none;
+    display: block;
+    
+}
+
+#header-link a:hover{
+    background: #F1F1F1;
+    color: #333;
+}
+
+#left-content{
+    background: #333333;
+    grid-column: 1/5;
+}
+
+#right-content{
+    background: antiquewhite;
+    grid-column: 5/11;
+}
+
+#footer{
+    background: #CDCDCD;
+    grid-column: 1/11;
+}

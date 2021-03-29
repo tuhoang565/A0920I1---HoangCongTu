@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tao Layout voi HTML va CSS</title>
+    <style>
+        .container > div {
+            background-color: aqua;
+            border: 1px solid #fff;
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .container{
+            display: grid;
+            grid-template-areas:
+            "header header header"
+            "nav nav nav"
+            "section section aside"
+            "section section aside"
+            "article article aside"
+            "article article aside"
+            "footer footer footer"        ;
+        }
+
+        .item1{grid-area: header}
+        .item2{grid-area: nav}
+        .item3{grid-area: section}
+        .item4{grid-area: article}
+        .item5{grid-area: aside}
+        .item6{grid-area: footer}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item1">Header</div>
+        <div class="item2">nav</div>
+        <div class="item3">section</div>
+        <div class="item4">Tương tự như khi tạo bố cục sử dụng div và các thuộc tính css, chúng ta có thể sử dụng các thẻ của HTML5 để tạo bố cục cho trang web. Đây là cách làm được khuyến khích và sử dụng phổ biến hiện nay.
+
+            Các thẻ HTML5 được sử dụng để tạo layout trong bài này bao gồm: header, nav, section, article, aside và footer.</div>
+        <div class="item5">aside</div>
+        <div class="item6">footer</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tao Layout voi responsive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container{
+            display: grid;
+            grid-template-columns: 20% 60% 20%;
+        }
+
+        .header{
+            grid-column-start: 1;
+            grid-column-end: 4;
+            background-color: #333333;
+            font-size: 20px;
+            color: white;
+            display: flex;
+        }
+
+        .header ul{
+
+        }
+
+        .header li{
+            position: relative;
+            display: inline-block;
+            list-style: none;
+            text-align: center;
+            height: 40px;
+            width: 90px;
+            margin: 0;
+
+        }
+
+        .header a{
+            display: block;
+            color: white;
+            text-decoration: none;
+        }
+
+        .header li:hover{
+            background-color: black;
+        }
+        .footer{
+            grid-column-start: 1;
+            grid-column-end: 4;
+            background-color: #333333;
+            font-size: 30px;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .left-bar{
+            background-color: #CDCDCD;
+            font-size: 20px;
+
+        }
+        .left-bar a{
+            text-decoration: none;
+
+        }
+
+        .left-bar li{
+            list-style: none;
+            text-align: center;
+        }
+        .left-bar ul{
+            padding-left: 0;
+        }
+        .right-bar{
+            background-color: #CDCDCD;
+            font-size: 20px;
+            display: block;
+            align-items: center;
+            justify-items: center;
+
+        }
+
+        .right-bar div{
+            background-color: #F5F5F5;
+            height: 60px;
+            width: 120px;
+            border: 1px solid;
+            margin-top: 20px;
+
+        }
+
+        .content{
+            background-color: white;
+            font-size: 20px;
+            padding: 20px;
+        }
+
+        .content > div{
+            text-align: left;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+            <ul>
+                <li><a href="#">Logo</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+
+            </ul>
+            </div>
+            <div>
+                <a href="#">Login</a>
+            </div>
+        </div>
+        <div class="left-bar">
+            <ul>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div>
+                <h1>Lorem ipsum</h1>
+                <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
+                designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have
+                scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.</p>
+            </div>
+            <div>
+                <h1>Lorem ipsum</h1>
+                <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
+                    designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have
+                    scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.</p>
+            </div>
+        </div>
+        <div class="right-bar">
+            <div>ADS</div>
+            <div>ADS</div>
+        </div>
+        <div class="footer">Footer</div>
+    </div>
+</body>
+</html>
