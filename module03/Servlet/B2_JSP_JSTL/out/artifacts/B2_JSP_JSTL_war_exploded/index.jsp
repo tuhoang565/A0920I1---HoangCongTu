@@ -13,7 +13,7 @@
   </head>
   <body>
   <h1>Danh sach khach hang</h1>
-  <table>
+  <table border="blue 1px">
     <c:forTokens items="Tom,Jerry,Donald" delims="," var="name">
     <tr>
     <c:out value="${name}"/>

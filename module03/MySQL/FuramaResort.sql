@@ -218,20 +218,18 @@ where TenLoaiKhach = "Diamond" and (DiaChi = "Vinh" or DiaChi = "Quang Ngai");
 -- (được tính dựa trên tổng Hợp đồng chi tiết), TienDatCoc của tất cả các dịch vụ đã từng được khách hàng đặt vào 3
 -- tháng cuối năm 2019 nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2019.
 
-select hopdong.idHopDong, nhanvien.HoTen as TenNhanVien, khachhang.HoTen as TenKhachHang, khachhang.SDT, TenDichVu, 
-count(idHopDongChiTiet) as SoLuongDichVuDiKem, TienDatCoc, NgayLamHopDong
+select hopdong.idHopDong, nhanvien.HoTen as TenNhanVien, khachhang.HoTen as TenKhachHang, khachhang.SDT, TenDichVu, soluong,
+ TienDatCoc, NgayLamHopDong, dichvu.idDichVu
 from hopdong join nhanvien on hopdong.idNhanVien = nhanvien.idNhanVien
 join khachhang on hopdong.idKhachHang = khachhang.idKhachHang
 join dichvu on hopdong.idDichVu = dichvu.idDichVu
 join hopdongchitiet on hopdong.idHopDong = hopdongchitiet.idHopDong
-where hopdong.idHopDong not exists 
-(select hopdong.idHopDong, TenDichVu, month(NgayLamHopDong), year(NgayLamHopDong) 
-from hopdong join dichvu on hopdong.idDichVu = dichvu.idDichVu
-where year(NgayLamHopDong) = 2019 and month(NgayLamHopDong) in (1, 2, 3, 4, 5, 6))
-and hopdong.idHopDong exists
-(select hopdong.idHopDong, TenDichVu, month(NgayLamHopDong), year(NgayLamHopDong) 
-from hopdong join dichvu on hopdong.idDichVu = dichvu.idDichVu
-where year(NgayLamHopDong) = 2019 and month(NgayLamHopDong) in (10, 11, 12));
+where month(Ngaylamhopdong) in(10,11,12)
+and hopdong.idDichvu not in
+(select hopdong.idDichvu
+from hopdong
+where year(NgayLamHopDong) = 2020 and month(NgayLamHopDong) in (1, 2, 3, 4, 5, 6));
+
 
 
 
