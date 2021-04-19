@@ -1,24 +1,24 @@
 package model;
 
 public class Customer {
-    private String id;
-    private String name;
-    private String birthday;
-    private String address;
+    private int id;
+    private String name, email, address;
 
+    public Customer() {
+    }
 
-    public Customer(String id, String name, String birthday, String address) {
+    public Customer(int id, String name, String email, String address) {
         this.id = id;
         this.name = name;
-        this.birthday = birthday;
+        this.email = email;
         this.address = address;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -30,12 +30,12 @@ public class Customer {
         this.name = name;
     }
 
-    public String getBirthday() {
-        return birthday;
+    public String getEmail() {
+        return email;
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getAddress() {

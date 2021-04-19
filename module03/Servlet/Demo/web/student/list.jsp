@@ -15,6 +15,7 @@
 <body>
     <table>
         <a href="save">Create new Student</a>
+        <a href="transaction">Create new Student Transaction</a>
         <tr>
             <th>Id</th>
             <th>Name</th>

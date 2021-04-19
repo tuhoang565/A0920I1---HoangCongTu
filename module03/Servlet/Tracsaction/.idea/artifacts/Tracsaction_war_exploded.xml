@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Tracsaction:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Tracsaction_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Tracsaction/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Tracsaction" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

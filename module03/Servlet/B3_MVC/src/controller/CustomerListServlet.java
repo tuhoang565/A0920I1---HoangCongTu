@@ -1,8 +1,8 @@
 package controller;
 
 import model.Customer;
-import service.CustomerService;
 import service.CustomerServiceImpl;
+import service.ICustomerService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,8 +19,8 @@ public class CustomerListServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        CustomerService customerService = new CustomerServiceImpl();
-        List<Customer> customerList = customerService.getAll();
+        ICustomerService customerService = new CustomerServiceImpl();
+        List<Customer> customerList = customerService.getAllCustomer();
         request.setAttribute("customers", customerList);
         request.getRequestDispatcher("customer/list.jsp").forward(request, response);
     }

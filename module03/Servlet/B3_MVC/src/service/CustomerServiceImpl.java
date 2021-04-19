@@ -7,47 +7,38 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CustomerServiceImpl implements CustomerService {
-    private static Map<String, Customer> customerMap;
-
-    public CustomerServiceImpl(){
-        if(customerMap != null){
-            return;
-        }
+public class CustomerServiceImpl implements ICustomerService {
+    private static Map<Integer, Customer> customerMap;
+    static {
         customerMap = new HashMap<>();
-        customerMap.put("1", new Customer("1", "Tu", "20/2/2000", "Hue"));
-        customerMap.put("2", new Customer("2", "Tung", "20/2/2000", "Da Nang"));
-        customerMap.put("3", new Customer("3", "Anh", "20/2/2000", "Hue"));
-        customerMap.put("4", new Customer("4", "Viet", "20/2/2000", "Quang Nam"));
-        customerMap.put("5", new Customer("5", "Quoc", "20/2/2000", "Hue"));
+        customerMap.put(1, new Customer(1, "Tu", "tu@gmail.com", "Hue"));
+        customerMap.put(2, new Customer(2, "Tung", "tung@gmail.com", "Hue"));
+        customerMap.put(3, new Customer(3, "Van", "van@gmail.com", "Da Nang"));
+        customerMap.put(4, new Customer(4, "My", "my@gmail.com", "Quang Nam"));
     }
 
     @Override
-    public Customer getCustomerById(String id) {
-        return customerMap.get(id);
-    }
-
-    @Override
-    public List<Customer> getAll() {
-        return new ArrayList<>(customerMap.values());
-    }
-
-    @Override
-    public void saveCustomer(Customer customer) {
+    public void insertCustomer(Customer customer) {
         customerMap.put(customer.getId(), customer);
     }
 
     @Override
-    public void updateCustomer(Customer customer) {
-        if(customerMap.get(customer.getId()) != null){
-            customerMap.put(customer.getId(), customer);
-        }
+    public Customer getCustomerById(int id) {
+        return customerMap.get(id);
     }
 
     @Override
-    public void deleteCustomerById(String id) {
-        if(customerMap.get(id) != null){
-            customerMap.remove(id);
-        }
+    public List<Customer> getAllCustomer() {
+        return new ArrayList<>(customerMap.values());
+    }
+
+    @Override
+    public void updateCustomer(int id, Customer customer) {
+        customerMap.put(id, customer);
+    }
+
+    @Override
+    public void deleteCustomer(int id) {
+        customerMap.remove(id);
     }
 }

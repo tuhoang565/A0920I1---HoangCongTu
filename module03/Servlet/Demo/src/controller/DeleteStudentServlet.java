@@ -29,7 +29,10 @@ public class DeleteStudentServlet extends HttpServlet {
 //        Cach 2: JDBC
         String id = request.getParameter("id");
         IStudentDAO studentDAO = new StudentDAOImpl();
-        studentDAO.deleteStudent(id);
+//        studentDAO.deleteStudent(id);
+
+//        Dung StoreProcedure
+        studentDAO.deleteStudentStore(id);
         response.sendRedirect("list");
     }
 }

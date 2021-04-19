@@ -30,7 +30,7 @@ public class StudentListServlet extends HttpServlet {
 
 //        Cach 2: dung JDBC
         IStudentDAO studentService = new StudentDAOImpl();
-        List<Student> studentList = studentService.getAllStudent();
+        List<Student> studentList = studentService.getAllStudentStore();
         request.setAttribute("students", studentList);
         request.getRequestDispatcher("student/list.jsp").forward(request, response);
     }

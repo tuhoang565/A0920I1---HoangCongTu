@@ -1,8 +1,8 @@
 package controller;
 
 import model.Customer;
-import service.CustomerService;
 import service.CustomerServiceImpl;
+import service.ICustomerService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,14 +14,15 @@ import java.io.IOException;
 @WebServlet(name = "SaveCustomerServlet", urlPatterns = "/save")
 public class SaveCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id = request.getParameter("id");
+        int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
-        String birthday = request.getParameter("birthday");
+        String email = request.getParameter("email");
         String address = request.getParameter("address");
-        Customer customer = new Customer(id, name, birthday, address);
-        CustomerService customerService = new CustomerServiceImpl();
-        customerService.saveCustomer(customer);
-        response.sendRedirect("/list");
+        Customer customer = new Customer(id, name, email, address);
+        ICustomerService customerService = new CustomerServiceImpl();
+        customerService.insertCustomer(customer);
+        response.sendRedirect("list");
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

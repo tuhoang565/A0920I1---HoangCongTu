@@ -33,7 +33,7 @@ public class UpdateStudentServlet extends HttpServlet {
 //        response.sendRedirect("list");
 
 //        Cach 2: JDBC
-        String id = (request.getParameter("id"));
+        String id = request.getParameter("id");
         String name = request.getParameter("name");
         int age = Integer.parseInt(request.getParameter("age"));
         String address = request.getParameter("address");
@@ -57,7 +57,8 @@ public class UpdateStudentServlet extends HttpServlet {
         String id = request.getParameter("id");
         IStudentDAO studentDAO = new StudentDAOImpl();
         Student existingStudent = studentDAO.getStudent(id);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("student/update.jsp");
         request.setAttribute("student", existingStudent);
-        request.getRequestDispatcher("student/update.jsp").forward(request, response);
+        dispatcher.forward(request, response);
     }
 }

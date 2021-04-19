@@ -1,7 +1,7 @@
 package controller;
 
-import service.CustomerService;
 import service.CustomerServiceImpl;
+import service.ICustomerService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,13 +14,14 @@ import java.io.IOException;
 public class DeleteCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id = request.getParameter("id");
-        CustomerService customerService = new CustomerServiceImpl();
-        customerService.deleteCustomerById(id);
-        response.sendRedirect("list");
+        ICustomerService customerService = new CustomerServiceImpl();
 
+        int id = Integer.parseInt(request.getParameter("id"));
+        customerService.deleteCustomer(id);
+        response.sendRedirect("list");
     }
 }

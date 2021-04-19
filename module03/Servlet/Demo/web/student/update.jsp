@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>Update student</h1>
-<form action="save" method="post">
+<form action="update" method="post">
     <table>
         <tr>
             <td>ID:</td>
