@@ -1,20 +1,30 @@
 package models;
 
 public class EducationDegree {
-    private String degree;
+    private int educationDegreeId;
+    private String educationDegreeName;
 
     public EducationDegree() {
     }
 
-    public EducationDegree(String degree) {
-        this.degree = degree;
+    public EducationDegree(int educationDegreeId, String educationDegreeName) {
+        this.educationDegreeId = educationDegreeId;
+        this.educationDegreeName = educationDegreeName;
     }
 
-    public String getDegree() {
-        return degree;
+    public int getEducationDegreeId() {
+        return educationDegreeId;
     }
 
-    public void setDegree(String degree) {
-        this.degree = degree;
+    public void setEducationDegreeId(int educationDegreeId) {
+        this.educationDegreeId = educationDegreeId;
+    }
+
+    public String getEducationDegreeName() {
+        return educationDegreeName;
+    }
+
+    public void setEducationDegreeName(String educationDegreeName) {
+        this.educationDegreeName = educationDegreeName;
     }
 }

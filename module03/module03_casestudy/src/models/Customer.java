@@ -1,26 +1,29 @@
 package models;
 
+import java.util.Date;
+
 public class Customer {
+    private int customerType;
     private String customerName;
-    private String customerBirthday;
+    private Date customerBirthday;
     private String customerGender;
     private String customerIdCard;
     private String customerPhone;
     private String customerEmail;
-    private CustomerType customerType;
     private String customerAddress;
 
     public Customer() {
     }
 
-    public Customer(String customerName, String customerBirthday, String customerGender, String customerIdCard, String customerPhone, String customerEmail, CustomerType customerType, String customerAddress) {
+    public Customer(int customerType, String customerName, Date customerBirthday, String customerGender, String customerIdCard,
+                    String customerPhone, String customerEmail, String customerAddress) {
+        this.customerType = customerType;
         this.customerName = customerName;
         this.customerBirthday = customerBirthday;
         this.customerGender = customerGender;
         this.customerIdCard = customerIdCard;
         this.customerPhone = customerPhone;
         this.customerEmail = customerEmail;
-        this.customerType = customerType;
         this.customerAddress = customerAddress;
     }
 
@@ -32,11 +35,11 @@ public class Customer {
         this.customerName = customerName;
     }
 
-    public String getCustomerBirthday() {
+    public Date getCustomerBirthday() {
         return customerBirthday;
     }
 
-    public void setCustomerBirthday(String customerBirthday) {
+    public void setCustomerBirthday(Date customerBirthday) {
         this.customerBirthday = customerBirthday;
     }
 
@@ -72,11 +75,11 @@ public class Customer {
         this.customerEmail = customerEmail;
     }
 
-    public CustomerType getCustomerType() {
+    public int getCustomerType() {
         return customerType;
     }
 
-    public void setCustomerType(CustomerType customerType) {
+    public void setCustomerType(int customerType) {
         this.customerType = customerType;
     }
 

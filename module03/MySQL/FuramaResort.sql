@@ -230,6 +230,13 @@ and hopdong.idDichvu not in
 from hopdong
 where year(NgayLamHopDong) = 2020 and month(NgayLamHopDong) in (1, 2, 3, 4, 5, 6));
 
+-- 13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng. (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
+
+select SoLuong, hopdongchitiet.idDichVuDiKem, TenDichVuDiKem
+from hopdongchitiet 
+join dichvudikem on hopdongchitiet.idDichVuDiKem = dichvudikem.idDichVuDiKem
+join (select max(SoLuong) as maxSL from hopdongchitiet) x
+on x.maxSL = hopdongchitiet.SoLuong
 
 
 

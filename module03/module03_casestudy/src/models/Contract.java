@@ -1,16 +1,18 @@
 package models;
 
+import java.util.Date;
+
 public class Contract {
     private String contractId;
-    private String contractStartDate;
-    private String contractEndDate;
+    private Date contractStartDate;
+    private Date contractEndDate;
     private double contractDeposit;
     private double contractTotalMoney;
 
     public Contract() {
     }
 
-    public Contract(String contractId, String contractStartDate, String contractEndDate, double contractDeposit, double contractTotalMoney) {
+    public Contract(String contractId, Date contractStartDate, Date contractEndDate, double contractDeposit, double contractTotalMoney) {
         this.contractId = contractId;
         this.contractStartDate = contractStartDate;
         this.contractEndDate = contractEndDate;
@@ -26,19 +28,19 @@ public class Contract {
         this.contractId = contractId;
     }
 
-    public String getContractStartDate() {
+    public Date getContractStartDate() {
         return contractStartDate;
     }
 
-    public void setContractStartDate(String contractStartDate) {
+    public void setContractStartDate(Date contractStartDate) {
         this.contractStartDate = contractStartDate;
     }
 
-    public String getContractEndDate() {
+    public Date getContractEndDate() {
         return contractEndDate;
     }
 
-    public void setContractEndDate(String contractEndDate) {
+    public void setContractEndDate(Date contractEndDate) {
         this.contractEndDate = contractEndDate;
     }
 

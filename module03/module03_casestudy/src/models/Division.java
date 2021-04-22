@@ -1,20 +1,30 @@
 package models;
 
 public class Division {
-    private String division;
+    private int divisionId;
+    private String divisionName;
 
     public Division() {
     }
 
-    public Division(String division) {
-        this.division = division;
+    public Division(int divisionId, String divisionName) {
+        this.divisionId = divisionId;
+        this.divisionName = divisionName;
     }
 
-    public String getDivision() {
-        return division;
+    public int getDivisionId() {
+        return divisionId;
     }
 
-    public void setDivision(String division) {
-        this.division = division;
+    public void setDivisionId(int divisionId) {
+        this.divisionId = divisionId;
+    }
+
+    public String getDivisionName() {
+        return divisionName;
+    }
+
+    public void setDivisionName(String divisionName) {
+        this.divisionName = divisionName;
     }
 }

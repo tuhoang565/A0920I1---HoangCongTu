@@ -1,8 +1,11 @@
 package models;
 
+import java.util.Date;
+
 public class Employee {
+    private int employeeId;
     private String employeeName;
-    private String employeeBirthday;
+    private Date employeeBirthday;
     private String employeeIdCard;
     private String employeePhone;
     private String employeeEmail;
@@ -13,7 +16,8 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String employeeName, String employeeBirthday, String employeeIdCard, String employeePhone, String employeeEmail, EducationDegree educationDegree, Position position, Division division) {
+    public Employee(int employeeId, String employeeName, Date employeeBirthday, String employeeIdCard, String employeePhone, String employeeEmail, EducationDegree educationDegree, Position position, Division division) {
+        this.employeeId = employeeId;
         this.employeeName = employeeName;
         this.employeeBirthday = employeeBirthday;
         this.employeeIdCard = employeeIdCard;
@@ -24,6 +28,14 @@ public class Employee {
         this.division = division;
     }
 
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
+
     public String getEmployeeName() {
         return employeeName;
     }
@@ -32,11 +44,11 @@ public class Employee {
         this.employeeName = employeeName;
     }
 
-    public String getEmployeeBirthday() {
+    public Date getEmployeeBirthday() {
         return employeeBirthday;
     }
 
-    public void setEmployeeBirthday(String employeeBirthday) {
+    public void setEmployeeBirthday(Date employeeBirthday) {
         this.employeeBirthday = employeeBirthday;
     }
 
