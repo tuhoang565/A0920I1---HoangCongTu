@@ -1,6 +1,6 @@
 package models;
 
-public class Villa extends Service {
+public class Villa {
     private String standardRoom;
     private String otherConvenience;
     private double poolArea;
@@ -9,14 +9,7 @@ public class Villa extends Service {
     public Villa() {
     }
 
-    public Villa(int serviceId, String serviceName, int serviceArea, double serviceCost, int serviceMaxPeople,
-                 String rentType, String standardRoom, String otherConvenience, double poolArea, int numberOfFloor) {
-        super(serviceId, serviceName, serviceArea, serviceCost, serviceMaxPeople, rentType);
-        this.standardRoom = standardRoom;
-        this.otherConvenience = otherConvenience;
-        this.poolArea = poolArea;
-        this.numberOfFloor = numberOfFloor;
-    }
+
 
     public String getStandardRoom() {
         return standardRoom;

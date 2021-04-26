@@ -12,11 +12,19 @@
     <title>Create new customer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/assert/bootstrap4/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/assert/bootstrap4/css/bootstrap-grid.css">
+    <link rel="stylesheet" type="text/css" href="/assert/bootstrap4/css/bootstrap-reboot.css">
+    <script type="text/javascript" src="/assert/bootstrap4/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/assert/bootstrap4/js/bootstrap.bundle.js"></script>
 </head>
 <body>
 <h1>Create new customer</h1>
 <br>
 <form method="post">
+<%--    <div class="form-group col-4">--%>
+<%--        <label for="customerId">Customer Id</label>--%>
+<%--        <input type="text" class="form-control" id="customerId" name="customerId">--%>
+<%--    </div>--%>
     <div class="form-group col-4">
         <label for="customerType">Customer Type</label>
         <input type="text" class="form-control" id="customerType" name="customerType">
@@ -38,7 +46,7 @@
         <input type="text" class="form-control" id="idCard" name="customerIdCard">
     </div>
     <div class="form-group col-4">
-        <label for="phone">Phone</label>
+        <label for="phone">Phone Number</label>
         <input type="text" class="form-control" id="phone" name="customerPhone">
     </div>
     <div class="form-group col-4">

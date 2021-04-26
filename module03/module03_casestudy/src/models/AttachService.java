@@ -1,17 +1,29 @@
 package models;
 
 public class AttachService {
+    private int attachServiceId;
     private String attachServiceName;
     private int attachServiceUnit;
     private double attachServiceCost;
+    private String attachServiceStatus;
 
     public AttachService() {
     }
 
-    public AttachService(String attachServiceName, int attachServiceUnit, double attachServiceCost) {
+    public AttachService(int attachServiceId, String attachServiceName, int attachServiceUnit, double attachServiceCost, String attachServiceStatus) {
+        this.attachServiceId = attachServiceId;
         this.attachServiceName = attachServiceName;
         this.attachServiceUnit = attachServiceUnit;
         this.attachServiceCost = attachServiceCost;
+        this.attachServiceStatus = attachServiceStatus;
+    }
+
+    public int getAttachServiceId() {
+        return attachServiceId;
+    }
+
+    public void setAttachServiceId(int attachServiceId) {
+        this.attachServiceId = attachServiceId;
     }
 
     public String getAttachServiceName() {
@@ -36,5 +48,13 @@ public class AttachService {
 
     public void setAttachServiceCost(double attachServiceCost) {
         this.attachServiceCost = attachServiceCost;
+    }
+
+    public String getAttachServiceStatus() {
+        return attachServiceStatus;
+    }
+
+    public void setAttachServiceStatus(String attachServiceStatus) {
+        this.attachServiceStatus = attachServiceStatus;
     }
 }

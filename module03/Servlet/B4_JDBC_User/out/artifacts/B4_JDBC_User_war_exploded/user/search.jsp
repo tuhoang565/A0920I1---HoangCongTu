@@ -34,7 +34,7 @@
     </table>
 </c:if>
 <c:if test="${user == null}">
-    <sout>No found user</sout>
+    <sout>Not found user</sout>
 </c:if>
 </body>
 </html>

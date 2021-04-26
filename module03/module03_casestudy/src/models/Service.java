@@ -1,23 +1,66 @@
 package models;
 
-public abstract class Service {
+public class Service {
     private int serviceId;
     private String serviceName;
     private int serviceArea;
     private double serviceCost;
     private int serviceMaxPeople;
-    private String rentType;
+    private int rentTypeId;
+    private int serviceTypeId;
+    private String standardRoom;
+    private String descriptionOtherConvenience;
+    private double poolArea;
+    private int numberOfFloor;
 
     public Service() {
     }
 
-    public Service(int serviceId, String serviceName, int serviceArea, double serviceCost, int serviceMaxPeople, String rentType) {
+    public Service(int serviceId, String serviceName, int serviceArea, double serviceCost, int serviceMaxPeople,
+                   int rentTypeId, int serviceTypeId, String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloor) {
         this.serviceId = serviceId;
         this.serviceName = serviceName;
         this.serviceArea = serviceArea;
         this.serviceCost = serviceCost;
         this.serviceMaxPeople = serviceMaxPeople;
-        this.rentType = rentType;
+        this.rentTypeId = rentTypeId;
+        this.serviceTypeId = serviceTypeId;
+        this.standardRoom = standardRoom;
+        this.descriptionOtherConvenience = descriptionOtherConvenience;
+        this.poolArea = poolArea;
+        this.numberOfFloor = numberOfFloor;
+    }
+
+    public String getStandardRoom() {
+        return standardRoom;
+    }
+
+    public void setStandardRoom(String standardRoom) {
+        this.standardRoom = standardRoom;
+    }
+
+    public String getDescriptionOtherConvenience() {
+        return descriptionOtherConvenience;
+    }
+
+    public void setDescriptionOtherConvenience(String descriptionOtherConvenience) {
+        this.descriptionOtherConvenience = descriptionOtherConvenience;
+    }
+
+    public double getPoolArea() {
+        return poolArea;
+    }
+
+    public void setPoolArea(double poolArea) {
+        this.poolArea = poolArea;
+    }
+
+    public int getNumberOfFloor() {
+        return numberOfFloor;
+    }
+
+    public void setNumberOfFloor(int numberOfFloor) {
+        this.numberOfFloor = numberOfFloor;
     }
 
     public int getServiceId() {
@@ -36,7 +79,7 @@ public abstract class Service {
         this.serviceName = serviceName;
     }
 
-    public double getServiceArea() {
+    public int getServiceArea() {
         return serviceArea;
     }
 
@@ -60,13 +103,19 @@ public abstract class Service {
         this.serviceMaxPeople = serviceMaxPeople;
     }
 
-    public String getRentType() {
-        return rentType;
+    public int getRentTypeId() {
+        return rentTypeId;
     }
 
-    public void setRentType(String rentType) {
-        this.rentType = rentType;
+    public void setRentTypeId(int rentTypeId) {
+        this.rentTypeId = rentTypeId;
     }
 
+    public int getServiceTypeId() {
+        return serviceTypeId;
+    }
 
+    public void setServiceTypeId(int serviceTypeId) {
+        this.serviceTypeId = serviceTypeId;
+    }
 }

@@ -3,6 +3,7 @@ package models;
 import java.util.Date;
 
 public class Customer {
+    private int customerId;
     private int customerType;
     private String customerName;
     private Date customerBirthday;
@@ -15,6 +16,19 @@ public class Customer {
     public Customer() {
     }
 
+    public Customer(int customerId, int customerType, String customerName, Date customerBirthday, String customerGender,
+                    String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
+        this.customerId = customerId;
+        this.customerType = customerType;
+        this.customerName = customerName;
+        this.customerBirthday = customerBirthday;
+        this.customerGender = customerGender;
+        this.customerIdCard = customerIdCard;
+        this.customerPhone = customerPhone;
+        this.customerEmail = customerEmail;
+        this.customerAddress = customerAddress;
+    }
+
     public Customer(int customerType, String customerName, Date customerBirthday, String customerGender, String customerIdCard,
                     String customerPhone, String customerEmail, String customerAddress) {
         this.customerType = customerType;
@@ -25,6 +39,14 @@ public class Customer {
         this.customerPhone = customerPhone;
         this.customerEmail = customerEmail;
         this.customerAddress = customerAddress;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public String getCustomerName() {
