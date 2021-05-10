@@ -9,53 +9,99 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Result Search</title>
+    <title>$Title$</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%--    jQuery and Popper--%>
+    <script type="text/javascript" src="/assert/bootstrap4/js/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="/assert/bootstrap4/js/bootstrap.bundle.js"></script>
+    <%--CSS--%>
     <link rel="stylesheet" type="text/css" href="/assert/bootstrap4/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/assert/bootstrap4/css/bootstrap-grid.css">
     <link rel="stylesheet" type="text/css" href="/assert/bootstrap4/css/bootstrap-reboot.css">
+    <%--JavaScript--%>
+    <script type="text/javascript" src="/assert/bootstrap4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/assert/bootstrap4/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/assert/bootstrap4/js/bootstrap.bundle.js"></script>
 </head>
 <body>
-<c:if test="${customer != null}">
-<h1>Result</h1>
-    <div class="col-10">
-        <table class="table table-striped table-bordered">
-            <h1>List All Customer</h1>
-            <tr>
-                <th scope="col" class="table-success">Customer Id</th>
-                <th scope="col" class="table-success">Customer Type</th>
-                <th scope="col" class="table-success">Name</th>
-                <th scope="col" class="table-success">Birthday</th>
-                <th scope="col" class="table-success">Gender</th>
-                <th scope="col" class="table-success">Id card</th>
-                <th scope="col" class="table-success">Phone Number</th>
-                <th scope="col" class="table-success">Email</th>
-                <th scope="col" class="table-success">Address</th>
-                <th scope="col" class="table-success">Function</th>
-            </tr>
-            <c:forEach items="${customerList}" var="customer">
-                <tr>
-                    <td>${customer.customerId}</td>
-                    <td>${customer.customerType}</td>
-                    <td>${customer.customerName}</td>
-                    <td>${customer.customerBirthday}</td>
-                    <td>${customer.customerGender}</td>
-                    <td>${customer.customerIdCard}</td>
-                    <td>${customer.customerPhone}</td>
-                    <td>${customer.customerEmail}</td>
-                    <td>${customer.customerAddress}</td>
-                    <td><a href="/customers?action=edit&customerId=${customer.customerId}" class="btn btn-success">Update</a>
-                        <a href="/customers?action=delete&customerId=${customer.customerId}" class="btn btn-success">Delete</a>
-                    </td>
-                </tr>
-            </c:forEach>
-        </table>
+<div class="container-fluid">
+    <header class="row">
+
+    </header>
+    <header class="row">
+        <%
+            String username = (String)session.getAttribute("username");
+            if(session != null){
+                out.print("Hello, " + username);
+            }else {
+                out.print("Hello friend" );
+            }
+        %>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://localhost:8080/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown1" type="button"
+                       role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Employee
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/employees?action=create">Insert</a>
+                        <a class="dropdown-item" href="/employees">List</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Service
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/services?action=create">Insert</a>
+                        <a class="dropdown-item" href="/services">List</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Customer
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/customers?action=create">Insert</a>
+                        <a class="dropdown-item" href="/customers">List</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Contract
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/contracts?action=create">Insert</a>
+                        <a class="dropdown-item" href="/contracts">List</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="/customers">
+                <input type="hidden" name="action" value="search">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                       name="searchInput">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Log out</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Log in</a>
+            </li>
+        </div>
+    </nav>
+    <div class="row">
+        <p>Not found</p>
     </div>
-</c:if>
-<c:if test="${customer == null}">
-    <sout>Not found customer</sout>
-</c:if>
+    <footer class="row"></footer>
+</div>
 </body>
 </html>

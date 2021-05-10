@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="http://localhost:8080/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown1" type="button"
@@ -97,12 +97,8 @@
                     <th scope="col" class="table-success">Service Area</th>
                     <th scope="col" class="table-success">Service Cost</th>
                     <th scope="col" class="table-success">Service Max People</th>
-                    <th scope="col" class="table-success">Rent Type Id</th>
-                    <th scope="col" class="table-success">Service Type Id</th>
-                    <th scope="col" class="table-success">Standard Room</th>
-                    <th scope="col" class="table-success">Description Other Convenience</th>
-                    <th scope="col" class="table-success">Pool Area</th>
-                    <th scope="col" class="table-success">Number Of Floor</th>
+                    <th scope="col" class="table-success">Rent Type</th>
+                    <th scope="col" class="table-success">Service Type</th>
                 </tr>
                 <c:forEach items="${serviceList}" var="service">
                     <tr>
@@ -111,15 +107,8 @@
                         <td>${service.serviceArea}</td>
                         <td>${service.serviceCost}</td>
                         <td>${service.serviceMaxPeople}</td>
-                        <td>${service.rentTypeId}</td>
-                        <td>${service.serviceTypeId}</td>
-                        <td>${service.standardRoom}</td>
-                        <td>${service.descriptionOtherConvenience}</td>
-                        <td>${service.poolArea}</td>
-                        <td>${service.numberOfFloor}</td>
-                        <td><a href="/services?action=edit&serviceId=${service.serviceId}" class="btn btn-success">Update</a>
-                            <a href="/services?action=delete&serviceId=${service.serviceId}" class="btn btn-success">Delete</a>
-                        </td>
+                        <td>${service.rentType.rentTypeName}</td>
+                        <td>${service.serviceType.serviceTypeName}</td>
                     </tr>
                 </c:forEach>
             </table>

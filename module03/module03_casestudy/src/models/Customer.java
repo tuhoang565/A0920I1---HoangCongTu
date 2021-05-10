@@ -1,13 +1,14 @@
 package models;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 public class Customer {
     private int customerId;
-    private int customerType;
+    private CustomerType customerType;
     private String customerName;
-    private Date customerBirthday;
-    private String customerGender;
+    private LocalDate customerBirthday;
+    private Gender customerGender;
     private String customerIdCard;
     private String customerPhone;
     private String customerEmail;
@@ -16,7 +17,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int customerId, int customerType, String customerName, Date customerBirthday, String customerGender,
+    public Customer(int customerId, CustomerType customerType, String customerName, LocalDate customerBirthday, Gender customerGender,
                     String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
         this.customerId = customerId;
         this.customerType = customerType;
@@ -29,7 +30,7 @@ public class Customer {
         this.customerAddress = customerAddress;
     }
 
-    public Customer(int customerType, String customerName, Date customerBirthday, String customerGender, String customerIdCard,
+    public Customer(CustomerType customerType, String customerName, LocalDate customerBirthday, Gender customerGender, String customerIdCard,
                     String customerPhone, String customerEmail, String customerAddress) {
         this.customerType = customerType;
         this.customerName = customerName;
@@ -57,19 +58,19 @@ public class Customer {
         this.customerName = customerName;
     }
 
-    public Date getCustomerBirthday() {
+    public LocalDate getCustomerBirthday() {
         return customerBirthday;
     }
 
-    public void setCustomerBirthday(Date customerBirthday) {
+    public void setCustomerBirthday(LocalDate customerBirthday) {
         this.customerBirthday = customerBirthday;
     }
 
-    public String getCustomerGender() {
+    public Gender getCustomerGender() {
         return customerGender;
     }
 
-    public void setCustomerGender(String customerGender) {
+    public void setCustomerGender(Gender customerGender) {
         this.customerGender = customerGender;
     }
 
@@ -97,11 +98,11 @@ public class Customer {
         this.customerEmail = customerEmail;
     }
 
-    public int getCustomerType() {
+    public CustomerType getCustomerType() {
         return customerType;
     }
 
-    public void setCustomerType(int customerType) {
+    public void setCustomerType(CustomerType customerType) {
         this.customerType = customerType;
     }
 

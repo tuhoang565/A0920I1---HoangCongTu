@@ -1,31 +1,54 @@
 package models;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Employee {
     private int employeeId;
     private String employeeName;
-    private Date employeeBirthday;
+    private LocalDate employeeBirthday;
     private String employeeIdCard;
+    private double employeeSalary;
     private String employeePhone;
     private String employeeEmail;
-    private EducationDegree educationDegree;
+    private String employeeAddress;
     private Position position;
+    private EducationDegree educationDegree;
     private Division division;
+    private String username;
 
     public Employee() {
     }
 
-    public Employee(int employeeId, String employeeName, Date employeeBirthday, String employeeIdCard, String employeePhone, String employeeEmail, EducationDegree educationDegree, Position position, Division division) {
+    public Employee(int employeeId, String employeeName, LocalDate employeeBirthday, String employeeIdCard, double employeeSalary,
+                    String employeePhone, String employeeEmail, String employeeAddress, Position position, EducationDegree educationDegree, Division division, String username) {
         this.employeeId = employeeId;
         this.employeeName = employeeName;
         this.employeeBirthday = employeeBirthday;
         this.employeeIdCard = employeeIdCard;
+        this.employeeSalary = employeeSalary;
         this.employeePhone = employeePhone;
         this.employeeEmail = employeeEmail;
-        this.educationDegree = educationDegree;
+        this.employeeAddress = employeeAddress;
         this.position = position;
+        this.educationDegree = educationDegree;
         this.division = division;
+        this.username = username;
+    }
+
+    public Employee(String employeeName, LocalDate employeeBirthday, String employeeIdCard, double employeeSalary, String employeePhone,
+                    String employeeEmail, String employeeAddress, Position position, EducationDegree educationDegree, Division division, String username) {
+        this.employeeName = employeeName;
+        this.employeeBirthday = employeeBirthday;
+        this.employeeIdCard = employeeIdCard;
+        this.employeeSalary = employeeSalary;
+        this.employeePhone = employeePhone;
+        this.employeeEmail = employeeEmail;
+        this.employeeAddress = employeeAddress;
+        this.position = position;
+        this.educationDegree = educationDegree;
+        this.division = division;
+        this.username = username;
     }
 
     public int getEmployeeId() {
@@ -44,11 +67,11 @@ public class Employee {
         this.employeeName = employeeName;
     }
 
-    public Date getEmployeeBirthday() {
+    public LocalDate getEmployeeBirthday() {
         return employeeBirthday;
     }
 
-    public void setEmployeeBirthday(Date employeeBirthday) {
+    public void setEmployeeBirthday(LocalDate employeeBirthday) {
         this.employeeBirthday = employeeBirthday;
     }
 
@@ -58,6 +81,14 @@ public class Employee {
 
     public void setEmployeeIdCard(String employeeIdCard) {
         this.employeeIdCard = employeeIdCard;
+    }
+
+    public double getEmployeeSalary() {
+        return employeeSalary;
+    }
+
+    public void setEmployeeSalary(double employeeSalary) {
+        this.employeeSalary = employeeSalary;
     }
 
     public String getEmployeePhone() {
@@ -76,12 +107,12 @@ public class Employee {
         this.employeeEmail = employeeEmail;
     }
 
-    public EducationDegree getEducationDegree() {
-        return educationDegree;
+    public String getEmployeeAddress() {
+        return employeeAddress;
     }
 
-    public void setEducationDegree(EducationDegree educationDegree) {
-        this.educationDegree = educationDegree;
+    public void setEmployeeAddress(String employeeAddress) {
+        this.employeeAddress = employeeAddress;
     }
 
     public Position getPosition() {
@@ -92,11 +123,27 @@ public class Employee {
         this.position = position;
     }
 
+    public EducationDegree getEducationDegree() {
+        return educationDegree;
+    }
+
+    public void setEducationDegree(EducationDegree educationDegree) {
+        this.educationDegree = educationDegree;
+    }
+
     public Division getDivision() {
         return division;
     }
 
     public void setDivision(Division division) {
         this.division = division;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

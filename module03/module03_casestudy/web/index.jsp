@@ -39,8 +39,8 @@
                         Employee
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Insert</a>
-                        <a class="dropdown-item" href="#">List</a>
+                        <a class="dropdown-item" href="/employees?action=create">Insert</a>
+                        <a class="dropdown-item" href="/employees">List</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -74,8 +74,10 @@
                     </div>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0" action="/customers?action=search">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="searchInput">
+            <form class="form-inline my-2 my-lg-0" action="/customers">
+                <input type="hidden" name="action" value="search">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                       name="searchInput">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>

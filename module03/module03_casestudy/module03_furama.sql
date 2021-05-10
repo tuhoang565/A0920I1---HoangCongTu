@@ -65,12 +65,18 @@ create table customer_type(
     constraint pk_customer_type primary key customer_type(customer_type_id)
 );
 
+create table gender(
+	gender_id int(10) auto_increment,
+    gender_name varchar(45),
+    constraint pk_gender primary key gender(gender_id)
+);
+
 create table customer(
 	customer_id int(10) auto_increment,
     customer_type_id int(10),
     customer_name varchar(45),
     customer_birthday date,
-    customer_gender varchar(10),
+    customer_gender int(10),
     customer_id_card varchar(45),
     customer_phone varchar(45),
     customer_email varchar(45),
@@ -78,7 +84,8 @@ create table customer(
     constraint pk_customer primary key customer(customer_id),
     constraint fk_customer_type_id_customer foreign key(customer_type_id) references customer_type(customer_type_id)
 );
-
+ALTER TABLE customer ADD CONSTRAINT fk_customer_gender FOREIGN KEY(customer_gender) REFERENCES gender(gender_id);
+alter table customer modify customer_gender int(10);
 ALTER TABLE customer DROP FOREIGN KEY fk_customer_type_id_customer;
 ALTER TABLE customer DROP primary key;
 
@@ -103,7 +110,7 @@ create table employee(
 );
 
 create table service(
-	service_id int(10),
+	service_id int(10) auto_increment,
     service_name varchar(45),
     service_area int,
     service_cost double,
@@ -134,6 +141,7 @@ create table contract(
 );
 ALTER TABLE contract DROP FOREIGN KEY fk_customer_id_contract;
 ALTER TABLE contract ADD FOREIGN KEY(customer_id) REFERENCES customer(customer_id);
+ALTER TABLE contract ADD FOREIGN KEY(service_id) REFERENCES service(service_id);
 
 
 create table contract_detail(

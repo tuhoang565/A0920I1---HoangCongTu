@@ -1,11 +1,15 @@
 package dao;
 
 import models.Customer;
+import models.CustomerType;
+import models.Gender;
 
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Date;
@@ -16,6 +20,10 @@ public class CustomerDAO implements CRUDDao{
     private String jdbcPassword = "123456";
 
 
+    private CustomerTypeDAO customerTypeDAO = new CustomerTypeDAO();
+    private GenderDAO genderDAO = new GenderDAO();
+
+
     private static final String INSERT_CUSTOMERS = "insert into customer(customer_type_id, customer_name, customer_birthday," +
             "customer_gender, customer_id_card, customer_phone, customer_email, customer_address) values(?,?,?,?,?,?,?,?)";
     private static final String SELECT_ALL_CUSTOMER = "select * from customer";
@@ -23,7 +31,7 @@ public class CustomerDAO implements CRUDDao{
     private static final String UPDATE_CUSTOMER = "update customer set customer_type_id = ?, customer_name = ?, customer_birthday = ?," +
             "customer_gender = ?, customer_id_card = ?, customer_phone = ?, customer_email = ?, customer_address = ? where customer_id = ?";
     private static final String DELETE_CUSTOMER = "delete from customer where customer_id = ?;";
-    private static final String SEARCH_CUSTOMER = "select * from customer where customer_name = ?";
+    private final String SEARCH_CUSTOMER = "select * from customer where customer_name like ?";
 
     public CustomerDAO() {
     }
@@ -48,15 +56,12 @@ public class CustomerDAO implements CRUDDao{
                 connection = getConnection();
                 statement = connection.prepareStatement(INSERT_CUSTOMERS);
 
-                java.util.Date myDate = new java.util.Date();
-                myDate =customer.getCustomerBirthday();
-                java.sql.Date sqlDate = new java.sql.Date(myDate.getTime());
+                LocalDate myDate = customer.getCustomerBirthday();
 
-
-                statement.setInt(1, customer.getCustomerType());
+                statement.setInt(1, customer.getCustomerType().getCustomerTypeId());
                 statement.setString(2, customer.getCustomerName());
-                statement.setDate(3, sqlDate);
-                statement.setString(4, customer.getCustomerGender());
+                statement.setDate(3, Date.valueOf(myDate));
+                statement.setInt(4, customer.getCustomerGender().getGenderId());
                 statement.setString(5, customer.getCustomerIdCard());
                 statement.setString(6, customer.getCustomerPhone());
                 statement.setString(7,customer.getCustomerEmail());
@@ -90,11 +95,14 @@ public class CustomerDAO implements CRUDDao{
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()){
+                java.sql.Date input = resultSet.getDate("customer_birthday");
+                LocalDate date = input.toLocalDate();
+
                 int customerId = resultSet.getInt("customer_id");
-                int customerType = resultSet.getInt("customer_type_id");
+                CustomerType customerType = customerTypeDAO.selectCustomerType(resultSet.getInt("customer_type_id"));
                  String customerName = resultSet.getString("customer_name");
-                 Date customerBirthday = resultSet.getDate("customer_birthday");
-                 String customerGender = resultSet.getString("customer_gender");
+                 LocalDate customerBirthday = date;
+                 Gender customerGender = genderDAO.selectGenderById(resultSet.getInt("customer_gender"));
                  String customerIdCard = resultSet.getString("customer_id_card");
                  String customerPhone = resultSet.getString("customer_phone");
                  String customerEmail = resultSet.getString("customer_email");
@@ -130,10 +138,13 @@ public class CustomerDAO implements CRUDDao{
             statement.setInt(1, customerId);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()){
-                int customerType = resultSet.getInt("customer_type_id");
+                Date input = resultSet.getDate("customer_birthday");
+                LocalDate date = input.toLocalDate();
+
+                CustomerType customerType = customerTypeDAO.selectCustomerType(resultSet.getInt("customer_type_id"));
                 String customerName = resultSet.getString("customer_name");
-                Date customerBirthday = resultSet.getDate("customer_birthday");
-                String customerGender = resultSet.getString("customer_gender");
+                LocalDate customerBirthday = date;
+                Gender customerGender = genderDAO.selectGenderById(resultSet.getInt("customer_gender"));
                 String customerIdCard = resultSet.getString("customer_id_card");
                 String customerPhone = resultSet.getString("customer_phone");
                 String customerEmail = resultSet.getString("customer_email");
@@ -189,16 +200,14 @@ public class CustomerDAO implements CRUDDao{
             PreparedStatement statement = null;
 
             try {
-                java.util.Date myDate = new java.util.Date();
-                myDate = customer.getCustomerBirthday();
-                java.sql.Date sqlDate = new java.sql.Date(myDate.getTime());
+                LocalDate myDate = customer.getCustomerBirthday();
 
                 connection = getConnection();
                 statement = connection.prepareStatement(UPDATE_CUSTOMER);
-                statement.setInt(1, customer.getCustomerType());
+                statement.setInt(1, customer.getCustomerType().getCustomerTypeId());
                 statement.setString(2, customer.getCustomerName());
-                statement.setDate(3, sqlDate);
-                statement.setString(4, customer.getCustomerGender());
+                statement.setDate(3, Date.valueOf(myDate));
+                statement.setInt(4, customer.getCustomerGender().getGenderId());
                 statement.setString(5, customer.getCustomerIdCard());
                 statement.setString(6, customer.getCustomerPhone());
                 statement.setString(7, customer.getCustomerEmail());
@@ -223,27 +232,31 @@ public class CustomerDAO implements CRUDDao{
     }
 
     @Override
-    public Customer search(String searchInput) {
+    public List<Customer> search(String searchInput) {
         Connection connection = null;
         PreparedStatement statement = null;
-        Customer customer = null;
+        List<Customer> customerList = new ArrayList<>();
+
         try{
             connection = getConnection();
             statement = connection.prepareStatement(SEARCH_CUSTOMER);
-            statement.setString(1, searchInput);
+            statement.setString(1, "%" + searchInput + "%");
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()){
+                Date input = resultSet.getDate("customer_birthday");
+                LocalDate date = input.toLocalDate();
+
                 int customerId = resultSet.getInt("customer_id");
-                int customerType = resultSet.getInt("customer_type_id");
+                CustomerType customerType = customerTypeDAO.selectCustomerType(resultSet.getInt("customer_type_id"));
                 String customerName = resultSet.getString("customer_name");
-                Date customerBirthday = resultSet.getDate("customer_birthday");
-                String customerGender = resultSet.getString("customer_gender");
+                LocalDate customerBirthday = date;
+                Gender customerGender = genderDAO.selectGenderById(resultSet.getInt("customer_gender"));
                 String customerIdCard = resultSet.getString("customer_id_card");
                 String customerPhone = resultSet.getString("customer_phone");
                 String customerEmail = resultSet.getString("customer_email");
                 String customerAddress = resultSet.getString("customer_address");
-                customer = new Customer(customerId, customerType, customerName, customerBirthday, customerGender, customerIdCard,
-                        customerPhone, customerEmail, customerAddress);
+                customerList.add(new Customer(customerId, customerType, customerName, customerBirthday, customerGender, customerIdCard,
+                        customerPhone, customerEmail, customerAddress));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -259,7 +272,7 @@ public class CustomerDAO implements CRUDDao{
                 e.printStackTrace();
             }
         }
-        return customer;
+        return customerList;
     }
 
     private void printSQLException(SQLException ex) {

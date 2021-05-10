@@ -11,5 +11,5 @@ public interface CRUDDao {
     Customer getById(int id);
     void delete(int id) throws SQLException;
     void update(Customer customer) throws SQLException;
-    Customer search(String string);
+    List<Customer> search(String string);
 }

@@ -6,8 +6,8 @@ public class Service {
     private int serviceArea;
     private double serviceCost;
     private int serviceMaxPeople;
-    private int rentTypeId;
-    private int serviceTypeId;
+    private RentType rentType;
+    private ServiceType serviceType;
     private String standardRoom;
     private String descriptionOtherConvenience;
     private double poolArea;
@@ -16,15 +16,29 @@ public class Service {
     public Service() {
     }
 
-    public Service(int serviceId, String serviceName, int serviceArea, double serviceCost, int serviceMaxPeople,
-                   int rentTypeId, int serviceTypeId, String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloor) {
+    public Service(String serviceName, int serviceArea, double serviceCost, int serviceMaxPeople,
+                   RentType rentType, ServiceType serviceType, String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloor) {
+        this.serviceName = serviceName;
+        this.serviceArea = serviceArea;
+        this.serviceCost = serviceCost;
+        this.serviceMaxPeople = serviceMaxPeople;
+        this.rentType = rentType;
+        this.serviceType = serviceType;
+        this.standardRoom = standardRoom;
+        this.descriptionOtherConvenience = descriptionOtherConvenience;
+        this.poolArea = poolArea;
+        this.numberOfFloor = numberOfFloor;
+    }
+
+    public Service(int serviceId, String serviceName, int serviceArea, double serviceCost, int serviceMaxPeople, RentType rentType,
+                   ServiceType serviceType, String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloor) {
         this.serviceId = serviceId;
         this.serviceName = serviceName;
         this.serviceArea = serviceArea;
         this.serviceCost = serviceCost;
         this.serviceMaxPeople = serviceMaxPeople;
-        this.rentTypeId = rentTypeId;
-        this.serviceTypeId = serviceTypeId;
+        this.rentType = rentType;
+        this.serviceType = serviceType;
         this.standardRoom = standardRoom;
         this.descriptionOtherConvenience = descriptionOtherConvenience;
         this.poolArea = poolArea;
@@ -103,19 +117,19 @@ public class Service {
         this.serviceMaxPeople = serviceMaxPeople;
     }
 
-    public int getRentTypeId() {
-        return rentTypeId;
+    public RentType getRentType() {
+        return rentType;
     }
 
-    public void setRentTypeId(int rentTypeId) {
-        this.rentTypeId = rentTypeId;
+    public void setRentType(RentType rentType) {
+        this.rentType = rentType;
     }
 
-    public int getServiceTypeId() {
-        return serviceTypeId;
+    public ServiceType getServiceType() {
+        return serviceType;
     }
 
-    public void setServiceTypeId(int serviceTypeId) {
-        this.serviceTypeId = serviceTypeId;
+    public void setServiceType(ServiceType serviceType) {
+        this.serviceType = serviceType;
     }
 }

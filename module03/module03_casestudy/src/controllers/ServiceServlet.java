@@ -1,8 +1,14 @@
 package controllers;
 
+import commons.Validate;
+import dao.RentTypeDAO;
 import dao.ServiceDAO;
+import dao.ServiceTypeDAO;
+import models.RentType;
 import models.Service;
+import models.ServiceType;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +20,10 @@ import java.util.List;
 
 @WebServlet(name = "ServiceServlet", urlPatterns = "/services")
 public class ServiceServlet extends HttpServlet {
+    private ServiceTypeDAO serviceTypeDAO = new ServiceTypeDAO();
+    private RentTypeDAO rentTypeDAO = new RentTypeDAO();
+    private ServiceDAO serviceDAO = new ServiceDAO();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         if (action == null) {
@@ -25,9 +35,6 @@ public class ServiceServlet extends HttpServlet {
                 case "create":
                     insertService(request, response);
                     break;
-                case "edit":
-                    updateService(request, response);
-                    break;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -36,7 +43,7 @@ public class ServiceServlet extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = null;
+        String action = request.getParameter("action");
         if (action == null) {
             action = "";
         }
@@ -44,12 +51,6 @@ public class ServiceServlet extends HttpServlet {
             switch (action) {
                 case "create":
                     showNewForm(request, response);
-                    break;
-                case "edit":
-                    showEditForm(request, response);
-                    break;
-                case "delete":
-                    deleteService(request, response);
                     break;
                 default:
                     listService(request, response);
@@ -60,43 +61,77 @@ public class ServiceServlet extends HttpServlet {
         }
     }
 
-    private void updateService(HttpServletRequest request, HttpServletResponse response) {
-    }
+
 
     private void insertService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServiceDAO serviceDAO = new ServiceDAO();
 
-        int serviceId = Integer.parseInt(request.getParameter("serviceId"));
         String serviceName = request.getParameter("serviceName");
         int serviceArea = Integer.parseInt(request.getParameter("serviceArea"));
         double serviceCost = Double.parseDouble(request.getParameter("serviceCost"));
         int serviceMaxPeople = Integer.parseInt(request.getParameter("serviceMaxPeople"));
-        int rentTypeId = Integer.parseInt(request.getParameter("rentTypeId"));
-        int serviceTypeId = Integer.parseInt(request.getParameter("serviceTypeId"));
+        RentType rentType = rentTypeDAO.getRentTypeById(Integer.parseInt(request.getParameter("rentType")));
+        ServiceType serviceType = serviceTypeDAO.getServiceTypeById(Integer.parseInt(request.getParameter("serviceType")));
         String standardRoom = request.getParameter("standardRoom");
         String descriptionOtherConvenience = request.getParameter("descriptionOtherConvenience");
         double poolArea = Double.parseDouble(request.getParameter("poolArea"));
         int numberOfFloor = Integer.parseInt(request.getParameter("numberOfFloor"));
 
-        serviceDAO.insert(new Service(serviceId, serviceName, serviceArea, serviceCost, serviceMaxPeople, rentTypeId,
-                serviceTypeId, standardRoom, descriptionOtherConvenience, poolArea, numberOfFloor));
-        request.getRequestDispatcher("jsp/service/create.jsp").forward(request, response);
+        Service service = new Service(serviceName, serviceArea, serviceCost, serviceMaxPeople, rentType,
+                serviceType, standardRoom, descriptionOtherConvenience, poolArea, numberOfFloor);
+
+
+        String messageServiceName = Validate.validateServiceName(serviceName);
+        String messageServiceMaxPeople = Validate.validatePositiveNumber(serviceMaxPeople);
+        String messageNumberOfFloor = Validate.validatePositiveNumber(numberOfFloor);
+        try {
+            //        Validate thanh cong
+            if (messageNumberOfFloor == null && messageServiceMaxPeople == null && messageServiceName == null) {
+                serviceDAO.insert(service);
+                service = null;
+                listService(request, response);
+//            Validate that bai
+            } else {
+                List<RentType> rentTypeList = rentTypeDAO.getAllRentType();
+                List<ServiceType> serviceTypeList = serviceTypeDAO.getAllServiceType();
+                List<Service> serviceList = serviceDAO.getAll();
+                request.setAttribute("service", service);
+                request.setAttribute("rentTypeList", rentTypeList);
+                request.setAttribute("serviceTypeList", serviceTypeList);
+                request.setAttribute("serviceList", serviceList);
+                request.setAttribute("messageServiceName", messageServiceName);
+                request.setAttribute("messageServiceMaxPeople", messageServiceMaxPeople);
+                request.setAttribute("messageNumberOfFloor", messageNumberOfFloor);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/service/create.jsp");
+                try{
+                    dispatcher.forward(request, response);
+                }catch (ServletException e){
+                    e.printStackTrace();
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     private void listService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ServiceDAO serviceDAO = new ServiceDAO();
+        List<RentType> rentTypeList = rentTypeDAO.getAllRentType();
+        List<ServiceType> serviceTypeList = serviceTypeDAO.getAllServiceType();
         List<Service> serviceList = serviceDAO.getAll();
+
+        request.setAttribute("rentTypeList", rentTypeList);
+        request.setAttribute("serviceTypeList", serviceTypeList);
         request.setAttribute("serviceList", serviceList);
         request.getRequestDispatcher("jsp/service/list.jsp").forward(request, response);
     }
 
-    private void deleteService(HttpServletRequest request, HttpServletResponse response) {
-    }
-
-    private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
-    }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<RentType> rentTypeList = rentTypeDAO.getAllRentType();
+        List<ServiceType> serviceTypeList = serviceTypeDAO.getAllServiceType();
+        request.setAttribute("rentTypeList", rentTypeList);
+        request.setAttribute("serviceTypeList", serviceTypeList);
         request.getRequestDispatcher("jsp/service/create.jsp").forward(request, response);
     }
 }

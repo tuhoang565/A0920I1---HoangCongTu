@@ -2,14 +2,14 @@ package models;
 
 public class CustomerType {
     private int customerTypeId;
-    private String customerType;
+    private String customerTypeName;
 
     public CustomerType() {
     }
 
     public CustomerType(int customerTypeId, String customerType) {
         this.customerTypeId = customerTypeId;
-        this.customerType = customerType;
+        this.customerTypeName = customerType;
     }
 
     public int getCustomerTypeId() {
@@ -20,11 +20,11 @@ public class CustomerType {
         this.customerTypeId = customerTypeId;
     }
 
-    public String getCustomerType() {
-        return customerType;
+    public String getCustomerTypeName() {
+        return customerTypeName;
     }
 
-    public void setCustomerType(String customerType) {
-        this.customerType = customerType;
+    public void setCustomerTypeName(String customerTypeName) {
+        this.customerTypeName = customerTypeName;
     }
 }

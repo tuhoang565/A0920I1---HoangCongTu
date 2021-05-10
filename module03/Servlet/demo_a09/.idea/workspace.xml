@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="47a0394b-6c6c-433c-ab79-dde7d5bb8ddc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/demo_a09_Web_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/demo_a09.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_a09/demo_a09.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/module03_casestudy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/src/commons/Validate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/src/controllers/EmployeeServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/src/controllers/LoginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/src/controllers/LogoutServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/src/dao/ContractDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/src/dao/CustomerTypeDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/src/dao/DivisionDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/src/dao/EducationDegreeDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/src/dao/EmployeeDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/src/dao/GenderDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/src/dao/PositionDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/src/dao/RentTypeDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/src/dao/ServiceTypeDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/src/dao/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/src/models/Gender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/css/dataTables.bootstrap4.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/dataTables.bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/dataTables.bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/dataTables.bootstrap4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/dataTables.bootstrap4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/dataTables.editor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/dataTables.editor.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/dataTables.foundation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/dataTables.foundation.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/dataTables.jqueryui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/dataTables.jqueryui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/dataTables.semanticui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/dataTables.semanticui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/editor.bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/editor.bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/editor.bootstrap4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/editor.bootstrap4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/editor.foundation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/editor.foundation.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/editor.jqueryui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/editor.jqueryui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/editor.semanticui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/editor.semanticui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/jquery.dataTables.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/assert/bootstrap4/dataTable/jquery.dataTables.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/customer/detail.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/employee/create.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/employee/detail.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/employee/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/login/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/service/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/.idea/artifacts/module03_exam_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/module03_exam.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/css/dataTables.bootstrap4.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/dataTables.bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/dataTables.bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/dataTables.bootstrap4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/dataTables.bootstrap4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/dataTables.editor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/dataTables.editor.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/dataTables.foundation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/dataTables.foundation.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/dataTables.jqueryui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/dataTables.jqueryui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/dataTables.semanticui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/dataTables.semanticui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/editor.bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/editor.bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/editor.bootstrap4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/editor.bootstrap4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/editor.foundation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/editor.foundation.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/editor.jqueryui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/editor.jqueryui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/editor.semanticui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/editor.semanticui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/jquery.dataTables.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/dataTable/jquery.dataTables.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/WEB-INF/libs/mysql-connector-java-8.0.17.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/WEB-INF/libs/servlet-api-2.5-6.0.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/WEB-INF/libs/taglibs-standard-impl-1.2.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/WEB-INF/libs/taglibs-standard-spec-1.2.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/css/dataTables.bootstrap4.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/css/poly.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/dataTables.bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/dataTables.bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/dataTables.bootstrap4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/dataTables.bootstrap4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/dataTables.editor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/dataTables.editor.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/dataTables.foundation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/dataTables.foundation.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/dataTables.jqueryui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/dataTables.jqueryui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/dataTables.semanticui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/dataTables.semanticui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/editor.bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/editor.bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/editor.bootstrap4.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/editor.bootstrap4.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/editor.foundation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/editor.foundation.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/editor.jqueryui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/editor.jqueryui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/editor.semanticui.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/editor.semanticui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/jquery.dataTables.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/dataTable/jquery.dataTables.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/js/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/bootstrap4/js/jquery-3.6.0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/assert/images/t.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module03_exam/web/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../~$-DN Case Study for JSP&amp;Servlet.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/module03_furama.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_casestudy/module03_furama.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/META-INF/module03_casestudy.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/controllers/CustomerServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/controllers/ServiceServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/dao/CRUDDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/dao/CustomerDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/dao/ServiceDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/models/AttachService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/models/Contract.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/models/ContractDetail.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/models/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/models/CustomerType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/models/Division.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/models/EducationDegree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/models/Employee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/models/House.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/models/Position.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/models/RentType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/models/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/models/Room.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/models/Service.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/models/ServiceType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/models/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/classes/models/Villa.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/lib/mysql-connector-java-8.0.17.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/WEB-INF/lib/mysql-connector-java-8.0.17.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/libs/mysql-connector-java-8.0.17.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/WEB-INF/libs/mysql-connector-java-8.0.17.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/libs/servlet-api-2.5-6.0.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/WEB-INF/libs/servlet-api-2.5-6.0.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/libs/taglibs-standard-impl-1.2.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/WEB-INF/libs/taglibs-standard-impl-1.2.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/libs/taglibs-standard-spec-1.2.5.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/WEB-INF/libs/taglibs-standard-spec-1.2.5.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/css/bootstrap-grid.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/css/bootstrap-grid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/css/bootstrap-grid.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/css/bootstrap-grid.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/css/bootstrap-grid.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/css/bootstrap-grid.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/css/bootstrap-grid.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/css/bootstrap-reboot.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/css/bootstrap-reboot.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/css/bootstrap-reboot.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/css/bootstrap-reboot.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/css/bootstrap-reboot.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/css/bootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/css/bootstrap.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/css/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/css/bootstrap.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/css/poly.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/css/poly.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/js/bootstrap.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/js/bootstrap.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/js/bootstrap.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/js/bootstrap.bundle.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/js/bootstrap.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/js/bootstrap.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/js/bootstrap.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/js/bootstrap.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/bootstrap4/js/jquery-3.6.0.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/bootstrap4/js/jquery-3.6.0.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/assert/images/t.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_exam/out/artifacts/module03_exam_war_exploded/assert/images/t.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/jsp/customer/create.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/jsp/customer/edit.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/jsp/customer/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/employee/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/jsp/customer/search.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/jsp/customer/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/jsp/service/create.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/artifacts/module03_casestudy_war_exploded/jsp/service/list.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/META-INF/module03_casestudy.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/controllers/CustomerServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/controllers/ServiceServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/dao/CRUDDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/dao/CustomerDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/dao/ServiceDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/models/AttachService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/models/Contract.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/models/ContractDetail.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/models/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/models/CustomerType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/models/Division.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/models/EducationDegree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/models/Employee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/models/House.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/models/Position.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/models/RentType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/models/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/models/Room.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/models/Service.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/models/ServiceType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/models/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/out/production/module03_casestudy/models/Villa.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/src/controllers/CustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_casestudy/src/controllers/CustomerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/src/controllers/ServiceServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_casestudy/src/controllers/ServiceServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/src/dao/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_casestudy/src/dao/CustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/src/dao/ServiceDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_casestudy/src/dao/ServiceDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/src/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_casestudy/src/models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/src/models/CustomerType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_casestudy/src/models/CustomerType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/src/models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_casestudy/src/models/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/src/models/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_casestudy/src/models/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_casestudy/web/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/customer/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/customer/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/customer/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/customer/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/customer/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/customer/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/customer/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/customer/search.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/customer/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/service/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/service/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/service/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../module03_casestudy/web/jsp/service/list.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectId" id="1rsBBZQfw5fkFHmi3QDEezFMpfq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.17" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.17" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment />
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_demo_a09" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="64575" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="47a0394b-6c6c-433c-ab79-dde7d5bb8ddc" name="Default Changelist" comment="" />
+      <created>1619754781739</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619754781739</updated>
+      <workItem from="1619754783098" duration="6368000" />
+      <workItem from="1619777228647" duration="4452000" />
+      <workItem from="1619831355297" duration="8691000" />
+      <workItem from="1619967250482" duration="36000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="0" y="74" key="#Project_Structure" timestamp="1619777306008">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="0" y="74" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1619777306008" />
+    <state x="223" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1619776948302">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1619776948302" />
+    <state x="259" y="304" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1619754887362">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="259" y="304" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1619754887362" />
+    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1619777206507">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1619777206507" />
+    <state width="1024" height="221" key="GridCell.Tab.0.bottom" timestamp="1619883748835">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="221" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619883748835" />
+    <state width="1024" height="221" key="GridCell.Tab.0.center" timestamp="1619883748835">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="221" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1619883748835" />
+    <state width="1024" height="221" key="GridCell.Tab.0.left" timestamp="1619883748835">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="221" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1619883748835" />
+    <state width="1024" height="221" key="GridCell.Tab.0.right" timestamp="1619883748835">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="221" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1619883748835" />
+    <state width="1024" height="221" key="GridCell.Tab.1.bottom" timestamp="1619874622733">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="221" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619874622733" />
+    <state width="1024" height="221" key="GridCell.Tab.1.center" timestamp="1619874622733">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="221" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1619874622733" />
+    <state width="1024" height="221" key="GridCell.Tab.1.left" timestamp="1619874622733">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="221" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1619874622733" />
+    <state width="1024" height="221" key="GridCell.Tab.1.right" timestamp="1619874622733">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="221" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1619874622733" />
+    <state width="1024" height="221" key="GridCell.Tab.2.bottom" timestamp="1619874622733">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="221" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619874622733" />
+    <state width="1024" height="221" key="GridCell.Tab.2.center" timestamp="1619874622733">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="221" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1619874622733" />
+    <state width="1024" height="221" key="GridCell.Tab.2.left" timestamp="1619874622733">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="221" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1619874622733" />
+    <state width="1024" height="221" key="GridCell.Tab.2.right" timestamp="1619874622733">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1024" height="221" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1619874622733" />
+  </component>
+</project>
