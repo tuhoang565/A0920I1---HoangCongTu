@@ -12,6 +12,7 @@ import java.util.List;
 
 @Transactional
 public class CustomerRepositoryImpl implements CustomerRepository {
+
     @PersistenceContext
     private EntityManager em;
 
@@ -23,11 +24,11 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public Customer findById(Long id) {
-        TypedQuery<Customer> query = em.createQuery("select c from Customer c where c.id=:id", Customer.class);
+        TypedQuery<Customer> query = em.createQuery("select c from Customer c where  c.id=:id", Customer.class);
         query.setParameter("id", id);
-        try{
+        try {
             return query.getSingleResult();
-        }catch (NoResultException e) {
+        }catch (NoResultException e){
             return null;
         }
     }
@@ -36,7 +37,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     public void save(Customer model) {
         if(model.getId() != null){
             em.merge(model);
-        }else {
+        } else {
             em.persist(model);
         }
     }

@@ -1,6 +1,5 @@
 package com.codegym;
 
-
 import com.codegym.repository.CustomerRepository;
 import com.codegym.repository.impl.CustomerRepositoryImpl;
 import com.codegym.service.CustomerService;
@@ -20,6 +19,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
@@ -35,25 +35,18 @@ import java.util.Properties;
 @EnableWebMvc
 @EnableTransactionManagement
 @ComponentScan("com.codegym")
-public class ApplicationConfig implements ApplicationContextAware {
+public class ApplicationConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
+
     private ApplicationContext applicationContext;
 
     @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException{
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
 
-    @Bean
-    public CustomerRepository customerRepository(){
-        return new CustomerRepositoryImpl();
-    }
 
-    @Bean
-    public CustomerService customerService(){
-        return new CustomerServiceImpl();
-    }
 
-    //thymeleaf configuration
+    //Thymeleaf Configuration
     @Bean
     public SpringResourceTemplateResolver templateResolver(){
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
@@ -81,12 +74,12 @@ public class ApplicationConfig implements ApplicationContextAware {
     //JPA configuration
     @Bean
     @Qualifier(value = "entityManager")
-    public EntityManager entityManager(EntityManagerFactory entityManagerFactory){
+    public EntityManager entityManager(EntityManagerFactory entityManagerFactory) {
         return entityManagerFactory.createEntityManager();
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
         em.setPackagesToScan(new String[]{"com.codegym.model"});
@@ -96,7 +89,9 @@ public class ApplicationConfig implements ApplicationContextAware {
         em.setJpaProperties(additionalProperties());
         return em;
     }
-    public DataSource dataSource() {
+
+    @Bean
+    public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/module04_b6_customer_manager");
@@ -119,5 +114,13 @@ public class ApplicationConfig implements ApplicationContextAware {
         return properties;
     }
 
+    @Bean
+    public CustomerRepository customerRepository(){
+        return new CustomerRepositoryImpl();
+    }
 
+    @Bean
+    public CustomerService customerService(){
+        return new CustomerServiceImpl();
+    }
 }
