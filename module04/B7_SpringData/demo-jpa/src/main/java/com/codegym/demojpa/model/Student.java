@@ -1,9 +1,6 @@
 package com.codegym.demojpa.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Student {
@@ -14,6 +11,9 @@ public class Student {
     private String name;
     private String address;
     private String email;
+
+    @ManyToOne
+    private Course course;
 
     public Student() {
     }
@@ -48,5 +48,13 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }

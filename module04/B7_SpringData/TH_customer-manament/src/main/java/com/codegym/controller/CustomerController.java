@@ -31,6 +31,7 @@ public class CustomerController {
     public ModelAndView showCreateForm(){
         ModelAndView modelAndView = new ModelAndView("/customer/create");
         modelAndView.addObject("customer", new Customer());
+        modelAndView.addObject("provinces", provinceService.findAll());
         return modelAndView;
     }
 

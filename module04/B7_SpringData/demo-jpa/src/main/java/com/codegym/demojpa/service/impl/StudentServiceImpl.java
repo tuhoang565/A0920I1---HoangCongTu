@@ -4,6 +4,8 @@ import com.codegym.demojpa.model.Student;
 import com.codegym.demojpa.repository.StudentRepository;
 import com.codegym.demojpa.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +17,8 @@ public class StudentServiceImpl implements StudentService {
     StudentRepository studentRepository;
 
     @Override
-    public List<Student> findAllStudent() {
-        return studentRepository.findAll();
+    public Page<Student> findAllStudent(Pageable pageable) {
+        return studentRepository.findAll(pageable);
     }
 
     @Override
@@ -35,7 +37,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<Student> findStudentByName(String name) {
-        return studentRepository.findByName(name);
+    public Page<Student> findStudentByName(String name, Pageable pageable) {
+        return studentRepository.findByNameContaining(name, pageable);
     }
 }
