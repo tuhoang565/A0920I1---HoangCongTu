@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Article</title>
+</head>
+<body>
+<h1>List All Article</h1>
+<p>
+    <a href="/create-article">Create new article</a>
+</p>
+<form>
+    Search by title:
+    <input name="s" type="text"/>
+    <input type="submit" value="Search"/>
+</form><br/>
+<table border="1">
+    <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Category</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <th:block th:each="article : ${articles}">
+        <tr>
+            <td th:text="${article.title}"></td>
+            <td th:text="${article.content}"></td>
+            <td th:text="${article.category.name}"></td>
+            <td><a th:href="@{/edit-article/__${article.id}__}">Edit</a></td>
+            <td><a th:href="@{/delete-article/__${article.id}__}">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+<div>
+    <a th:href="@{'/articles'(page=${articles.number - 1})}" th:if="${articles.hasPrevious()}">Previous</a>
+    <span th:text="${articles.number + 1}"></span>/<span th:text="${articles.totalPages}"></span>
+    <a th:href="@{'/articles'(page=${articles.number + 1})}" th:if="${articles.hasNext()}">Next</a>
+</div>
+</body>
+</html>
