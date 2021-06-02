@@ -8,8 +8,13 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private String firstName;
+
     private String lastName;
+
+    @Column(unique = true)
+    private String email;
 
     @ManyToOne
     @JoinColumn(name = "province_id")
@@ -20,7 +25,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return String.format("Customer[id=%d, firstName='%s', lastName='%s']", id, firstName, lastName);
+        return String.format("Customer[id=%d, firstName='%s', lastName='%s', email='%s']", id, firstName, lastName, email);
     }
 
     public Long getId() {
@@ -53,5 +58,13 @@ public class Customer {
 
     public void setProvince(Province province) {
         this.province = province;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

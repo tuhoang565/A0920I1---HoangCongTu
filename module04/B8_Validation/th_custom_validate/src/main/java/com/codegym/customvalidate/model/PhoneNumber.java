@@ -9,8 +9,7 @@ import javax.validation.constraints.Pattern;
 
 
 @Component
-public class PhoneNumber {
-    @Pattern(regexp = "((09|03|07|08|05)+([0-9]{8})\\b)", message = "Dien thoai phai dung dinh dang")
+public class PhoneNumber implements Validator{
    private String number;
 
     public PhoneNumber() {
@@ -24,4 +23,24 @@ public class PhoneNumber {
         this.number = number;
     }
 
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return PhoneNumber.class.isAssignableFrom(clazz);
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        PhoneNumber phoneNumber = (PhoneNumber) target;
+        String number = phoneNumber.getNumber();
+        ValidationUtils.rejectIfEmpty(errors, "number", "number.empty");
+        if(number.length() > 11 || number.length() < 10){
+            errors.rejectValue("number", "number.length");
+        }
+        if(!number.startsWith("0")){
+            errors.rejectValue("number", "number.startsWith");
+        }
+        if(!number.matches("(^$|[0-9]*$)")){
+            errors.rejectValue("number", "number.matches");
+        }
+    }
 }
