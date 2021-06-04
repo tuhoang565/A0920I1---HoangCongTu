@@ -84,4 +84,9 @@ public class BookController {
         bookService.borrow(book, lending);
         return "redirect:books";
     }
+
+    @GetMapping("/view-detail")
+    public ModelAndView viewDetail(@ModelAttribute("book") Book book){
+
+    }
 }
