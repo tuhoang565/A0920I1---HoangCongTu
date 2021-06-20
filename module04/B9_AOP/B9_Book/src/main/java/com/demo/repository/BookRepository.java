@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public interface BookRepository extends PagingAndSortingRepository<Book, Long> {
+public interface BookRepository extends Repository<Book> {
     Page<Book> findAllByNameContaining(String name, Pageable pageable);
 
 }

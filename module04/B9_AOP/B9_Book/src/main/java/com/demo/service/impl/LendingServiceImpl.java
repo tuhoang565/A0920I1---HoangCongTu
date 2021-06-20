@@ -6,6 +6,8 @@ import com.demo.service.LendingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class LendingServiceImpl implements LendingService {
     @Autowired
@@ -20,5 +22,8 @@ public class LendingServiceImpl implements LendingService {
         lendingRepository.save(lending);
     }
 
-
+    @Override
+    public Iterable<Lending> findAll() {
+        return lendingRepository.findAll();
+    }
 }

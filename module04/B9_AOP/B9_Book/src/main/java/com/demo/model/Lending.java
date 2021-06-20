@@ -1,7 +1,5 @@
 package com.demo.model;
 
-
-
 import javax.persistence.*;
 
 @Entity
@@ -17,6 +15,7 @@ public class Lending {
 
     public Lending() {
     }
+
 
     public Long getId() {
         return id;

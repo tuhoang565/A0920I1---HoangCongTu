@@ -10,6 +10,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 @Service
@@ -21,8 +24,8 @@ public class BookServiceImpl implements BookService {
     private BookRepository bookRepository;
 
     @Override
-    public Page<Book> findAll(Pageable pageable) {
-        return bookRepository.findAll(pageable);
+    public List<Book> findAll() {
+        return bookRepository.findAll();
     }
 
     @Override
@@ -46,5 +49,22 @@ public class BookServiceImpl implements BookService {
         book.setQuantity(book.getQuantity() - 1);
         bookRepository.save(book);
         lendingRepository.save(lending);
+    }
+
+    @Override
+    public void returnBook(int idLending) {
+        Iterable<Lending> lendingList = lendingRepository.findAll();
+        Iterable<Book> bookList = bookRepository.findAll();
+        boolean flag = false;
+        while (lendingList.iterator().hasNext()) {
+            if ((lendingList.iterator().next().getIdLending()) == idLending) {
+                flag = true;
+                break;
+            }
+        }
+
+        if (flag == true) {
+            Book book = bookList.;
+        }
     }
 }

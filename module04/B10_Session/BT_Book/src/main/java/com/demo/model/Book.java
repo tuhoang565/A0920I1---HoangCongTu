@@ -1,20 +1,19 @@
 package com.demo.model;
 
-import javax.persistence.*;
-import java.util.List;
 
-@Entity
-@Table(name = "books")
 public class Book {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     private String name;
     private int quantity;
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
-    private List<Lending> lendings;
+
 
     public Book() {
+    }
+    public Book(Long id, String name, int quantity) {
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
     }
 
     public Long getId() {
@@ -41,13 +40,5 @@ public class Book {
         this.quantity = quantity;
     }
 
-
-    public List<Lending> getLendings() {
-        return lendings;
-    }
-
-    public void setLendings(List<Lending> lendings) {
-        this.lendings = lendings;
-    }
 
 }

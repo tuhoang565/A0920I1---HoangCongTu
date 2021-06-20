@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Detail</title>
+</head>
+<body>
+<p>
+    <a href="/books">Books list</a>
+</p>
+<form th:action="@{/addToCart/__${book.id}__ }" th:object="${book}" method="get">
+    <input th:type="hidden" name="id" th:field="*{id}"/>
+    <table>
+        <tr>
+            <td>Book name:</td>
+            <td th:text="${book.name}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Add to cart"/></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

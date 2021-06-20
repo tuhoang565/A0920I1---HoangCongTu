@@ -84,4 +84,14 @@ public class BookController {
         bookService.borrow(book, lending);
         return "redirect:books";
     }
+
+    @GetMapping("/return-book")
+    public ModelAndView returnBookForm(@ModelAttribute("lending") Lending lending){
+        ModelAndView modelAndView = new ModelAndView("/book/return");
+        modelAndView.addObject("lending", new Lending());
+        return modelAndView;
+    }
+
+    @PostMapping("/return-book")
+
 }

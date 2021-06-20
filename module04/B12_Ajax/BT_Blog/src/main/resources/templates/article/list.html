@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Article</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>List All Article</h1>
+<p>
+    <a href="/create-article">Create new article</a>
+</p>
+<form th:action="@{/search}" method="get">
+    <label>Search</label>
+    <input name="search" type="text" id="inputSearch"/>
+</form>
+<br/>
+<table class="table" id="searchTable">
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Category</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <th:block th:each="article : ${articles}">
+        <tr>
+            <td th:text="${article.id}"></td>
+            <td th:text="${article.title}"></td>
+            <td th:text="${article.content}"></td>
+            <td th:text="${article.category.name}"></td>
+            <td><a th:href="@{/edit-article/__${article.id}__}">Edit</a></td>
+            <td><a th:href="@{/delete-article/__${article.id}__}">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+<div>
+    <a th:href="@{'/articles'(page=${articles.number - 1})}" th:if="${articles.hasPrevious()}">Previous</a>
+    <span th:text="${articles.number + 1}"></span>/<span th:text="${articles.totalPages}"></span>
+    <a th:href="@{'/articles'(page=${articles.number + 1})}" th:if="${articles.hasNext()}">Next</a>
+</div>
+
+<!--Ajax-->
+
+
+<script>
+    $(document).ready(function () {
+        $("#inputSearch").on("keyup", function () {
+            var search = document.getElementById("inputSearch").value;
+            console.log(search);
+            $.ajax({
+                type: "GET",
+                url: "/search?search=" + search,
+                dataType: "HTML",
+                success: function (data) {
+                    $("#searchTable").html(data);
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

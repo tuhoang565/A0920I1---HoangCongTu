@@ -24,6 +24,7 @@
         <tr>
             <td>Id Borrow</td>
             <td><input th:type="text" th:name="idLending" th:object="${lending}" th:field="*{idLending}"/></td>
+            <input th:type="hidden" name="book" th:object="${lending}" th:field="*{book}" th:value="${book.id}">
         </tr>
         <tr>
             <td></td>

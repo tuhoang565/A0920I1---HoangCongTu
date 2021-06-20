@@ -1,50 +1,51 @@
 package com.demo.service.impl;
 
 import com.demo.model.Book;
-import com.demo.model.Lending;
-import com.demo.repository.BookRepository;
-import com.demo.repository.LendingRepository;
 import com.demo.service.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class BookServiceImpl implements BookService {
-
-    @Autowired
-    private LendingRepository lendingRepository;
-    @Autowired
-    private BookRepository bookRepository;
-
-    @Override
-    public Page<Book> findAll(Pageable pageable) {
-        return bookRepository.findAll(pageable);
+    private static Map<Long, Book> bookMap;
+    static {
+        bookMap = new HashMap<>();
+        bookMap.put(1L, new Book(1L, "Nha gia kim", 3));
+        bookMap.put(2L, new Book(2L, "Campus", 4));
+        bookMap.put(3L, new Book(3L, "Cambridge", 2));
+        bookMap.put(4L, new Book(4L, "Window", 1));
     }
+
 
     @Override
     public Book findById(Long id) {
-        return bookRepository.findById(id).orElse(null);
+        return bookMap.get(id);
     }
 
     @Override
     public void save(Book book) {
-        bookRepository.save(book);
-    }
-
-
-    @Override
-    public Page<Book> findAllByName(String name, Pageable pageable) {
-        return bookRepository.findAllByNameContaining(name, pageable);
+        bookMap.put(book.getId(), book);
     }
 
     @Override
-    public void borrow(Book book, Lending lending) {
-        book.setQuantity(book.getQuantity() - 1);
-        bookRepository.save(book);
-        lendingRepository.save(lending);
+    public List<Book> findAll() {
+        return new ArrayList<>(bookMap.values());
     }
+
+    @Override
+    public void update(Long id, Book book) {
+
+    }
+
+    @Override
+    public void delete(Long id) {
+
+    }
+
+
+
 }

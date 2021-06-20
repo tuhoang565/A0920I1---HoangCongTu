@@ -21,6 +21,11 @@ public class CustomerController {
     @Autowired
     private ProvinceService provinceService;
 
+    @ExceptionHandler(DuplicateEmailException.class)
+    public ModelAndView showInputNotAcceptable(){
+        return new ModelAndView("customer/inputs-not-acceptable");
+    }
+
     @ModelAttribute("provinces")
     public Iterable<Province> provinces(){
         return provinceService.findAll();
@@ -34,7 +39,7 @@ public class CustomerController {
     }
 
     @PostMapping("/create-customer")
-    public ModelAndView saveCustomer(@ModelAttribute("customer") Customer customer) throws DuplicateEmailException,Exception {
+    public ModelAndView saveCustomer(@ModelAttribute("customer") Customer customer) throws DuplicateEmailException {
 
            customerService.save(customer);
            ModelAndView modelAndView = new ModelAndView("/customer/create");
