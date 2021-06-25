@@ -44,13 +44,15 @@ public class CustomerController {
         return modelAndView;
     }
 
-    @GetMapping("/customers")
+    @GetMapping(value = "/customers")
     public ModelAndView listCustomers(){
         Iterable<Customer> customers = customerService.findAll();
-        ModelAndView modelAndView = new ModelAndView("/customer/list");
+        ModelAndView modelAndView = new ModelAndView("/customer/listt");
         modelAndView.addObject("customers", customers);
         return modelAndView;
     }
+
+
 
     @GetMapping("/edit-customer/{id}")
     public ModelAndView showEditForm(@PathVariable Long id){
