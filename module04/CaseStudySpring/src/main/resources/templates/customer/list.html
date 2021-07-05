@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/header::header}">
+    <meta charset="UTF-8">
+    <title>List Customer</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div th:replace="~{layout/navbar::navbar}"></div>
+    <a href="/customer/create-customer">Create customer</a>
+    <br/>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Customer Type</th>
+            <th scope="col">Birthday</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Function</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="customer : ${customers}">
+            <tr>
+                <td th:text="${customer.customerId}"></td>
+                <td th:text="${customer.customerName}"></td>
+                <td th:text="${customer.customerType.customerTypeName}"></td>
+                <td th:text="${customer.customerBirthday}"></td>
+                <td th:text="${customer.gender}"></td>
+                <td><a th:href="@{/customer/edit-customer/__${customer.customerId}__}">Edit</a>
+                    <a th:href="@{/customer/delete-customer/__${customer.customerId}__}">Delete</a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+    <div>
+        <a th:href="@{'/customer/list'(page=${customers.number -1})}" th:if="${customers.hasPrevious()}">Previous</a>
+        <span th:text="${customers.number + 1}"></span>/<span th:text="${customers.totalPages}"></span>
+        <a th:href="@{'/customer/list'(page=${customers.number + 1})}" th:if="${customers.hasNext()}">Next</a>
+    </div>
+    <div th:replace="~{layout/footer::footer}"></div>
+</div>
+</body>
+</html>

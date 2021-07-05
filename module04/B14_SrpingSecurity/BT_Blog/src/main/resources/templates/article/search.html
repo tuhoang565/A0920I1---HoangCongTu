@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Article</title>
+</head>
+<body>
+
+<table class="table" id="searchTable">
+    <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Category</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <th:block th:each="article : ${articles}">
+        <tr>
+            <td th:text="${article.title}"></td>
+            <td th:text="${article.content}"></td>
+            <td th:text="${article.category.name}"></td>
+            <td><a th:href="@{/edit-article/__${article.id}__}">Edit</a></td>
+            <td><a th:href="@{/delete-article/__${article.id}__}">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+
+<!--Ajax-->
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script>
+    <!--search-->
+    $(document).ready(function () {
+        $("#inputSearch").on("keyup", function () {
+            var search = document.getElementById("inputSearch").value;
+
+            $.ajax({
+                type: "GET",
+                url: "/search?search=" + search,
+                dataType: "HTML",
+                success: function (data) {
+                    $("#searchTable").html(data);
+                }
+            })
+        })
+    });
+</script>
+
+</body>
+</html>

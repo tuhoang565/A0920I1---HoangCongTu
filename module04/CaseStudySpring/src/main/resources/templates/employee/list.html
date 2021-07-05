@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/header::header}">
+    <meta charset="UTF-8">
+    <title>List Employee</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div th:replace="~{layout/navbar::navbar}"></div>
+    <a href="/employee/create">Create employee</a>
+    <br/>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Birthday</th>
+            <th scope="col">Id Card</th>
+            <th scope="col">Position</th>
+            <th scope="col">Division</th>
+            <th scope="col">Education Degree</th>
+            <th scope="col">Function</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="employee : ${employees}">
+            <tr>
+                <td th:text="${employee.employeeId}"></td>
+                <td th:text="${employee.employeeName}"></td>
+                <td th:text="${employee.employeeBirthday}"></td>
+                <td th:text="${employee.employeeIdCard}"></td>
+                <td th:text="${employee.position.positionName}"></td>
+                <td th:text="${employee.division.divisionName}"></td>
+                <td th:text="${employee.educationDegree.educationDegreeName}"></td>
+                <td><a th:href="@{/employee/edit/__${employee.employeeId}__}">Edit</a>
+                    <a th:href="@{/employee/delete/__${employee.employeeId}__}">Delete</a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+    <div>
+        <a th:href="@{'/employee/list'(page=${employees.number -1})}" th:if="${employees.hasPrevious()}">Previous</a>
+        <span th:text="${employees.number + 1}"></span>/<span th:text="${employees.totalPages}"></span>
+        <a th:href="@{'/employee/list'(page=${employees.number + 1})}" th:if="${employees.hasNext()}">Next</a>
+    </div>
+    <div th:replace="~{layout/footer::footer}"></div>
+</div>
+</body>
+</html>

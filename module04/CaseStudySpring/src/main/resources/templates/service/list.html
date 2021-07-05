@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/header::header}">
+    <meta charset="UTF-8">
+    <title>List Service</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div th:replace="~{layout/navbar::navbar}"></div>
+    <a href="/service/create-service">Create service</a>
+    <br/>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Service Name</th>
+            <th scope="col">Service Area</th>
+            <th scope="col">Service Cost</th>
+            <th scope="col">Service max people</th>
+            <th scope="col">Rent Type</th>
+            <th scope="col">Service Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="service : ${services}">
+            <tr>
+                <td th:text="${service.serviceId}"></td>
+                <td th:text="${service.serviceName}"></td>
+                <td th:text="${service.serviceArea}"></td>
+                <td th:text="${service.serviceCost}"></td>
+                <td th:text="${service.serviceMaxPeople}"></td>
+                <td th:text="${service.rentType.rentTypeName}"></td>
+                <td th:text="${service.serviceType.serviceTypeName}"></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+    <div th:replace="~{layout/footer::footer}"></div>
+</div>
+</body>
+</html>

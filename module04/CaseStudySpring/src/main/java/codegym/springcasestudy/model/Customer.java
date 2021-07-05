@@ -2,6 +2,7 @@ package codegym.springcasestudy.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -18,6 +19,8 @@ public class Customer {
     private String customerPhone;
     private String customerEmail;
     private String customerAddress;
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private List<Contract> contracts;
 
     public Customer() {
     }
@@ -92,5 +95,13 @@ public class Customer {
 
     public void setCustomerAddress(String customerAddress) {
         this.customerAddress = customerAddress;
+    }
+
+    public List<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(List<Contract> contracts) {
+        this.contracts = contracts;
     }
 }

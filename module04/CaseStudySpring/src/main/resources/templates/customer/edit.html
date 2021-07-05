@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/header::header}">
+    <meta charset="UTF-8">
+    <title>Edit customer</title>
+</head>
+<body>
+<div class="container">
+    <div th:replace="~{layout/navbar::navbar}"></div>
+    <th:block th:if="${message}">
+        <p th:text="${message}"></p>
+    </th:block>
+    <form th:action="@{/customer/edit-customer}" th:object="${customer}" method="post">
+        <input th:type="hidden" name="customerId" th:field="*{customerId}"/>
+        <div class="form-group">
+            <label for="customerName">Full name</label>
+            <input type="text" class="form-control" id="customerName" th:field="*{customerName}"/>
+        </div>
+        <div class="form-group">
+            <label for="customerType">Customer Type</label>
+            <select class="form-control" id="customerType" name="customerType" th:field="*{customerType}">
+                <th:block th:each="c : ${customerTypes}">
+                    <option th:value="${c.customerTypeId}" th:text="${c.customerTypeName}" th:selected="(${c.customerTypeId} == *{customerType.customerTypeId})"></option>
+                </th:block>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="birthday">Birthday</label>
+            <input type="date" class="form-control" id="birthday" th:field="*{customerBirthday}"/>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select class="form-control" id="gender" th:field="*{gender}">
+                <option th:value="Male">Male</option>
+                <option th:value="Female">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="idCard">Id Card</label>
+            <input type="text" class="form-control" id="idCard" th:field="*{customerIdCard}"/>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone number</label>
+            <input type="text" class="form-control" id="phone" th:field="*{customerPhone}"/>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" th:field="*{customerEmail}"/>
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" th:field="*{customerAddress}"/>
+        </div>
+        <div>
+            <input type="submit" value="Update"/>
+        </div>
+    </form>
+
+    <div th:replace="~{layout/footer::footer}"></div>
+</div>
+</body>
+</html>

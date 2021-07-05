@@ -8,11 +8,12 @@ public class ContractDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long contractDetailId;
     @ManyToOne
-    @JoinColumn(name = "contractDetail_id")
+    @JoinColumn(name = "attachService_id")
     private AttachService attachService;
     @ManyToOne
-    @JoinColumn(name = "contractDetail_id")
+    @JoinColumn(name = "contract_id")
     private Contract contract;
+    private int quantity;
 
     public ContractDetail() {
     }
@@ -39,5 +40,13 @@ public class ContractDetail {
 
     public void setContract(Contract contract) {
         this.contract = contract;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

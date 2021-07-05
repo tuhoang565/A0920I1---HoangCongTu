@@ -1,6 +1,7 @@
 package codegym.springcasestudy.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Service {
@@ -21,6 +22,8 @@ public class Service {
     private String descriptionOtherConvenience;
     private double poolArea;
     private int numberOfFloor;
+    @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
+    private List<Contract> contracts;
 
     public Service() {
     }
@@ -111,5 +114,13 @@ public class Service {
 
     public void setNumberOfFloor(int numberOfFloor) {
         this.numberOfFloor = numberOfFloor;
+    }
+
+    public List<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(List<Contract> contracts) {
+        this.contracts = contracts;
     }
 }

@@ -14,13 +14,13 @@ public class Contract {
     private double contractDeposit;
     private double contractTotalMoney;
     @ManyToOne
-    @JoinColumn(name = "contract_id")
+    @JoinColumn(name = "employee_id")
     private Employee employee;
     @ManyToOne
-    @JoinColumn(name = "contract_id")
+    @JoinColumn(name = "customer_id")
     private Customer customer;
     @ManyToOne
-    @JoinColumn(name = "contract_id")
+    @JoinColumn(name = "service_id")
     private Service service;
     @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL)
     private List<ContractDetail> contractDetails;

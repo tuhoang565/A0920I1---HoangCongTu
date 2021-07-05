@@ -16,19 +16,18 @@ public class Employee {
     private String employeePhone;
     private String employeeEmail;
     private String employeeAddress;
-    @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Contract> contracts;
     @ManyToOne
-    @JoinColumn(name = "employee_id")
+    @JoinColumn(name = "position_id")
     private Position position;
     @ManyToOne
-    @JoinColumn(name = "employee_id")
+    @JoinColumn(name = "educationDegree_id")
     private EducationDegree educationDegree;
     @ManyToOne
-    @JoinColumn(name = "employee_id")
+    @JoinColumn(name = "division_id")
     private Division division;
-    @ManyToOne
-    @JoinColumn(name = "employee_id")
+    @OneToOne(mappedBy = "employee")
     private User user;
 
 
