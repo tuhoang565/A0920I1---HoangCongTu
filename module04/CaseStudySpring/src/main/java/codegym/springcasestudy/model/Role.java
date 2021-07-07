@@ -1,7 +1,10 @@
 package codegym.springcasestudy.model;
 
+import org.hibernate.annotations.Fetch;
+
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Role {
@@ -9,10 +12,13 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long roleId;
     private String roleName;
-    @ManyToMany(mappedBy = "roles")
-    private List<User> users;
+    @ManyToMany(mappedBy = "roles", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<User> users;
 
     public Role() {
+    }
+    public Role(String roleName){
+        this.roleName = roleName;
     }
 
     public Long getRoleId() {
@@ -31,11 +37,11 @@ public class Role {
         this.roleName = roleName;
     }
 
-    public List<User> getUsers() {
+    public Set<User> getUsers() {
         return users;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(Set<User> users) {
         this.users = users;
     }
 }

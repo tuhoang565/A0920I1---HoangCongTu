@@ -27,7 +27,8 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name = "division_id")
     private Division division;
-    @OneToOne(mappedBy = "employee")
+
+    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
     private User user;
 
 
