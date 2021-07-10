@@ -7,7 +7,7 @@ import java.util.List;
 public class Division {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long divionId;
+    private Long divisionId;
     private String divisionName;
     @OneToMany(mappedBy = "division", cascade = CascadeType.ALL)
     private List<Employee> employees;
@@ -15,12 +15,12 @@ public class Division {
     public Division() {
     }
 
-    public Long getDivionId() {
-        return divionId;
+    public Long getDivisionId() {
+        return divisionId;
     }
 
-    public void setDivionId(Long divionId) {
-        this.divionId = divionId;
+    public void setDivisionId(Long divisionId) {
+        this.divisionId = divisionId;
     }
 
     public String getDivisionName() {

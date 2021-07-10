@@ -71,15 +71,15 @@ public class EmployeeController {
 
     @PostMapping("/create")
     public ModelAndView createEmployee(@ModelAttribute("employee") Employee employee){
-        User user = new User();
-        user.setUsername(employee.getUser().getUsername());
-        user.setPassword(employee.getUser().getPassword());
-        Role roleEntity = roleService.findByRoleName("ROLE_USER");
-        Set<Role> listRoles = new HashSet<>();
-        listRoles.add(roleEntity);
-        user.setRoles(listRoles);
-        user.setEmployee(employee);
-        userService.save(user);
+//        User user = new User();
+//        user.setUsername(employee.getUser().getUsername());
+//        user.setPassword(employee.getUser().getPassword());
+//        Role roleEntity = roleService.findByRoleName("ROLE_USER");
+//        Set<Role> listRoles = new HashSet<>();
+//        listRoles.add(roleEntity);
+//        user.setRoles(listRoles);
+//        user.setEmployee(employee);
+//        userService.save(user);
 
         employeeService.save(employee);
 
@@ -92,6 +92,36 @@ public class EmployeeController {
     @GetMapping("/edit/{employeeId}")
     public ModelAndView showEditForm(@PathVariable Long employeeId){
         Employee employee = employeeService.findById(employeeId);
-        
+        User user = userService.findById(employeeService.findById(employeeId).getUser().getUserId());
+        ModelAndView modelAndView = new ModelAndView("/employee/edit");
+        modelAndView.addObject("employee", employee);
+        modelAndView.addObject("user", user);
+        return modelAndView;
+    }
+
+    @PostMapping("/edit")
+    public ModelAndView saveEdit(@ModelAttribute("employee") Employee employee, @ModelAttribute("user") User user){
+        user.setUsername(employee.getUser().getUsername());
+        user.setPassword(employee.getUser().getPassword());
+        Role roleEntity = roleService.findByRoleName("ROLE_USER");
+        Set<Role> listRoles = new HashSet<>();
+        listRoles.add(roleEntity);
+        user.setRoles(listRoles);
+        user.setEmployee(employee);
+        userService.save(user);
+
+        employeeService.save(employee);
+        ModelAndView modelAndView = new ModelAndView("/employee/edit");
+        modelAndView.addObject("employee", employee);
+        modelAndView.addObject("message", "Update successful");
+        return modelAndView;
+    }
+
+    @GetMapping("/delete/{employeeId}")
+    public String deleteEmployee(@PathVariable Long employeeId){
+        Employee employee = employeeService.findById(employeeId);
+        userService.delete(employee.getUser().getUserId());
+        employeeService.remove(employeeId);
+        return "redirect:/employee/list";
     }
 }

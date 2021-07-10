@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/header::header}">
+    <meta charset="UTF-8">
+    <title>List Contract Detail</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div th:replace="~{layout/navbar::navbar}"></div>
+    <a href="/contractDetail/create">Create contract detail</a>
+    <br/>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Contract</th>
+            <th scope="col">Attach Service</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Function</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="contractDetail : ${contractDetails}">
+            <tr>
+                <td th:text="${contractDetail.contractDetailId}"></td>
+                <td th:text="${contractDetail.contract.contractId}"></td>
+                <td th:text="${contractDetail.attachService.attachServiceName}"></td>
+                <td th:text="${contractDetail.quantity}"></td>
+                <td>
+                    <a th:href="@{/contractDetail/delete/__${contractDetail.contractDetailId}__}">Delete</a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+    <div th:replace="~{layout/footer::footer}"></div>
+</div>
+</body>
+</html>

@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{layout/header::header}">
     <meta charset="UTF-8">
-    <title>Edit customer</title>
+    <title>Edit employee</title>
 </head>
 <body>
 <div class="container">
@@ -10,47 +10,67 @@
     <th:block th:if="${message}">
         <p th:text="${message}"></p>
     </th:block>
-    <form th:action="@{/customer/edit-customer}" th:object="${customer}" method="post">
-        <input th:type="hidden" name="customerId" th:field="*{customerId}"/>
+    <form th:action="@{/employee/edit}" th:object="${employee}" method="post">
+        <input th:type="hidden" name="employeeId" th:field="*{employeeId}"/>
         <div class="form-group">
-            <label for="customerName">Full name</label>
-            <input type="text" class="form-control" id="customerName" th:field="*{customerName}"/>
+            <label for="employeeName">Full name</label>
+            <input type="text" class="form-control" id="employeeName" th:field="*{employeeName}"/>
         </div>
         <div class="form-group">
-            <label for="customerType">Customer Type</label>
-            <select class="form-control" id="customerType" name="customerType" th:field="*{customerType}">
-                <th:block th:each="c : ${customerTypes}">
-                    <option th:value="${c.customerTypeId}" th:text="${c.customerTypeName}" th:selected="(${c.customerTypeId} == *{customerType.customerTypeId})"></option>
+            <label for="birthday">Birthday</label>
+            <input type="date" class="form-control" id="birthday" th:field="*{employeeBirthday}"/>
+        </div>
+        <div class="form-group">
+            <label for="idCard">Id Card</label>
+            <input type="text" class="form-control" id="idCard" th:field="*{employeeIdCard}"/>
+        </div>
+        <div class="form-group">
+            <label for="salary">Salary</label>
+            <input type="text" class="form-control" id="salary" th:field="*{employeeSalary}"/>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone number</label>
+            <input type="text" class="form-control" id="phone" th:field="*{employeePhone}"/>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" th:field="*{employeeEmail}"/>
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" th:field="*{employeeAddress}"/>
+        </div>
+        <div class="form-group">
+            <label for="position">Position</label>
+            <select class="form-control" id="position" th:field="*{position}">
+                <th:block th:each="c : ${positions}">
+                    <option th:value="${c.positionId}" th:text="${c.positionName}"></option>
                 </th:block>
             </select>
         </div>
         <div class="form-group">
-            <label for="birthday">Birthday</label>
-            <input type="date" class="form-control" id="birthday" th:field="*{customerBirthday}"/>
-        </div>
-        <div class="form-group">
-            <label for="gender">Gender</label>
-            <select class="form-control" id="gender" th:field="*{gender}">
-                <option th:value="Male">Male</option>
-                <option th:value="Female">Female</option>
+            <label for="division">Division</label>
+            <select class="form-control" id="division" th:field="*{division}">
+                <th:block th:each="c : ${divisions}">
+                    <option th:value="${c.divisionId}" th:text="${c.divisionName}"></option>
+                </th:block>
             </select>
         </div>
         <div class="form-group">
-            <label for="idCard">Id Card</label>
-            <input type="text" class="form-control" id="idCard" th:field="*{customerIdCard}"/>
+            <label for="educationDegree">Education Degree</label>
+            <select class="form-control" id="educationDegree" th:field="*{educationDegree}">
+                <th:block th:each="c : ${educationDegrees}">
+                    <option th:value="${c.educationDegreeId}" th:text="${c.educationDegreeName}"></option>
+                </th:block>
+            </select>
         </div>
         <div class="form-group">
-            <label for="phone">Phone number</label>
-            <input type="text" class="form-control" id="phone" th:field="*{customerPhone}"/>
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" class="form-control" id="email" th:field="*{customerEmail}"/>
-        </div>
-        <div class="form-group">
-            <label for="address">Address</label>
-            <input type="text" class="form-control" id="address" th:field="*{customerAddress}"/>
-        </div>
+            <label for="user">User</label>
+            <input type="text" class="form-control" id="user" th:field="*{user.username}"/>
+        </div><div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" th:field="*{user.password}"/>
+    </div>
         <div>
             <input type="submit" value="Update"/>
         </div>

@@ -6,7 +6,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navbar">
-            <a class="navbar-brand" href="#">Home
+            <a class="navbar-brand" href="http://localhost:8080/">Home
                 <span class="sr-only">(current)</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -17,7 +17,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="/employee/list">Employee</a>
                     </li>
                     <li class="nav-item">
@@ -27,7 +27,10 @@
                         <a class="nav-link" href="/service/list">Service</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contract</a>
+                        <a class="nav-link" href="/contract/list">Contract</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contractDetail/list">Contract Detail</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">

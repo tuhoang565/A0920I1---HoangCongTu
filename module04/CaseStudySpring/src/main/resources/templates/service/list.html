@@ -13,24 +13,31 @@
         <thead>
         <tr>
             <th scope="col">#</th>
+            <th scope="col">Service code</th>
             <th scope="col">Service Name</th>
             <th scope="col">Service Area</th>
             <th scope="col">Service Cost</th>
             <th scope="col">Service max people</th>
             <th scope="col">Rent Type</th>
             <th scope="col">Service Type</th>
+            <th scope="col">Function</th>
+
         </tr>
         </thead>
         <tbody>
         <th:block th:each="service : ${services}">
             <tr>
                 <td th:text="${service.serviceId}"></td>
+                <td th:text="${service.serviceCode}"></td>
                 <td th:text="${service.serviceName}"></td>
                 <td th:text="${service.serviceArea}"></td>
                 <td th:text="${service.serviceCost}"></td>
                 <td th:text="${service.serviceMaxPeople}"></td>
                 <td th:text="${service.rentType.rentTypeName}"></td>
                 <td th:text="${service.serviceType.serviceTypeName}"></td>
+                <td><a th:href="@{/service/edit-service/__${service.serviceId}__}">Edit</a>
+                    <a th:href="@{/service/delete-service/__${service.serviceId}__}">Delete</a>
+                </td>
             </tr>
         </th:block>
         </tbody>

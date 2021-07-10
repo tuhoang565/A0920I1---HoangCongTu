@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/header::header}">
+    <meta charset="UTF-8">
+    <title>List Contract</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div th:replace="~{layout/navbar::navbar}"></div>
+    <a href="/contract/create">Create contract</a>
+    <br/>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Start date</th>
+            <th scope="col">End date</th>
+            <th scope="col">Deposit</th>
+            <th scope="col">Total money</th>
+            <th scope="col">Employee</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Service</th>
+            <th scope="col">Function</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="contract : ${contracts}">
+            <tr>
+                <td th:text="${contract.contractId}"></td>
+                <td th:text="${contract.contractStartDate}"></td>
+                <td th:text="${contract.contractEndDate}"></td>
+                <td th:text="${contract.contractDeposit}"></td>
+                <td th:text="${contract.contractTotalMoney}"></td>
+                <td th:text="${contract.employee.employeeName}"></td>
+                <td th:text="${contract.customer.customerName}"></td>
+                <td th:text="${contract.service.serviceName}"></td>
+                <td>
+                    <a th:href="@{/contract/delete/__${contract.contractId}__}">Delete</a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+    <div th:replace="~{layout/footer::footer}"></div>
+</div>
+</body>
+</html>

@@ -1,6 +1,9 @@
 package codegym.springcasestudy.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -9,19 +12,31 @@ public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long contractId;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate contractStartDate;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate contractEndDate;
+
+    @Min(value = 1, message = "Deposit > 0")
     private double contractDeposit;
+
+    @Min(value = 1, message = "Total money > 0")
     private double contractTotalMoney;
+
     @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;
+
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
+
     @ManyToOne
     @JoinColumn(name = "service_id")
     private Service service;
+
     @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL)
     private List<ContractDetail> contractDetails;
 

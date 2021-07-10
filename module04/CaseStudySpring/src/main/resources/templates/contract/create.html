@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/header::header}">
+    <meta charset="UTF-8">
+    <title>Create contract</title>
+</head>
+<body>
+<div th:replace="~{layout/navbar::navbar}"></div>
+<th:block th:if="${message}">
+    <p th:text="${message}" style="color: blue"></p>
+</th:block>
+<div>
+    <form th:action="@{/contract/create}" th:object="${contract}" method="post">
+        <div class="form-group">
+            <label for="contractStartDate">Contract start date</label>
+            <input type="date" class="form-control" id="contractStartDate" th:field="*{contractStartDate}"/>
+            <p th:if="${#fields.hasErrors('contractStartDate')}" th:errors="*{contractStartDate}" style="color: red"></p>
+        </div>
+        <div class="form-group">
+            <label for="contractEndDate">Contract end date</label>
+            <input type="date" class="form-control" id="contractEndDate" th:field="*{contractEndDate}"/>
+            <p th:if="${#fields.hasErrors('contractEndDate')}" th:errors="*{contractEndDate}" style="color: red"></p>
+        </div>
+        <div class="form-group">
+            <label for="contractDeposit">Contract Deposit</label>
+            <input type="number" class="form-control" id="contractDeposit" th:field="*{contractDeposit}"/>
+            <p th:if="${#fields.hasErrors('contractDeposit')}" th:errors="*{contractDeposit}" style="color: red"></p>
+        </div>
+        <div class="form-group">
+            <label for="contractTotalMoney">Contract total money</label>
+            <input type="number" class="form-control" id="contractTotalMoney" th:field="*{contractTotalMoney}"/>
+            <p th:if="${#fields.hasErrors('contractTotalMoney')}" th:errors="*{contractTotalMoney}" style="color: red"></p>
+        </div>
+        <div class="form-group">
+            <label for="employee">Employee</label>
+            <select class="form-control" id="employee" th:field="*{employee}">
+                <th:block th:each="c : ${employees}">
+                    <option th:value="${c.employeeId}" th:text="${c.employeeName}"></option>
+                </th:block>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="customer">Customer</label>
+            <select class="form-control" id="customer" th:field="*{customer}">
+                <th:block th:each="c : ${customers}">
+                    <option th:value="${c.customerId}" th:text="${c.customerName}"></option>
+                </th:block>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="service">Service</label>
+            <select class="form-control" id="service" th:field="*{service}">
+                <th:block th:each="c : ${services}">
+                    <option th:value="${c.serviceId}" th:text="${c.serviceName}"></option>
+                </th:block>
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="Create"/>
+        </div>
+    </form>
+</div>
+<div th:replace="~{layout/footer::footer}"></div>
+</body>
+</html>

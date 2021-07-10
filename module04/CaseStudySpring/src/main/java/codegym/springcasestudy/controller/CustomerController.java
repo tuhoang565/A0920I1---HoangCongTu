@@ -9,6 +9,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -37,8 +40,12 @@ public class CustomerController {
     }
 
     @PostMapping("/create-customer")
-    public ModelAndView saveCustomer(@ModelAttribute("customer") Customer customer){
-
+    public ModelAndView saveCustomer(@Validated @ModelAttribute("customer") Customer customer, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            ModelAndView modelAndView = new ModelAndView("/customer/create");
+            modelAndView.addObject("customer", customer);
+            return modelAndView;
+        }
         customerService.save(customer);
         ModelAndView modelAndView = new ModelAndView("/customer/create");
         modelAndView.addObject("customer", new Customer());
@@ -68,17 +75,31 @@ public class CustomerController {
     }
 
     @PostMapping("/edit-customer")
-    public ModelAndView updateCustomer(@ModelAttribute("customer") Customer customer){
+    public ModelAndView updateCustomer(@Validated @ModelAttribute("customer") Customer customer, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            ModelAndView modelAndView = new ModelAndView("/customer/edit");
+            modelAndView.addObject("customer", customer);
+            return modelAndView;
+        }
         customerService.save(customer);
         ModelAndView modelAndView = new ModelAndView("/customer/edit");
         modelAndView.addObject("customer", customer);
-        modelAndView.addObject("message", "Customer updated successfull");
+        modelAndView.addObject("message", "Customer updated successful");
         return modelAndView;
     }
 
     @GetMapping("/delete-customer/{customerId}")
-    public String deleteCustomer(@PathVariable Long customerId){
+    public String showDelete(@PathVariable("customerId") Long customerId, Model model){
+        Customer customer = customerService.findById(customerId);
+        model.addAttribute("customer", customer);
+        return "customer/delete";
+    }
+
+    @PostMapping("/actionDetele/{customerId}")
+    public String delete(@PathVariable("customerId") Long customerId, Pageable pageable, Model model){
         customerService.remove(customerId);
-        return "redirect:/customer/list";
+        Page<Customer> customers = customerService.findAll(pageable);
+        model.addAttribute("customers", customers);
+        return "customer/list";
     }
 }

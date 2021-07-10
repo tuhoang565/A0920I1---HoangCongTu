@@ -51,7 +51,7 @@
             <label for="division">Division</label>
             <select class="form-control" id="division" th:field="*{division}">
                 <th:block th:each="c : ${divisions}">
-                    <option th:value="${c.divionId}" th:text="${c.divisionName}"></option>
+                    <option th:value="${c.divisionId}" th:text="${c.divisionName}"></option>
                 </th:block>
             </select>
         </div>

@@ -29,15 +29,15 @@ public class DataSeedingListener implements ApplicationListener<ContextRefreshed
         }
 
 //        them admin
-        if(userRepository.findByUsername("admin") == null){
-            User admin = new User();
-            admin.setUsername("admin");
-            admin.setPassword(EncryptPasswordUtils.EncryptPasswordUtils("123456"));
-            HashSet<Role> roles = new HashSet<>();
-            roles.add(roleRepository.findByRoleName("ROLE_ADMIN"));
-            roles.add((roleRepository.findByRoleName("ROLE_USER")));
-            admin.setRoles(roles);
-            userRepository.save(admin);
-        }
+//        if(userRepository.findByUsername("admin") == null){
+//            User admin = new User();
+//            admin.setUsername("admin");
+//            admin.setPassword(EncryptPasswordUtils.EncryptPasswordUtils("123456"));
+//            HashSet<Role> roles = new HashSet<>();
+//            roles.add(roleRepository.findByRoleName("ROLE_ADMIN"));
+//            roles.add((roleRepository.findByRoleName("ROLE_USER")));
+//            admin.setRoles(roles);
+//            userRepository.save(admin);
+//        }
     }
 }

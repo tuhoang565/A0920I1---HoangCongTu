@@ -1,6 +1,7 @@
 package codegym.springcasestudy.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.List;
 
 @Entity
@@ -8,20 +9,43 @@ public class Service {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long serviceId;
+
+    @NotEmpty(message = "Customer code not empty")
+    @Pattern(regexp = "^(DV-\\d{4})$", message = "Wrong format. DV-XXXX")
+    @Column(unique = true)
+    private String serviceCode;
+
+    @NotEmpty(message = "Name not empty")
     private String serviceName;
+
+    @Min(value = 1, message = "Area > 0")
     private int serviceArea;
+
+    @Min(value = 1, message = "Cost > 0")
     private double serviceCost;
+
+    @Min(value = 1, message = "People > 0")
     private int serviceMaxPeople;
+
     @ManyToOne
     @JoinColumn(name = "rentType_id")
     private RentType rentType;
+
     @ManyToOne
     @JoinColumn(name = "serviceType_id")
     private ServiceType serviceType;
+
+
     private String standardRoom;
+
     private String descriptionOtherConvenience;
+
+    @Min(value = 1, message = "Pool area > 0")
     private double poolArea;
+
+    @Min(value = 1, message = "Floor > 0")
     private int numberOfFloor;
+
     @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
     private List<Contract> contracts;
 
@@ -122,5 +146,13 @@ public class Service {
 
     public void setContracts(List<Contract> contracts) {
         this.contracts = contracts;
+    }
+
+    public String getServiceCode() {
+        return serviceCode;
+    }
+
+    public void setServiceCode(String serviceCode) {
+        this.serviceCode = serviceCode;
     }
 }
