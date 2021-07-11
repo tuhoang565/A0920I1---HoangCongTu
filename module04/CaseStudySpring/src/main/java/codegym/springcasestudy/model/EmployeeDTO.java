@@ -3,10 +3,10 @@ package codegym.springcasestudy.model;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
-@Entity
-public class Employee {
-    @Id
+public class EmployeeDTO {
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long employeeId;
     private String employeeName;
@@ -16,23 +16,17 @@ public class Employee {
     private String employeePhone;
     private String employeeEmail;
     private String employeeAddress;
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Contract> contracts;
-    @ManyToOne
-    @JoinColumn(name = "position_id")
     private Position position;
-    @ManyToOne
-    @JoinColumn(name = "educationDegree_id")
     private EducationDegree educationDegree;
-    @ManyToOne
-    @JoinColumn(name = "division_id")
     private Division division;
 
-    @OneToOne(mappedBy = "employee")
-    private User user;
 
+    private Long userId;
+    private String username;
+    private String password;
 
-    public Employee() {
+    public EmployeeDTO() {
     }
 
     public Long getEmployeeId() {
@@ -131,11 +125,27 @@ public class Employee {
         this.division = division;
     }
 
-    public User getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

@@ -10,7 +10,7 @@
     <th:block th:if="${message}">
         <p th:text="${message}"></p>
     </th:block>
-    <form th:action="@{/employee/edit}" th:object="${employee}" method="post">
+    <form th:action="@{/employee/edit}" th:object="${employeeDto}" method="post">
         <input th:type="hidden" name="employeeId" th:field="*{employeeId}"/>
         <div class="form-group">
             <label for="employeeName">Full name</label>
@@ -66,10 +66,10 @@
         </div>
         <div class="form-group">
             <label for="user">User</label>
-            <input type="text" class="form-control" id="user" th:field="*{user.username}"/>
+            <input type="text" class="form-control" id="user" th:field="*{username}"/>
         </div><div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" th:field="*{user.password}"/>
+        <input type="password" class="form-control" id="password" th:field="*{password}"/>
     </div>
         <div>
             <input type="submit" value="Update"/>

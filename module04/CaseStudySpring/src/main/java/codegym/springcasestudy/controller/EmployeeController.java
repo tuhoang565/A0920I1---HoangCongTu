@@ -65,26 +65,37 @@ public class EmployeeController {
     @GetMapping("/create")
     public ModelAndView showCreateForm(){
         ModelAndView modelAndView = new ModelAndView("/employee/create");
-        modelAndView.addObject("employee", new Employee());
+        modelAndView.addObject("employeeDto", new EmployeeDTO());
         return modelAndView;
     }
 
     @PostMapping("/create")
-    public ModelAndView createEmployee(@ModelAttribute("employee") Employee employee){
-//        User user = new User();
-//        user.setUsername(employee.getUser().getUsername());
-//        user.setPassword(employee.getUser().getPassword());
-//        Role roleEntity = roleService.findByRoleName("ROLE_USER");
-//        Set<Role> listRoles = new HashSet<>();
-//        listRoles.add(roleEntity);
-//        user.setRoles(listRoles);
-//        user.setEmployee(employee);
-//        userService.save(user);
-
+    public ModelAndView createEmployee(@ModelAttribute("employeeDto") EmployeeDTO employeeDTO){
+        Employee employee = new Employee();
+        employee.setEmployeeName(employeeDTO.getEmployeeName());
+        employee.setEmployeeBirthday(employeeDTO.getEmployeeBirthday());
+        employee.setEmployeeIdCard(employeeDTO.getEmployeeIdCard());
+        employee.setEmployeeSalary(employeeDTO.getEmployeeSalary());
+        employee.setEmployeePhone(employeeDTO.getEmployeePhone());
+        employee.setEmployeeEmail(employeeDTO.getEmployeeEmail());
+        employee.setEmployeeAddress(employeeDTO.getEmployeeAddress());
+        employee.setPosition(employeeDTO.getPosition());
+        employee.setEducationDegree(employeeDTO.getEducationDegree());
+        employee.setDivision(employeeDTO.getDivision());
         employeeService.save(employee);
 
+        User user = new User();
+        user.setUsername(employeeDTO.getUsername());
+        user.setPassword(employeeDTO.getPassword());
+        Role roleEntity = roleService.findByRoleName("ROLE_USER");
+        Set<Role> listRoles = new HashSet<>();
+        listRoles.add(roleEntity);
+        user.setRoles(listRoles);
+        user.setEmployee(employee);
+        userService.save(user);
+
         ModelAndView modelAndView = new ModelAndView("/employee/create");
-        modelAndView.addObject("employee", new Employee());
+        modelAndView.addObject("employeeDto", new EmployeeDTO());
         modelAndView.addObject("message", "New employee was created");
         return modelAndView;
     }
@@ -93,16 +104,49 @@ public class EmployeeController {
     public ModelAndView showEditForm(@PathVariable Long employeeId){
         Employee employee = employeeService.findById(employeeId);
         User user = userService.findById(employeeService.findById(employeeId).getUser().getUserId());
+
+        EmployeeDTO employeeDTO = new EmployeeDTO();
+        employeeDTO.setEmployeeId(employee.getEmployeeId());
+        employeeDTO.setEmployeeName(employee.getEmployeeName());
+        employeeDTO.setEmployeeBirthday(employee.getEmployeeBirthday());
+        employeeDTO.setEmployeeIdCard(employee.getEmployeeIdCard());
+        employeeDTO.setEmployeeSalary(employee.getEmployeeSalary());
+        employeeDTO.setEmployeePhone(employee.getEmployeePhone());
+        employeeDTO.setEmployeeEmail(employee.getEmployeeEmail());
+        employeeDTO.setEmployeeAddress(employee.getEmployeeAddress());
+        employeeDTO.setDivision(employee.getDivision());
+        employeeDTO.setPosition(employee.getPosition());
+        employeeDTO.setEducationDegree(employee.getEducationDegree());
+
+        employeeDTO.setUserId(user.getUserId());
+        employeeDTO.setUsername(user.getUsername());
+        employeeDTO.setPassword(user.getPassword());
+
         ModelAndView modelAndView = new ModelAndView("/employee/edit");
-        modelAndView.addObject("employee", employee);
-        modelAndView.addObject("user", user);
+        modelAndView.addObject("employeeDto", employeeDTO);
         return modelAndView;
     }
 
     @PostMapping("/edit")
-    public ModelAndView saveEdit(@ModelAttribute("employee") Employee employee, @ModelAttribute("user") User user){
-        user.setUsername(employee.getUser().getUsername());
-        user.setPassword(employee.getUser().getPassword());
+    public ModelAndView saveEdit(@ModelAttribute("employeeDto") EmployeeDTO employeeDTO){
+        Employee employee = new Employee();
+        employee.setEmployeeId(employeeDTO.getEmployeeId());
+        employee.setEmployeeName(employeeDTO.getEmployeeName());
+        employee.setEmployeeBirthday(employeeDTO.getEmployeeBirthday());
+        employee.setEmployeeIdCard(employeeDTO.getEmployeeIdCard());
+        employee.setEmployeeSalary(employeeDTO.getEmployeeSalary());
+        employee.setEmployeePhone(employeeDTO.getEmployeePhone());
+        employee.setEmployeeEmail(employeeDTO.getEmployeeEmail());
+        employee.setEmployeeAddress(employeeDTO.getEmployeeAddress());
+        employee.setPosition(employeeDTO.getPosition());
+        employee.setEducationDegree(employeeDTO.getEducationDegree());
+        employee.setDivision(employeeDTO.getDivision());
+        employeeService.save(employee);
+
+        User user = new User();
+        user.setUserId(employeeDTO.getUserId());
+        user.setUsername(employeeDTO.getUsername());
+        user.setPassword(employeeDTO.getPassword());
         Role roleEntity = roleService.findByRoleName("ROLE_USER");
         Set<Role> listRoles = new HashSet<>();
         listRoles.add(roleEntity);
@@ -110,9 +154,8 @@ public class EmployeeController {
         user.setEmployee(employee);
         userService.save(user);
 
-        employeeService.save(employee);
         ModelAndView modelAndView = new ModelAndView("/employee/edit");
-        modelAndView.addObject("employee", employee);
+        modelAndView.addObject("employeeDto", employeeDTO);
         modelAndView.addObject("message", "Update successful");
         return modelAndView;
     }

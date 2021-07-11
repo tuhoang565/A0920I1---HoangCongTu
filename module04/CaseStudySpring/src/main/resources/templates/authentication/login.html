@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/header::header}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="~{layout/navbar::navbar}"></div>
+<div>
+    <h4>Login</h4>
+    <form th:action="@{/login}" method="post">
+        <p th:if="${param.error}" class="text-danger">Login fail</p>
+        <div>
+            <input name="username" type="text" placeholder="Username">
+        </div>
+        <div>
+            <input name="password" type="password" placeholder="Password">
+        </div>
+        <div>
+            <input type="checkbox" name="remember-me"> Remember me
+        </div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
