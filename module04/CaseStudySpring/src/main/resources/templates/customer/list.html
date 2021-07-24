@@ -65,30 +65,34 @@
 
 <!-- Script-->
     <script>
+
+
         function showDelete(customerId) {
             $.ajax({
-                type: "GET",
-                url: "/customer/delete-customer/" + customerId,
+                method: "GET",
+                url: "/customer/delete/" + customerId,
                 dataType: "HTML",
                 success: function (data) {
                     $(".modal-body").html(data);
                     $("#modelId").modal('show');
                 }
             })
-        }
+        };
 
-        function actionDetele(customerId) {
+        function actionDelete(customerId){
             $.ajax({
-                type: "POST",
+                method: "POST",
                 url: "/customer/delete-customer/" + customerId,
                 dataType: "HTML",
                 success: function (data) {
-                    var messageDelete = "Delete!!";
+                    var messageDelete = "Delete!!!";
                     $("#modelId").modal('hide');
-                    $(#searchTable).html(data);
+                    $("#searchTable").html(data);
                     $(".modal-body").html(messageDelete);
                     $("#modelId").modal('show');
                 }
+
+
             })
         }
     </script>

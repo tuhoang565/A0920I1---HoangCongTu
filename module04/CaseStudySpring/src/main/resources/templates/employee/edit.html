@@ -12,6 +12,7 @@
     </th:block>
     <form th:action="@{/employee/edit}" th:object="${employeeDto}" method="post">
         <input th:type="hidden" name="employeeId" th:field="*{employeeId}"/>
+        <input th:type="hidden" name="userId" th:field="*{userId}"/>
         <div class="form-group">
             <label for="employeeName">Full name</label>
             <input type="text" class="form-control" id="employeeName" th:field="*{employeeName}"/>
@@ -69,7 +70,7 @@
             <input type="text" class="form-control" id="user" th:field="*{username}"/>
         </div><div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" th:field="*{password}"/>
+        <input type="text" class="form-control" id="password" th:field="*{password}"/>
     </div>
         <div>
             <input type="submit" value="Update"/>

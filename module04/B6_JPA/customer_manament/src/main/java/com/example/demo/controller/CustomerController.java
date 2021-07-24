@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -89,6 +90,29 @@ public class CustomerController {
         }
     }
 
+//    @GetMapping("/delete-customer/{id}")
+//    public ModelAndView showDeleteForm(@PathVariable Long id){
+//        try {
+//            Customer customer = customerService.findById(id);
+//            if (customer != null) {
+//                ModelAndView modelAndView = new ModelAndView("/customer/delete");
+//                modelAndView.addObject("customer", customer);
+//                return modelAndView;
+//            } else {
+//                ModelAndView modelAndView = new ModelAndView("/error.404");
+//                return modelAndView;
+//            }
+//        }catch (Exception e){
+//            return new ModelAndView("redirect:/customers");
+//        }
+//    }
+//
+//    @PostMapping("/delete-customer")
+//    public String deleteCustomer(@ModelAttribute("customer") Customer customer){
+//        customerService.remove(customer.getId());
+//        return "redirect:customers";
+//    }
+
     @GetMapping("/delete-customer/{id}")
     public ModelAndView showDeleteForm(@PathVariable Long id){
         try {
@@ -106,9 +130,11 @@ public class CustomerController {
         }
     }
 
-    @PostMapping("/delete-customer")
-    public String deleteCustomer(@ModelAttribute("customer") Customer customer){
-        customerService.remove(customer.getId());
-        return "redirect:customers";
+    @PostMapping("/delete-customer/{id}")
+    public String deleteCustomer(@PathVariable Long id, Pageable pageable, Model model){
+        customerService.remove(id);
+        Page<Customer> customers = customerService.findAll(pageable);
+        model.addAttribute("customers", customers);
+        return "redirect:/customers";
     }
 }

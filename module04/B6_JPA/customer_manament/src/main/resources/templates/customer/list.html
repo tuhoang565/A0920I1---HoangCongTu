@@ -3,6 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <!--    CSS-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+          crossorigin="anonymous">
+
+    <!--    JavaScript-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+            integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+            crossorigin="anonymous"></script>
 </head>
 <body>
 <a href="/create-customer">Create new customer</a>
@@ -12,7 +25,7 @@
     <input name="s" type="text"/>
     <input type="submit" value="Search"/>
 </form><br/>
-<table border="1">
+<table border="1" id="searchTable">
     <tr>
         <th>First name</th>
         <th>Last name</th>
@@ -28,7 +41,10 @@
             <td th:text="${customer.email}"></td>
             <td th:text="${customer.province.name}"></td>
             <td><a th:href="@{/edit-customer/__${customer.id}__ }">Edit</a></td>
-            <td><a th:href="@{/delete-customer/__${customer.id}__ }">Delete</a></td>
+            <td><button type="button" class="btn btn-danger" id="btnModalDelete"
+                        th:onclick="'javascript:showDelete(\''+ ${customer.id} + '\');'">
+                Delete
+            </button></td>
         </tr>
     </th:block>
 </table>
@@ -37,5 +53,54 @@
     <span th:text="${customers.number + 1}"></span>/<span th:text="${customers.totalPages}"></span>
     <a th:href="@{'/customers'(page=${customers.number + 1})}" th:if="${customers.hasNext()}">Next</a>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script-->
+<script>
+    function showDelete(id) {
+        $.ajax({
+            method: "GET",
+            url: "/delete-customer/" + id,
+            dataType: "HTML",
+            success: function (data) {
+                $(".modal-body").html(data);
+                $("#modelId").modal('show');
+            }
+        })
+    };
+
+    function actionDelete(id){
+        $.ajax({
+            method: "POST",
+            url: "/delete-customer/" + id,
+            dataType: "HTML",
+            success: function (data) {
+                var messageDelete = "Delete!!!";
+                $("#modelId").modal('hide');
+                $("#searchTable").html(data);
+                $(".modal-body").html(messageDelete);
+                $("#modelId").modal('show');
+            }
+
+
+        })
+    }
+</script>
 </body>
 </html>

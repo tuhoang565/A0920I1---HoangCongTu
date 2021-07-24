@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/header::header}">
+    <meta charset="UTF-8">
+    <title>Create product</title>
+</head>
+<body>
+<h1 >Create New Product</h1>
+
+<a href="/product/list">List Product</a>
+<th:block th:if="${message}">
+    <p th:text="${message}" style="color: blue"></p>
+</th:block>
+<div>
+    <form th:action="@{/product/create}" th:object="${product}" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" th:field="*{name}"/>
+            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color: red"></p>
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" id="price" th:field="*{price}"/>
+            <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}" style="color: red"></p>
+        </div>
+        <div class="form-group">
+            <label for="status">Status</label>
+            <input type="text" class="form-control" id="status" th:field="*{status}"/>
+            <p th:if="${#fields.hasErrors('status')}" th:errors="*{status}" style="color: red"></p>
+        </div>
+        <div class="form-group">
+            <label for="productType">Product Type</label>
+            <select class="form-control" id="productType" th:field="*{productType}">
+                <th:block th:each="c : ${productTypes}">
+                    <option th:value="${c.id}" th:text="${c.name}"></option>
+                </th:block>
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="Create"/>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

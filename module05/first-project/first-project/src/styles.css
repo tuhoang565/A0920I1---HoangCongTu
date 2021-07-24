@@ -1,0 +1,20 @@
+/* Color Theme Swatches in Hex */
+.My-Color-Theme-1-hex { color: #F00752; }
+.My-Color-Theme-2-hex { color: #071BFA; }
+.My-Color-Theme-3-hex { color: #05E370; }
+.My-Color-Theme-4-hex { color: #FAE807; }
+.My-Color-Theme-5-hex { color: #F59973; }
+
+/* Color Theme Swatches in RGBA */
+.My-Color-Theme-1-rgba { color: rgba(240, 7, 82, 1); }
+.My-Color-Theme-2-rgba { color: rgba(7, 27, 250, 1); }
+.My-Color-Theme-3-rgba { color: rgba(5, 227, 112, 1); }
+.My-Color-Theme-4-rgba { color: rgba(250, 232, 7, 1); }
+.My-Color-Theme-5-rgba { color: rgba(245, 153, 115, 1); }
+
+/* Color Theme Swatches in HSLA */
+.My-Color-Theme-1-hsla { color: hsla(340, 94, 48, 1); }
+.My-Color-Theme-2-hsla { color: hsla(235, 96, 50, 1); }
+.My-Color-Theme-3-hsla { color: hsla(148, 95, 45, 1); }
+.My-Color-Theme-4-hsla { color: hsla(55, 96, 50, 1); }
+.My-Color-Theme-5-hsla { color: hsla(17, 86, 70, 1); }/* You can add global styles to this file, and also import other style files */

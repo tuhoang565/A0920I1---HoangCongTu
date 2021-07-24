@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -88,18 +90,21 @@ public class CustomerController {
         return modelAndView;
     }
 
-    @GetMapping("/delete-customer/{customerId}")
-    public String showDelete(@PathVariable("customerId") Long customerId, Model model){
+    @GetMapping("/delete/{customerId}")
+    public ModelAndView showDelete(@PathVariable("customerId") Long customerId){
         Customer customer = customerService.findById(customerId);
-        model.addAttribute("customer", customer);
-        return "customer/delete";
+        ModelAndView modelAndView = new ModelAndView("/customer/delete");
+        modelAndView.addObject("customer", customer);
+        return modelAndView;
     }
 
-    @PostMapping("/actionDetele/{customerId}")
-    public String delete(@PathVariable("customerId") Long customerId, Pageable pageable, Model model){
+    @PostMapping("/delete-customer/{customerId}")
+    public ModelAndView delete(@PathVariable("customerId") Long customerId, Pageable pageable){
+        ModelAndView modelAndView = new ModelAndView("/customer/list");
         customerService.remove(customerId);
         Page<Customer> customers = customerService.findAll(pageable);
-        model.addAttribute("customers", customers);
-        return "customer/list";
+        modelAndView.addObject("customers", customers);
+        return modelAndView;
     }
+
 }

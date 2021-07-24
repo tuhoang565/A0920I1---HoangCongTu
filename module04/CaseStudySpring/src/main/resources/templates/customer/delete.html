@@ -14,21 +14,5 @@
         th:onclick="'javascript:actionDelete(\''+ ${customer.customerId} + '\');'">Delete
 </button>
 
-<script>
-    function actionDetele(customerId) {
-        $.ajax({
-            type: "POST",
-            url: "/customer/delete-customer/" + customerId,
-            dataType: "HTML",
-            success: function (data) {
-                var messageDelete = "Delete!!";
-                $("#modelId").modal('hide');
-                $(#searchTable).html(data);
-                $(".modal-body").html(messageDelete);
-                $("#modelId").modal('show');
-            }
-        })
-    }
-</script>
 </body>
 </html>
