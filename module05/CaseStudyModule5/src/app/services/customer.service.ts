@@ -39,4 +39,8 @@ export class CustomerService {
   getAllCustomer(){
     return this.customers;
   }
+
+  onAdd(customer: ICustomer){
+    this.customers.push(customer);
+  }
 }
