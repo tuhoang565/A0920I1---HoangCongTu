@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Login</h2>
+  <br>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div *ngIf="loginForm.get('email').touched && loginForm.get('email').invalid" class="alert alert-danger">
+      Email invalid
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+    </div>
+    <div *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid" class="alert alert-danger">
+      Password invalid
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
