@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
+export class User {
+  email: string;
+  password: string
+}
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -8,6 +12,12 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
+  users: Array<User> = [
+    {email: 'hello@gmail.com', password: '123456'},
+    {email: 'byebye@gmail.com', password: '123456'},
+    {email: 'goodnight@gmail.com', password: '123456'}
+    ];
+
   constructor() { }
 
   ngOnInit(): void {
@@ -18,6 +28,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginForm.value);
+
   }
+
 }

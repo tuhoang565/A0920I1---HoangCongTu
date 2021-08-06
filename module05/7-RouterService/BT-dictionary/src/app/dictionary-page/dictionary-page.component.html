@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Dictionary</h2>
+  <br>
+  <input type="text" [(ngModel)]="eng" (input)="search()"/>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">English</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let dic of dictionaries">
+      <th scope="row">{{dic.id}}</th>
+      <td>{{dic.eng}}</td>
+      <td><a [routerLink]="['/dictionary-detail', dic.id]">Detail</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

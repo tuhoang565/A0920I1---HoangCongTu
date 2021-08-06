@@ -29,7 +29,7 @@ export class RegisterFormComponent implements OnInit {
     this.registerForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.pattern('^[a-z][a-z0-9_\\.]{1,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$')]),
       passwordGroup: new FormGroup({
-        password: new FormControl(''),
+        password: new FormControl('', [Validators.required, Validators.minLength(6)]),
         confirmPassword: new FormControl('', [Validators.required, Validators.minLength(6)])
       }, {validators: comparePassword}),
       country: new FormControl('', [Validators.required]),

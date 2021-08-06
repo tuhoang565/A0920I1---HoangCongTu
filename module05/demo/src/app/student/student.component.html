@@ -1,14 +1,24 @@
+<div class="container">
 <h1>List all student</h1>
-<table>
+  <a routerLink="add" class="btn btn-primary mt-5 mb-3">Add</a>
+<table class="table  table-striped">
   <thead>
-  <th>Id</th>
-  <th>Name</th>
-  <th>Age</th>
-  <th>Mark</th>
+  <th scope="col">Id</th>
+  <th scope="col">Name</th>
+  <th scope="col">Age</th>
+  <th scope="col">Mark</th>
+  <th scope="col">Action</th>
+  <th scope="col"></th>
   </thead>
   <tbody>
-  <tr *ngFor="let s in students">
-
+  <tr *ngFor="let s of students">
+    <td>{{s.id}}</td>
+    <td>{{s.name}}</td>
+    <td>{{s.age}}</td>
+    <td>{{s.mark}}</td>
+    <td><button class="btn btn-primary" (click)="onDelete(s.id)">Delete</button></td>
+    <td><a [routerLink]="['/edit', s.id]" class="btn btn-primary">Edit</a></td>
   </tr>
   </tbody>
 </table>
+</div>
