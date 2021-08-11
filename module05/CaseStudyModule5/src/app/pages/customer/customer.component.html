@@ -1,19 +1,20 @@
-<div class="container mt-5">
-  <h2>List all customer</h2>
-  <a routerLink="/customer/add/0" class="btn btn-danger mt-5 mb-3">Create</a>
+<div class="container-fluid">
+  <h2 style="text-align: center">List all customer</h2>
+  <a routerLink="/customer/add" class="btn btn-danger mt-5 mb-3">Create</a>
   <table class="table">
     <thead>
-    <th>Id</th>
-    <th>Full Name</th>
+    <th (click)="sort('id')">Id <i class="fa fa-sort"></i></th>
+    <th (click)="sort('fullName')">Full Name <i class="fa fa-sort"></i></th>
     <th>Birthday</th>
     <th>Id Card</th>
     <th>Phone Number</th>
     <th>Email</th>
     <th>Address</th>
-    <th></th>
+    <th>Customer Type</th>
+    <th>Action</th>
     </thead>
     <tbody>
-    <tr *ngFor="let customer of customers">
+    <tr *ngFor="let customer of customers | orderBy: key: reverse | paginate: {currentPage: p, itemsPerPage: 5};">
       <td>{{customer.id}}</td>
       <td>{{customer.fullName}}</td>
       <td>{{customer.birthday}}</td>
@@ -21,8 +22,11 @@
       <td>{{customer.phoneNumber}}</td>
       <td>{{customer.email}}</td>
       <td>{{customer.address}}</td>
-      <td><a [routerLink]="['/customer/edit', customer.id]">Edit</a></td>
+      <td>{{customer.customerType.name}}</td>
+      <td><a [routerLink]="['/customer/edit', customer.id]" class="btn btn-danger">Edit</a>
+        <button (click)="deleteCustomer(customer.id)" class="btn btn-danger mx-3">Delete</button></td>
     </tr>
     </tbody>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </table>
 </div>

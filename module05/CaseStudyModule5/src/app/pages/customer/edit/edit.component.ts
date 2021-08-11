@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {NgForm} from '@angular/forms';
-import {ICustomer} from '../../../models/ICustomer';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {CustomerService} from '../../../services/customer.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ICustomer} from '../../../models/ICustomer';
+import {ICustomerType} from '../../../models/ICustomerType';
 
 @Component({
   selector: 'app-edit',
@@ -11,28 +12,51 @@ import {CustomerService} from '../../../services/customer.service';
 })
 export class EditComponent implements OnInit {
   id: number;
-  header: string;
+  customerTypes: any = [];
+  customer: ICustomer = new class implements ICustomer {
+    address: string;
+    birthday: string;
+    customerType: ICustomerType;
+    email: string;
+    fullName: string;
+    id: number;
+    idCard: string;
+    phoneNumber: string;
+  };
 
-  constructor(private route: ActivatedRoute, private customerService: CustomerService, private router: Router) { }
+  editForm = this.formBuilder.group({
+    fullName: [''],
+    birthday: [''],
+    idCard: [''],
+    phoneNumber: [''],
+    email: [''],
+    address: [''],
+    customerType: ['']
+  });
+
+
+  constructor(private formBuilder: FormBuilder, private customerService: CustomerService,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.id = +this.route.snapshot.paramMap.get('id');
-    this.header = this.id === 0? 'Add Customer' : 'Edit Customer';
+    this.getAllCustomerTypeList();
+    this.id = this.activatedRoute.snapshot.params.id;
+    this.customerService.findById(this.id).subscribe((result)=>{
+      this.editForm.setValue(result);
+      }
+    );
   }
 
-  onSubmit(form: NgForm){
-    let customer: ICustomer = {
-      id: form.value.id,
-      fullName: form.value.fullName,
-      birthday: form.value.birthday,
-      idCard: form.value.idCard,
-      phoneNumber: form.value.phoneNumber,
-      email: form.value.email,
-      address: form.value.address
-    }
-
-    this.customerService.onAdd(customer);
-    this.router.navigateByUrl('');
+  editCustomer(){
+    this.customer = this.editForm.value;
+    this.customerService.editCustomer(this.customer, this.id).subscribe(data =>{
+      alert('update successful');
+    })
   }
 
+  getAllCustomerTypeList(){
+    this.customerService.getAllCustomerType().subscribe(data =>{
+      this.customerTypes = data;
+    })
+  }
 }

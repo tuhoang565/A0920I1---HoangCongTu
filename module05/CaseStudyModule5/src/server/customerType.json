@@ -1,0 +1,16 @@
+{
+  "customerType": [
+    {
+      "id": 1,
+      "name": "Platinum"
+    },
+    {
+      "id": 2,
+      "name": "Gold"
+    },
+    {
+      "id": 2,
+      "name": "Member"
+    }
+  ]
+}

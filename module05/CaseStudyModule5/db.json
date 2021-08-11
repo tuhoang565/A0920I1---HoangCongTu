@@ -1,0 +1,192 @@
+{
+  "customer": [
+    {
+      "fullName": "Binh Hung",
+      "birthday": "1999-02-02",
+      "idCard": "123",
+      "phoneNumber": "123",
+      "email": "hoangcongtu565@gmail.com",
+      "address": "Da Nang",
+      "customerType": {
+        "id": 1,
+        "name": "Platinum"
+      },
+      "id": 10
+    },
+    {
+      "fullName": "Hoang",
+      "birthday": "1999-02-02",
+      "idCard": "123",
+      "phoneNumber": "123",
+      "email": "binh@gmail.com",
+      "address": "Da Nang",
+      "customerType": {
+        "id": 2,
+        "name": "Member"
+      },
+      "id": 11
+    },
+    {
+      "fullName": "Hoang",
+      "birthday": "1999-02-02",
+      "idCard": "123",
+      "phoneNumber": "123",
+      "email": "binh@gmail.com",
+      "address": "Da Nang",
+      "customerType": {
+        "id": 2,
+        "name": "Member"
+      },
+      "id": 12
+    },
+    {
+      "fullName": "Hoang",
+      "birthday": "1999-02-02",
+      "idCard": "123",
+      "phoneNumber": "123",
+      "email": "binh@gmail.com",
+      "address": "Da Nang",
+      "customerType": {
+        "id": 2,
+        "name": "Member"
+      },
+      "id": 13
+    },
+    {
+      "fullName": "Hoang",
+      "birthday": "1999-02-02",
+      "idCard": "123",
+      "phoneNumber": "123",
+      "email": "binh@gmail.com",
+      "address": "Da Nang",
+      "customerType": {
+        "id": 2,
+        "name": "Member"
+      },
+      "id": 14
+    },
+    {
+      "fullName": "Hoang",
+      "birthday": "1999-02-02",
+      "idCard": "123",
+      "phoneNumber": "123",
+      "email": "binh@gmail.com",
+      "address": "Da Nang",
+      "customerType": {
+        "id": 2,
+        "name": "Member"
+      },
+      "id": 15
+    },
+    {
+      "fullName": "Hoang",
+      "birthday": "1999-02-02",
+      "idCard": "123",
+      "phoneNumber": "123",
+      "email": "binh@gmail.com",
+      "address": "Da Nang",
+      "customerType": {
+        "id": 2,
+        "name": "Member"
+      },
+      "id": 16
+    },
+    {
+      "fullName": "Hoang",
+      "birthday": "1999-02-02",
+      "idCard": "123",
+      "phoneNumber": "123",
+      "email": "binh@gmail.com",
+      "address": "Da Nang",
+      "customerType": {
+        "id": 2,
+        "name": "Member"
+      },
+      "id": 17
+    },
+    {
+      "fullName": "Hoang",
+      "birthday": "1999-02-02",
+      "idCard": "123",
+      "phoneNumber": "123",
+      "email": "binh@gmail.com",
+      "address": "Da Nang",
+      "customerType": {
+        "id": 2,
+        "name": "Member"
+      },
+      "id": 18
+    },
+    {
+      "fullName": "Binh Anh",
+      "birthday": "2021-07-31T17:00:00.000Z",
+      "idCard": "123123123",
+      "phoneNumber": "0905123123",
+      "email": "binh@gmail.com",
+      "address": "Da Nang",
+      "customerType": {
+        "id": 2,
+        "name": "Gold"
+      },
+      "id": 19
+    }
+  ],
+  "customerType": [
+    {
+      "id": 1,
+      "name": "Platinum"
+    },
+    {
+      "id": 2,
+      "name": "Gold"
+    },
+    {
+      "id": 2,
+      "name": "Member"
+    }
+  ],
+  "employee": [
+  ],
+  "position": [
+    {
+      "id": 1,
+      "name": "Lễ tân"
+    },
+    {
+      "id": 2,
+      "name": "Giám sát"
+    },
+    {
+      "id": 3,
+      "name": "Giám đốc"
+    }
+  ],
+  "educationDegree": [
+    {
+      "id": 1,
+      "name": "Trung cấp"
+    },
+    {
+      "id": 2,
+      "name": "Cao đẳng"
+    },
+    {
+      "id": 3,
+      "name": "Đại học"
+    }
+  ],
+  "division": [
+    {
+      "id": 1,
+      "name": "Marketing"
+    },
+    {
+      "id": 2,
+      "name": "Hành chính"
+    },
+    {
+      "id": 3,
+      "name": "Quản lý"
+    }
+  ]
+}

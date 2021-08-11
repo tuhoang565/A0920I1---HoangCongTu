@@ -1,46 +1,59 @@
 import { Injectable } from '@angular/core';
 import {ICustomer} from '../models/ICustomer';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
-  customers: ICustomer[]=[
-    {
-      id: 1,
-      fullName: "Tu Hoang",
-      birthday: "20/1/1994",
-      idCard: "123",
-      phoneNumber: "0905123123",
-      email: "tu@gmail.com",
-      address: "Hue"
-    },
-    {
-      id: 2,
-      fullName: "Tu Hoang",
-      birthday: "20/1/1994",
-      idCard: "123",
-      phoneNumber: "0905123123",
-      email: "tu@gmail.com",
-      address: "Hue"
-    },
-    {
-      id: 3,
-      fullName: "Tu Hoang",
-      birthday: "20/1/1994",
-      idCard: "123",
-      phoneNumber: "0905123123",
-      email: "tu@gmail.com",
-      address: "Hue"
-    },
-  ];
-  constructor() { }
+  URL = 'http://localhost:3000/customer';
+  regURL = 'http://localhost:3000/customerType';
 
-  getAllCustomer(){
-    return this.customers;
+
+
+  constructor(private http: HttpClient) {}
+  httpOptions = {
+    header: new Headers({
+      'Content-Type': 'application/json'
+    })
+  };
+
+  getAllCustomerType(){
+    return this.http.get(this.regURL);
+  }
+  getAllCustomer(): Observable<ICustomer[]>{
+    return this.http.get(this.URL)
+      .pipe(map((response: ICustomer[]) =>{
+        return response;
+      }))
+  }
+  createCustomer(data: ICustomer){
+    return this.http.post<ICustomer>(this.URL, data)
+      .pipe(map((response: ICustomer) =>{
+        return response;
+      }))
   }
 
-  onAdd(customer: ICustomer){
-    this.customers.push(customer);
+  deleteCustomer(id: number){
+    return this.http.delete<ICustomer>(this.URL + '/' + id)
+      .pipe(map((response: ICustomer) =>{
+        return response;
+      }))
+  }
+
+  editCustomer(data: any, id: number){
+    return this.http.put<ICustomer>(this.URL + '/' + id, data)
+      .pipe(map((response:ICustomer) =>{
+        return response;
+      }))
+  }
+
+  findById(id: number){
+    return this.http.get(this.URL + '/' + id);
+  }
+
+  search(data: string){
   }
 }

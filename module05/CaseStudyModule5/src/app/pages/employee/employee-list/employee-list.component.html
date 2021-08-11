@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <h2 style="text-align: center">List all employee</h2>
+  <a routerLink="/employee/add" class="btn btn-danger mt-5 mb-3">Create</a>
+  <table class="table">
+    <thead>
+    <th (click)="sort('id')">Id <i class="fa fa-sort"></i></th>
+    <th (click)="sort('fullName')">Full Name <i class="fa fa-sort"></i></th>
+    <th>Birthday</th>
+    <th>Id Card</th>
+    <th>Phone Number</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Salary</th>
+    <th>Division</th>
+    <th>Position</th>
+    <th>Education Degree</th>
+    <th>Action</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let e of employees | orderBy: key: reverse | paginate: {currentPage: p, itemsPerPage: 5};">
+      <td>{{e.id}}</td>
+      <td>{{e.fullName}}</td>
+      <td>{{e.birthday}}</td>
+      <td>{{e.idCard}}</td>
+      <td>{{e.phoneNumber}}</td>
+      <td>{{e.email}}</td>
+      <td>{{e.address}}</td>
+      <td>{{e.salary}}</td>
+      <td>{{e.division.name}}</td>
+      <td>{{e.position.name}}</td>
+      <td>{{e.educationDegree.name}}</td>
+      <td><a [routerLink]="['/employee/edit', e.id]" class="btn btn-danger">Edit</a>
+        <button (click)="deleteEmployee(e.id)" class="btn btn-danger mx-3">Delete</button></td>
+    </tr>
+    </tbody>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </table>
+</div>
+
