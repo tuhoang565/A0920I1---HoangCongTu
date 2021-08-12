@@ -1,1 +1,94 @@
-<p>employee-edit works!</p>
+<div class="container">
+  <h2 style="text-align: center">Edit employee</h2>
+  <form [formGroup]="editForm" (ngSubmit)="editEmployee()" class="col-10">
+    <div class="form-group">
+      <label for="employeeCode">Employee Code</label>
+      <input type="text" formControlName="employeeCode" class="form-control" id="employeeCode"
+             aria-describedby="emailHelp">
+    </div>
+    <div *ngIf="editForm.get('employeeCode').touched && editForm.get('employeeCode').invalid" class="alert alert-danger">
+      Employee code invalid
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Full name</label>
+      <input type="text" formControlName="fullName" class="form-control" id="exampleInputEmail1"
+             aria-describedby="emailHelp">
+    </div>
+    <div *ngIf="editForm.get('fullName').touched && editForm.get('fullName').invalid" class="alert alert-danger">
+      Full name required input
+    </div>
+    <div class="form-group">
+      <label for="birthday">Birthday</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" [max]="maxDate" [min]="minDate" formControlName="birthday" id="birthday">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <label for="idCard">Id Card</label>
+      <input type="text" formControlName="idCard" class="form-control" id="idCard">
+    </div>
+    <div *ngIf="editForm.get('idCard').touched && editForm.get('idCard').invalid" class="alert alert-danger">
+      Id Card invalid or empty
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone number</label>
+      <input type="text" formControlName="phoneNumber" class="form-control" id="phoneNumber">
+    </div>
+    <div *ngIf="editForm.get('phoneNumber').touched && editForm.get('phoneNumber').invalid" class="alert alert-danger">
+      Phone number invalid
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" formControlName="email" class="form-control" id="email">
+    </div>
+    <div *ngIf="editForm.get('email').touched && editForm.get('email').invalid" class="alert alert-danger">
+      Email invalid
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" formControlName="address" class="form-control" id="address">
+    </div>
+    <div *ngIf="editForm.get('address').touched && editForm.get('address').invalid" class="alert alert-danger">
+      Address invalid
+    </div>
+    <div class="form-group">
+      <label for="salary">Salary</label>
+      <input type="number" formControlName="salary" class="form-control" id="salary">
+    </div>
+    <div *ngIf="editForm.get('salary').touched && editForm.get('salary').invalid" class="alert alert-danger">
+      Salary invalid
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Division</label>
+      <select class="form-control" id="exampleFormControlSelect1" formControlName="division">
+        <option *ngFor="let division of divisionList" [ngValue]="division">{{division.name}}</option>
+      </select>
+    </div>
+    <div *ngIf="editForm.get('division').touched && editForm.get('division').invalid" class="alert alert-danger">
+      Division invalid
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Position</label>
+      <select class="form-control" formControlName="position">
+        <option *ngFor="let position of positionList" [ngValue]="position">{{position.name}}</option>
+      </select>
+    </div>
+    <div *ngIf="editForm.get('position').touched && editForm.get('position').invalid" class="alert alert-danger">
+      Position invalid
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Education Degree</label>
+      <select class="form-control" formControlName="educationDegree">
+        <option *ngFor="let educationDegree of educationDegreeList" [ngValue]="educationDegree">{{educationDegree.name}}</option>
+      </select>
+    </div>
+    <div *ngIf="editForm.get('educationDegree').touched && editForm.get('educationDegree').invalid" class="alert alert-danger">
+      Education degree invalid
+    </div>
+    <button type="submit" class="btn btn-primary" mat-button (click)="openSnackBar('Edited Employee Successful', 'Dismiss')">Submit</button>
+  </form>
+</div>
+

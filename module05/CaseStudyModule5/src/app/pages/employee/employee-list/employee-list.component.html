@@ -4,6 +4,7 @@
   <table class="table">
     <thead>
     <th (click)="sort('id')">Id <i class="fa fa-sort"></i></th>
+    <th>Code</th>
     <th (click)="sort('fullName')">Full Name <i class="fa fa-sort"></i></th>
     <th>Birthday</th>
     <th>Id Card</th>
@@ -19,8 +20,9 @@
     <tbody>
     <tr *ngFor="let e of employees | orderBy: key: reverse | paginate: {currentPage: p, itemsPerPage: 5};">
       <td>{{e.id}}</td>
+      <td>{{e.employeeCode}}</td>
       <td>{{e.fullName}}</td>
-      <td>{{e.birthday}}</td>
+      <td>{{e.birthday | date: "dd/MM/yyyy"}}</td>
       <td>{{e.idCard}}</td>
       <td>{{e.phoneNumber}}</td>
       <td>{{e.email}}</td>
@@ -30,7 +32,7 @@
       <td>{{e.position.name}}</td>
       <td>{{e.educationDegree.name}}</td>
       <td><a [routerLink]="['/employee/edit', e.id]" class="btn btn-danger">Edit</a>
-        <button (click)="deleteEmployee(e.id)" class="btn btn-danger mx-3">Delete</button></td>
+        <button mat-raised-button (click)="deleteEmployee(e.id, e.fullName)" class="btn btn-danger mx-3">Delete</button></td>
     </tr>
     </tbody>
     <pagination-controls (pageChange)="p = $event"></pagination-controls>

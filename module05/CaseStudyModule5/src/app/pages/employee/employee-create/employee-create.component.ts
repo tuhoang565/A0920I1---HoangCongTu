@@ -6,6 +6,8 @@ import {IDivision} from '../../../models/IDivision';
 import {EmployeeService} from '../../../services/employee.service';
 import {IEmployee} from '../../../models/IEmployee';
 import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {style} from '@angular/animations';
 
 @Component({
   selector: 'app-employee-create',
@@ -21,7 +23,7 @@ export class EmployeeCreateComponent implements OnInit {
   minDate = new Date(1900, 1, 1);
   maxDate = new Date();
 
-  constructor(private fb: FormBuilder, private employeeService: EmployeeService, private router: Router) { }
+  constructor(private fb: FormBuilder, private employeeService: EmployeeService, private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.getAllDivisionList();
@@ -71,4 +73,7 @@ export class EmployeeCreateComponent implements OnInit {
     })
   }
 
+  openSnackBar(message, action) {
+    this.snackBar.open(message, action, {duration: 3000});
+  }
 }

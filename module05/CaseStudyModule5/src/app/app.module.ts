@@ -23,6 +23,10 @@ import { EmployeeComponent } from './pages/employee/employee.component';
 import { EmployeeListComponent } from './pages/employee/employee-list/employee-list.component';
 import { EmployeeEditComponent } from './pages/employee/employee-edit/employee-edit.component';
 import { EmployeeCreateComponent } from './pages/employee/employee-create/employee-create.component';
+import { EmployeeDeleteComponent } from './pages/employee/employee-delete/employee-delete.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -38,9 +42,11 @@ import { EmployeeCreateComponent } from './pages/employee/employee-create/employ
     EmployeeComponent,
     EmployeeListComponent,
     EmployeeEditComponent,
-    EmployeeCreateComponent
+    EmployeeCreateComponent,
+    EmployeeDeleteComponent
 
   ],
+  entryComponents: [EmployeeDeleteComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -54,7 +60,10 @@ import { EmployeeCreateComponent } from './pages/employee/employee-create/employ
     MatDatepickerModule,
     MatInputModule,
     MatNativeDateModule,
-    MatStepperModule
+    MatStepperModule,
+    MatSnackBarModule,
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

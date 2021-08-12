@@ -45,4 +45,19 @@ export class EmployeeService {
   createEmployee(data: IEmployee){
     return this.http.post<IEmployee>(this.employeeURL, data);
   }
+
+  findById(id: number){
+    return this.http.get(`${this.employeeURL}/${id}`)
+      // .pipe(map((response: IEmployee)=>{
+      //   return response;
+      // }));
+  }
+
+  editEmployee(data: IEmployee, id: number){
+    return this.http.put(this.employeeURL + '/' + id, data);
+  }
+
+  deleteEmployee(id: number){
+    return this.http.delete(this.employeeURL + '/' + id);
+  }
 }
