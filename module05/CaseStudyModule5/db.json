@@ -147,78 +147,9 @@
   ],
   "employee": [
     {
-      "id": 5,
-      "employeeCode": "NV-3399",
-      "fullName": "Binh",
-      "position": {
-        "id": 2,
-        "name": "Giám sát"
-      },
-      "educationDegree": {
-        "id": 2,
-        "name": "Cao đẳng"
-      },
-      "division": {
-        "id": 2,
-        "name": "Hành chính"
-      },
-      "birthday": "1999-02-01T17:00:00.000Z",
-      "idCard": "123123123",
-      "salary": 5220,
-      "phoneNumber": "0905123123",
-      "email": "binh@gmail.com",
-      "address": "Da Nang"
-    },
-    {
-      "id": 6,
-      "employeeCode": "NV-3399",
-      "fullName": "Binh",
-      "position": {
-        "id": 2,
-        "name": "Giám sát"
-      },
-      "educationDegree": {
-        "id": 2,
-        "name": "Cao đẳng"
-      },
-      "division": {
-        "id": 2,
-        "name": "Hành chính"
-      },
-      "birthday": "1999-02-01T17:00:00.000Z",
-      "idCard": "123123123",
-      "salary": 5220,
-      "phoneNumber": "0905123123",
-      "email": "binh@gmail.com",
-      "address": "Da Nang"
-    },
-    {
-      "id": 7,
-      "employeeCode": "NV-3399",
-      "fullName": "Binh",
-      "position": {
-        "id": 2,
-        "name": "Giám sát"
-      },
-      "educationDegree": {
-        "id": 2,
-        "name": "Cao đẳng"
-      },
-      "division": {
-        "id": 2,
-        "name": "Hành chính"
-      },
-      "birthday": "1999-02-01T17:00:00.000Z",
-      "idCard": "123123123",
-      "salary": 5220,
-      "phoneNumber": "0905123123",
-      "email": "binh@gmail.com",
-      "address": "Da Nang"
-    },
-    {
       "id": 8,
       "employeeCode": "NV-3399",
-      "fullName": "Binh",
+      "fullName": "Van Phu",
       "position": {
         "id": 2,
         "name": "Giám sát"
@@ -241,7 +172,168 @@
     {
       "id": 9,
       "employeeCode": "NV-3399",
-      "fullName": "Binh",
+      "fullName": "Van Chung",
+      "position": {
+        "id": 2,
+        "name": "Giám sát"
+      },
+      "educationDegree": {
+        "id": 2,
+        "name": "Cao đẳng"
+      },
+      "division": {
+        "id": 2,
+        "name": "Hành chính"
+      },
+      "birthday": "1999-02-01T17:00:00.000Z",
+      "idCard": "123123123",
+      "salary": 5220,
+      "phoneNumber": "0905123123",
+      "email": "binh@gmail.com",
+      "address": "Da Nang"
+    },
+    {
+      "id": 10,
+      "employeeCode": "NV-3399",
+      "fullName": "Dinh Khiem",
+      "position": {
+        "id": 2,
+        "name": "Giám sát"
+      },
+      "educationDegree": {
+        "id": 2,
+        "name": "Cao đẳng"
+      },
+      "division": {
+        "id": 2,
+        "name": "Hành chính"
+      },
+      "birthday": "1999-02-01T17:00:00.000Z",
+      "idCard": "123123123",
+      "salary": 5220,
+      "phoneNumber": "0905123123",
+      "email": "binh@gmail.com",
+      "address": "Da Nang"
+    },
+    {
+      "id": 11,
+      "employeeCode": "NV-3399",
+      "fullName": "Dinh Chung",
+      "position": {
+        "id": 2,
+        "name": "Giám sát"
+      },
+      "educationDegree": {
+        "id": 2,
+        "name": "Cao đẳng"
+      },
+      "division": {
+        "id": 2,
+        "name": "Hành chính"
+      },
+      "birthday": "1999-02-01T17:00:00.000Z",
+      "idCard": "123123123",
+      "salary": 5220,
+      "phoneNumber": "0905123123",
+      "email": "binh@gmail.com",
+      "address": "Da Nang"
+    },
+    {
+      "id": 12,
+      "employeeCode": "NV-3399",
+      "fullName": "Duc Bac",
+      "position": {
+        "id": 2,
+        "name": "Giám sát"
+      },
+      "educationDegree": {
+        "id": 2,
+        "name": "Cao đẳng"
+      },
+      "division": {
+        "id": 2,
+        "name": "Hành chính"
+      },
+      "birthday": "1999-02-01T17:00:00.000Z",
+      "idCard": "123123123",
+      "salary": 5220,
+      "phoneNumber": "0905123123",
+      "email": "binh@gmail.com",
+      "address": "Da Nang"
+    },
+    {
+      "id": 13,
+      "employeeCode": "NV-3399",
+      "fullName": "Ngoc Anh",
+      "position": {
+        "id": 2,
+        "name": "Giám sát"
+      },
+      "educationDegree": {
+        "id": 2,
+        "name": "Cao đẳng"
+      },
+      "division": {
+        "id": 2,
+        "name": "Hành chính"
+      },
+      "birthday": "1999-02-01T17:00:00.000Z",
+      "idCard": "123123123",
+      "salary": 5220,
+      "phoneNumber": "0905123123",
+      "email": "binh@gmail.com",
+      "address": "Da Nang"
+    },
+    {
+      "id": 14,
+      "employeeCode": "NV-3399",
+      "fullName": "Duc Hieu",
+      "position": {
+        "id": 2,
+        "name": "Giám sát"
+      },
+      "educationDegree": {
+        "id": 2,
+        "name": "Cao đẳng"
+      },
+      "division": {
+        "id": 2,
+        "name": "Hành chính"
+      },
+      "birthday": "1999-02-01T17:00:00.000Z",
+      "idCard": "123123123",
+      "salary": 5220,
+      "phoneNumber": "0905123123",
+      "email": "binh@gmail.com",
+      "address": "Da Nang"
+    },
+    {
+      "id": 15,
+      "employeeCode": "NV-3399",
+      "fullName": "Nhat Trung",
+      "position": {
+        "id": 2,
+        "name": "Giám sát"
+      },
+      "educationDegree": {
+        "id": 2,
+        "name": "Cao đẳng"
+      },
+      "division": {
+        "id": 2,
+        "name": "Hành chính"
+      },
+      "birthday": "1999-02-01T17:00:00.000Z",
+      "idCard": "123123123",
+      "salary": 5220,
+      "phoneNumber": "0905123123",
+      "email": "binh@gmail.com",
+      "address": "Da Nang"
+    },
+    {
+      "id": 16,
+      "employeeCode": "NV-3399",
+      "fullName": "Quang Anh",
       "position": {
         "id": 2,
         "name": "Giám sát"

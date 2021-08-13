@@ -23,7 +23,8 @@ export class EmployeeCreateComponent implements OnInit {
   minDate = new Date(1900, 1, 1);
   maxDate = new Date();
 
-  constructor(private fb: FormBuilder, private employeeService: EmployeeService, private router: Router, private snackBar: MatSnackBar) { }
+  constructor(private fb: FormBuilder, private employeeService: EmployeeService,
+              private router: Router, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.getAllDivisionList();

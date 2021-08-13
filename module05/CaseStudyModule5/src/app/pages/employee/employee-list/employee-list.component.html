@@ -1,9 +1,20 @@
 <div class="container-fluid">
   <h2 style="text-align: center">List all employee</h2>
-  <a routerLink="/employee/add" class="btn btn-danger mt-5 mb-3">Create</a>
+  <div class="col-2">
+    <a routerLink="/employee/add" class="btn btn-danger mt-5 mb-3" >Create</a>
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="fullName"
+           [(ngModel)]="fullName" (ngModelChange)="searchName()" >
+    <!--      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+    <div class="col-3">
+      <label for="exampleFormControlSelect1">Division</label>
+      <select class="form-control" id="exampleFormControlSelect1" [ngModel]="division">
+        <option *ngFor="let division of divisionList" [ngValue]="division">{{division.name}}</option>
+      </select>
+    </div>
+  </div>
   <table class="table">
     <thead>
-    <th (click)="sort('id')">Id <i class="fa fa-sort"></i></th>
+    <th (click)="sort('id')">Id</th>
     <th>Code</th>
     <th (click)="sort('fullName')">Full Name <i class="fa fa-sort"></i></th>
     <th>Birthday</th>
@@ -18,7 +29,7 @@
     <th>Action</th>
     </thead>
     <tbody>
-    <tr *ngFor="let e of employees | orderBy: key: reverse | paginate: {currentPage: p, itemsPerPage: 5};">
+    <tr *ngFor="let e of employees | orderBy: key: reverse | paginate: {currentPage: this.p, itemsPerPage: 5};">
       <td>{{e.id}}</td>
       <td>{{e.employeeCode}}</td>
       <td>{{e.fullName}}</td>
@@ -32,10 +43,11 @@
       <td>{{e.position.name}}</td>
       <td>{{e.educationDegree.name}}</td>
       <td><a [routerLink]="['/employee/edit', e.id]" class="btn btn-danger">Edit</a>
-        <button mat-raised-button (click)="deleteEmployee(e.id, e.fullName)" class="btn btn-danger mx-3">Delete</button></td>
+        <button mat-raised-button (click)="deleteEmployee(e.id, e.fullName)" class="btn btn-danger mx-3">Delete</button>
+      </td>
     </tr>
     </tbody>
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
 

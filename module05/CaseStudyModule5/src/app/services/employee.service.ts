@@ -60,4 +60,12 @@ export class EmployeeService {
   deleteEmployee(id: number){
     return this.http.delete(this.employeeURL + '/' + id);
   }
+
+  searchByName(fullName: string){
+    return this.http.get<IEmployee[]>(this.employeeURL + '?fullName_like=' + fullName);
+  }
+
+  searchByDivision(division: IDivision){
+    return this.http.get<IEmployee[]>(this.employeeURL + '?q=' + division.name);
+  }
 }
