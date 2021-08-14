@@ -6,6 +6,8 @@ import {MatDialog} from '@angular/material/dialog';
 import {EmployeeDeleteComponent} from '../employee-delete/employee-delete.component';
 import {map} from 'rxjs/operators';
 import {IDivision} from '../../../models/IDivision';
+import {IPosition} from '../../../models/IPosition';
+import {IEducationDegree} from '../../../models/IEducationDegree';
 
 @Component({
   selector: 'app-employee-list',
@@ -16,11 +18,15 @@ export class EmployeeListComponent implements OnInit {
   employees: IEmployee[] = [];
   employee: IEmployee;
   divisionList: IDivision[] = [];
-  division: IDivision;
-
+  divisionId: number;
+  positionList: IPosition[] = [];
+  positionId: number;
+  eduList: IEducationDegree[] = [];
+  eduId: number;
+  salary: number;
   fullName: string;
 
-  p: number = 1;
+  page: number = 1;
   key: string = 'id';
   reverse: boolean = false;
 
@@ -31,6 +37,7 @@ export class EmployeeListComponent implements OnInit {
   ngOnInit(): void {
     this.showAllEmployee();
     this.showDivisionList();
+    this.showPositionList();
   }
 
   showAllEmployee() {
@@ -66,7 +73,7 @@ export class EmployeeListComponent implements OnInit {
     } else {
       this.employeeService.searchByName(this.fullName).subscribe((data:IEmployee[]) =>{
         this.employees = data;
-        this.p = 1;
+        this.page = 1;
       })
     }
   }
@@ -74,6 +81,26 @@ export class EmployeeListComponent implements OnInit {
   showDivisionList(){
     this.employeeService.getAllDivision().subscribe(data =>{
       this.divisionList = data;
+    })
+  }
+
+  showPositionList(){
+    this.employeeService.getAllPosition().subscribe(data =>{
+      this.positionList = data;
+    })
+  }
+
+  search() {
+    this.employeeService.searchBy(this.divisionId, this.positionId, this.salary).subscribe((data:IEmployee[]) =>{
+      this.employees = data;
+      this.page = 1;
+    });
+  }
+
+  searchSalary(){
+    this.employeeService.searchRange(this.salary).subscribe((data: IEmployee[]) =>{
+      this.employees = data;
+      this.page = 1;
     })
   }
 }

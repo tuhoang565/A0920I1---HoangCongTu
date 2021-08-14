@@ -1,16 +1,34 @@
 <div class="container-fluid">
   <h2 style="text-align: center">List all employee</h2>
   <div class="col-2">
-    <a routerLink="/employee/add" class="btn btn-danger mt-5 mb-3" >Create</a>
+    <a routerLink="/employee/add" class="btn btn-danger mt-5 mb-3">Create</a>
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="fullName"
-           [(ngModel)]="fullName" (ngModelChange)="searchName()" >
-    <!--      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-    <div class="col-3">
+           [(ngModel)]="fullName" (ngModelChange)="searchName()">
+  </div>
+  <div class="mt-5 mb-3">
+    <div class="col-2">
       <label for="exampleFormControlSelect1">Division</label>
-      <select class="form-control" id="exampleFormControlSelect1" [ngModel]="division">
-        <option *ngFor="let division of divisionList" [ngValue]="division">{{division.name}}</option>
+      <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="divisionId">
+        <option *ngFor="let division of divisionList" [ngValue]="division.id" >{{division.name}}</option>
       </select>
     </div>
+    <div class="col-2">
+      <label for="position">Position</label>
+      <select class="form-control" id="position" [(ngModel)]="positionId">
+        <option *ngFor="let position of positionList" [ngValue]="position.id" >{{position.name}}</option>
+      </select>
+    </div>
+    <div class="col-2">
+      <label for="salary">Salary</label>
+      <select class="form-control" id="salary" [(ngModel)]="salary">
+        <option  [ngValue]="1">0- 5000</option>
+        <option  [ngValue]="2">5000 - 10000</option>
+        <option  [ngValue]="3">10000 - 15000</option>
+        <option  [ngValue]="4">15000 - 20000</option>
+      </select>
+    </div>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search()">Filter</button>
+<!--    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="searchSalary()">Search Range</button>-->
   </div>
   <table class="table">
     <thead>
@@ -29,7 +47,7 @@
     <th>Action</th>
     </thead>
     <tbody>
-    <tr *ngFor="let e of employees | orderBy: key: reverse | paginate: {currentPage: this.p, itemsPerPage: 5};">
+    <tr *ngFor="let e of employees | orderBy: key: reverse | paginate: {currentPage: page, itemsPerPage: 5};">
       <td>{{e.id}}</td>
       <td>{{e.employeeCode}}</td>
       <td>{{e.fullName}}</td>
@@ -48,6 +66,6 @@
     </tr>
     </tbody>
   </table>
-  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
 </div>
 
