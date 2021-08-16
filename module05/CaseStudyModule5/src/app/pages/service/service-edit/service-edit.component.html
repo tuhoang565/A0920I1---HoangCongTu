@@ -1,0 +1,92 @@
+<div class="container">
+  <h1 style="text-align: center">Edit Service</h1>
+  <form [formGroup]="editForm" (ngSubmit)="editService()">
+
+    <div class="form-group row">
+      <label for="code" class="col-sm-2 col-form-label">Service Code</label>
+      <div class="col-sm-6">
+        <input type="text" formControlName="code" class="form-control" id="code">
+      </div>
+      <p *ngIf="editForm.get('code').touched && editForm.get('code').invalid" class="text-danger">
+        Wrong format. DV-XXXX
+      </p>
+    </div>
+
+    <div class="form-group row">
+      <label for="name" class="col-sm-2 col-form-label">Service name</label>
+      <div class="col-sm-6">
+        <input type="text" formControlName="name" class="form-control" id="name">
+      </div>
+      <p *ngIf="editForm.get('name').touched && editForm.get('name').invalid" class="text-danger">
+        Service name invalid
+      </p>
+    </div>
+
+    <div class="form-group row">
+      <label for="area" class="col-sm-2 col-form-label">Area</label>
+      <div class="col-sm-6">
+        <input type="number" formControlName="area" class="form-control" id="area">
+      </div>
+      <p *ngIf="editForm.get('area').touched && editForm.get('area').invalid" class="text-danger">
+        Area must greater than 100
+      </p>
+    </div>
+
+    <div class="form-group row">
+      <label for="floor" class="col-sm-2 col-form-label">Floor</label>
+      <div class="col-sm-6">
+        <input type="number" formControlName="floor" class="form-control" id="floor">
+      </div>
+      <p *ngIf="editForm.get('floor').touched && editForm.get('floor').invalid" class="text-danger">
+        Floor must greater than 0
+      </p>
+    </div>
+
+    <div class="form-group row">
+      <label for="maxPeople" class="col-sm-2 col-form-label">Max people</label>
+      <div class="col-sm-6">
+        <input type="number" formControlName="maxPeople" class="form-control" id="maxPeople">
+      </div>
+      <p *ngIf="editForm.get('maxPeople').touched && editForm.get('maxPeople').invalid" class="text-danger">
+        Max people greater than 0
+      </p>
+    </div>
+
+    <div class="form-group row">
+      <label for="rentCost" class="col-sm-2 col-form-label">Rent cost</label>
+      <div class="col-sm-6">
+        <input type="number" formControlName="rentCost" class="form-control" id="rentCost">
+      </div>
+      <p *ngIf="editForm.get('rentCost').touched && editForm.get('rentCost').invalid" class="text-danger">
+        Rent cost greater than 0
+      </p>
+    </div>
+
+    <div class="form-group row">
+      <label for="status" class="col-sm-2 col-form-label">Status</label>
+      <div class="col-sm-6">
+        <input type="text" formControlName="status" class="form-control" id="status">
+      </div>
+      <p *ngIf="editForm.get('status').touched && editForm.get('status').invalid" class="text-danger">
+        Status invalid
+      </p>
+    </div>
+
+    <div class="form-group row">
+      <label for="exampleFormControlSelect1" class="col-sm-2 col-form-label">Rent Type</label>
+      <div class="col-sm-6">
+        <select class="form-control" id="exampleFormControlSelect1" formControlName="rentType">
+          <option [selected]="rentType.name == editForm.controls.rentType.value.name"
+            *ngFor="let rentType of rentTypeList" [ngValue]="rentType">{{rentType.name}}</option>
+        </select>
+      </div>
+      <p *ngIf="editForm.get('rentType').touched && editForm.get('rentType').invalid" class="text-danger">
+        Rent type invalid
+      </p>
+    </div>
+
+    <button (click)="openEditSnackBar('Edit Successful', 'Dismiss')"
+            type="submit" class="btn btn-success" style="margin-left: 30%" mat-button>Submit
+    </button>
+  </form>
+</div>

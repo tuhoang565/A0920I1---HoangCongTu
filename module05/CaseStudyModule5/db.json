@@ -372,5 +372,99 @@
       "id": 3,
       "name": "Quản lý"
     }
+  ],
+  "rentType": [
+    {
+      "id": 1,
+      "name": "Year",
+      "price": 365
+    },
+    {
+      "id": 2,
+      "name": "Month",
+      "price": 30
+    },
+    {
+      "id": 3,
+      "name": "Day",
+      "price": 3
+    }
+  ],
+  "service": [
+    {
+      "id": 3,
+      "code": "DV-2222",
+      "name": "Vip Villa",
+      "area": 430,
+      "floor": 9,
+      "maxPeople": 6,
+      "rentCost": 42,
+      "status": "Off",
+      "rentType": {
+        "id": 2,
+        "name": "Month",
+        "price": 30
+      }
+    },
+    {
+      "id": 4,
+      "code": "DV-1234",
+      "name": "Sandy Villa",
+      "area": 700,
+      "floor": 5,
+      "maxPeople": 4,
+      "rentCost": 200,
+      "status": "ON",
+      "rentType": {
+        "id": 1,
+        "name": "Year",
+        "price": 365
+      }
+    },
+    {
+      "id": 5,
+      "code": "DV-1234",
+      "name": "Euro Villa",
+      "area": 700,
+      "floor": 5,
+      "maxPeople": 4,
+      "rentCost": 200,
+      "status": "ON",
+      "rentType": {
+        "id": 1,
+        "name": "Year",
+        "price": 365
+      }
+    },
+    {
+      "id": 5,
+      "code": "DV-1234",
+      "name": "Sandy Beach",
+      "area": 700,
+      "floor": 5,
+      "maxPeople": 4,
+      "rentCost": 200,
+      "status": "ON",
+      "rentType": {
+        "id": 1,
+        "name": "Year",
+        "price": 365
+      }
+    },
+    {
+      "id": 6,
+      "code": "DV-1234",
+      "name": "Mountain House",
+      "area": 700,
+      "floor": 5,
+      "maxPeople": 4,
+      "rentCost": 200,
+      "status": "ON",
+      "rentType": {
+        "id": 1,
+        "name": "Year",
+        "price": 365
+      }
+    }
   ]
 }

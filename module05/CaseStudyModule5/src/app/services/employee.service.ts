@@ -53,9 +53,6 @@ export class EmployeeService {
 
   findById(id: number) {
     return this.http.get(`${this.employeeURL}/${id}`);
-    // .pipe(map((response: IEmployee)=>{
-    //   return response;
-    // }));
   }
 
   editEmployee(data: IEmployee, id: number) {
@@ -70,32 +67,34 @@ export class EmployeeService {
     return this.http.get<IEmployee[]>(this.employeeURL + '?fullName_like=' + fullName);
   }
 
-  searchBy(divisionId: number, positionId: number, salary: number) {
-    if (salary == 1) {
+  searchBy(divisionName: string, positionName: string, salary: string) {
+    if (salary == '1') {
       return this.http.get<IEmployee[]>(this.employeeURL + '?salary_gte=0&salary_lte=5000'
-        + '&division.id_like=' + divisionId + '&position.id_like=' + positionId);
-    } else if (salary == 2) {
+        + '&division.name_like=' + divisionName + '&position.name_like=' + positionName);
+    } else if (salary == '2') {
       return this.http.get<IEmployee[]>(this.employeeURL + '?salary_gte=5000&salary_lte=10000'
-        + '&division.id_like=' + divisionId + '&position.id_like=' + positionId);
-    } else if (salary == 3) {
+        + '&division.name_like=' + divisionName + '&position.name_like=' + positionName);
+    } else if (salary == '3') {
       return this.http.get<IEmployee[]>(this.employeeURL + '?salary_gte=10000&salary_lte=15000'
-        + '&division.id_like=' + divisionId + '&position.id_like=' + positionId);
-    } else {
+        + '&division.name_like=' + divisionName + '&position.name_like=' + positionName);
+    } else if(salary == '4'){
       return this.http.get<IEmployee[]>(this.employeeURL + '?salary_gte=15000'
-        + '&division.id_like=' + divisionId + '&position.id_like=' + positionId);
+        + '&division.name_like=' + divisionName + '&position.name_like=' + positionName);
+    }else {
+      return this.http.get<IEmployee[]>(this.employeeURL + '?division.name_like=' + divisionName + '&position.name_like=' + positionName);
     }
   }
 
 
-  searchRange(salary: number) {
-    if (salary == 1) {
-      return this.http.get<IEmployee[]>(this.employeeURL + '?salary_gte=0&salary_lte=5000');
-    } else if (salary == 2) {
-      return this.http.get<IEmployee[]>(this.employeeURL + '?salary_gte=5000&salary_lte=10000');
-    } else if (salary == 3) {
-      return this.http.get<IEmployee[]>(this.employeeURL + '?salary_gte=10000&salary_lte=15000');
-    } else {
-      return this.http.get<IEmployee[]>(this.employeeURL + '?salary_gte=15000');
-    }
-  }
+  // searchRange(salary: number) {
+  //   if (salary == 1) {
+  //     return this.http.get<IEmployee[]>(this.employeeURL + '?salary_gte=0&salary_lte=5000');
+  //   } else if (salary == 2) {
+  //     return this.http.get<IEmployee[]>(this.employeeURL + '?salary_gte=5000&salary_lte=10000');
+  //   } else if (salary == 3) {
+  //     return this.http.get<IEmployee[]>(this.employeeURL + '?salary_gte=10000&salary_lte=15000');
+  //   } else {
+  //     return this.http.get<IEmployee[]>(this.employeeURL + '?salary_gte=15000');
+  //   }
+  // }
 }

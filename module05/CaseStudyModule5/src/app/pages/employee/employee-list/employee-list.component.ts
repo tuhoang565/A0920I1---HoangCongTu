@@ -18,12 +18,12 @@ export class EmployeeListComponent implements OnInit {
   employees: IEmployee[] = [];
   employee: IEmployee;
   divisionList: IDivision[] = [];
-  divisionId: number;
+  divisionName: string = '';
   positionList: IPosition[] = [];
-  positionId: number;
+  positionName: string = '';
   eduList: IEducationDegree[] = [];
   eduId: number;
-  salary: number;
+  salary: string = '';
   fullName: string;
 
   page: number = 1;
@@ -91,16 +91,16 @@ export class EmployeeListComponent implements OnInit {
   }
 
   search() {
-    this.employeeService.searchBy(this.divisionId, this.positionId, this.salary).subscribe((data:IEmployee[]) =>{
+    this.employeeService.searchBy(this.divisionName, this.positionName, this.salary).subscribe((data:IEmployee[]) =>{
       this.employees = data;
       this.page = 1;
     });
   }
 
-  searchSalary(){
-    this.employeeService.searchRange(this.salary).subscribe((data: IEmployee[]) =>{
-      this.employees = data;
-      this.page = 1;
-    })
-  }
+  // searchSalary(){
+  //   this.employeeService.searchRange(this.salary).subscribe((data: IEmployee[]) =>{
+  //     this.employees = data;
+  //     this.page = 1;
+  //   })
+  // }
 }

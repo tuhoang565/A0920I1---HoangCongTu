@@ -1,0 +1,53 @@
+<div class="container">
+  <h1 style="text-align: center">List all service</h1>
+  <div>
+    <div class="d-inline-block">
+      <a routerLink="/service/add" class="btn btn-success">Create</a>
+    </div>
+    <div class="d-inline-block" style="margin-left: 70%">
+      <form>
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="name"
+             [(ngModel)]="name" (ngModelChange)="searchName()" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let service of serviceListSearch" [value]="service.name">
+          {{service.name}}
+        </mat-option>
+      </mat-autocomplete>
+      <button type="submit" (click)="searchName()" class="btn btn-success">Search</button>
+      </form>
+    </div>
+    <div class="d-inline-block">
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+    <th>Id</th>
+    <th>Code</th>
+    <th>Name</th>
+    <th>Area</th>
+    <th>Floor</th>
+    <th>Max People</th>
+    <th>Rent Cost</th>
+    <th>Status</th>
+    <th>Rent Type</th>
+    <th>Action</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let service of serviceList">
+      <td>{{service.id}}</td>
+      <td>{{service.code}}</td>
+      <td>{{service.name}}</td>
+      <td>{{service.area}}</td>
+      <td>{{service.floor}}</td>
+      <td>{{service.maxPeople}}</td>
+      <td>{{service.rentCost}}</td>
+      <td>{{service.status}}</td>
+      <td>{{service.rentType.name}}</td>
+      <td>
+        <a [routerLink]="['/service/edit/', service.id]" class="btn btn-success">Edit</a>
+        <button (click)="deleteService(service.id)" class="btn btn-success mx-3">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

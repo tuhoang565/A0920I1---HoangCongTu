@@ -54,6 +54,4 @@ export class CustomerService {
     return this.http.get(this.URL + '/' + id);
   }
 
-  search(data: string){
-  }
 }

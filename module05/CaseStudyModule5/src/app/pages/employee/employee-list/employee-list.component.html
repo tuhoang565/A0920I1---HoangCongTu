@@ -1,35 +1,44 @@
 <div class="container-fluid">
-  <h2 style="text-align: center">List all employee</h2>
-  <div class="col-2">
-    <a routerLink="/employee/add" class="btn btn-danger mt-5 mb-3">Create</a>
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="fullName"
-           [(ngModel)]="fullName" (ngModelChange)="searchName()">
+  <h1 style="text-align: center; margin-top: 10px">List all employee</h1>
+  <div>
+    <div class="d-inline-block">
+      <a routerLink="/employee/add" class="btn btn-danger">Create</a>
+    </div>
+    <div class="d-inline-block" style="margin-left: 85%">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="fullName"
+             [(ngModel)]="fullName" (ngModelChange)="searchName()">
+    </div>
   </div>
-  <div class="mt-5 mb-3">
-    <div class="col-2">
+
+  <div class="">
+    <div class="d-inline-block p-2">
       <label for="exampleFormControlSelect1">Division</label>
-      <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="divisionId">
-        <option *ngFor="let division of divisionList" [ngValue]="division.id" >{{division.name}}</option>
+      <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="divisionName">
+        <option *ngFor="let division of divisionList" [ngValue]="division.name">{{division.name}}</option>
       </select>
     </div>
-    <div class="col-2">
+    <div class="d-inline-block p-2">
       <label for="position">Position</label>
-      <select class="form-control" id="position" [(ngModel)]="positionId">
-        <option *ngFor="let position of positionList" [ngValue]="position.id" >{{position.name}}</option>
+      <select class="form-control" id="position" [(ngModel)]="positionName">
+        <option *ngFor="let position of positionList" [ngValue]="position.name">{{position.name}}</option>
       </select>
     </div>
-    <div class="col-2">
+    <div class="d-inline-block">
       <label for="salary">Salary</label>
       <select class="form-control" id="salary" [(ngModel)]="salary">
-        <option  [ngValue]="1">0- 5000</option>
-        <option  [ngValue]="2">5000 - 10000</option>
-        <option  [ngValue]="3">10000 - 15000</option>
-        <option  [ngValue]="4">15000 - 20000</option>
+        <option [ngValue]="1">0- 5000</option>
+        <option [ngValue]="2">5000 - 10000</option>
+        <option [ngValue]="3">10000 - 15000</option>
+        <option [ngValue]="4">15000 - 20000</option>
       </select>
     </div>
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search()">Filter</button>
-<!--    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="searchSalary()">Search Range</button>-->
+    <button class="btn btn-outline-success my-2 my-sm-0" style="margin-left: 10px" type="submit" (click)="search()">
+      Filter
+    </button>
+    <!--    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="searchSalary()">Search Range</button>-->
   </div>
+
+
   <table class="table">
     <thead>
     <th (click)="sort('id')">Id</th>
@@ -61,7 +70,7 @@
       <td>{{e.position.name}}</td>
       <td>{{e.educationDegree.name}}</td>
       <td><a [routerLink]="['/employee/edit', e.id]" class="btn btn-danger">Edit</a>
-        <button mat-raised-button (click)="deleteEmployee(e.id, e.fullName)" class="btn btn-danger mx-3">Delete</button>
+        <button (click)="deleteEmployee(e.id, e.fullName)" class="btn btn-danger mx-3">Delete</button>
       </td>
     </tr>
     </tbody>

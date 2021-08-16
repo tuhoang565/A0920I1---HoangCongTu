@@ -64,7 +64,8 @@
     <div class="form-group">
       <label for="exampleFormControlSelect1">Division</label>
       <select class="form-control" id="exampleFormControlSelect1" formControlName="division">
-        <option *ngFor="let division of divisionList" [ngValue]="division">{{division.name}}</option>
+        <option [selected]="division.name == editForm.controls.division.value.name"
+          *ngFor="let division of divisionList" [ngValue]="division">{{division.name}}</option>
       </select>
     </div>
     <div *ngIf="editForm.get('division').touched && editForm.get('division').invalid" class="alert alert-danger">
@@ -73,7 +74,8 @@
     <div class="form-group">
       <label for="exampleFormControlSelect1">Position</label>
       <select class="form-control" formControlName="position">
-        <option *ngFor="let position of positionList" [ngValue]="position">{{position.name}}</option>
+        <option [selected]="position.name == editForm.controls.position.value.name"
+          *ngFor="let position of positionList" [ngValue]="position">{{position.name}}</option>
       </select>
     </div>
     <div *ngIf="editForm.get('position').touched && editForm.get('position').invalid" class="alert alert-danger">
@@ -82,7 +84,8 @@
     <div class="form-group">
       <label for="exampleFormControlSelect1">Education Degree</label>
       <select class="form-control" formControlName="educationDegree">
-        <option *ngFor="let educationDegree of educationDegreeList" [ngValue]="educationDegree">{{educationDegree.name}}</option>
+        <option [selected]="educationDegree.name == editForm.controls.educationDegree.value.name"
+          *ngFor="let educationDegree of educationDegreeList" [ngValue]="educationDegree">{{educationDegree.name}}</option>
       </select>
     </div>
     <div *ngIf="editForm.get('educationDegree').touched && editForm.get('educationDegree').invalid" class="alert alert-danger">

@@ -1,0 +1,6 @@
+
+<mat-dialog-content>Do you want to delete record name: <span style="color: red">{{data.dataService.name}}</span></mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="true" (click)="openDeleteSnackBar('Delete successful', 'Dismiss')">Yes</button>
+  <button mat-button [mat-dialog-close]="false">No</button>
+</mat-dialog-actions>

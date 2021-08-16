@@ -27,6 +27,12 @@ import { EmployeeDeleteComponent } from './pages/employee/employee-delete/employ
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ServiceComponent } from './pages/service/service.component';
+import { ServiceListComponent } from './pages/service/service-list/service-list.component';
+import { ServiceCreateComponent } from './pages/service/service-create/service-create.component';
+import { ServiceDeleteComponent } from './pages/service/service-delete/service-delete.component';
+import { ServiceEditComponent } from './pages/service/service-edit/service-edit.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 
 
@@ -43,7 +49,12 @@ import {MatDialogModule} from '@angular/material/dialog';
     EmployeeListComponent,
     EmployeeEditComponent,
     EmployeeCreateComponent,
-    EmployeeDeleteComponent
+    EmployeeDeleteComponent,
+    ServiceComponent,
+    ServiceListComponent,
+    ServiceCreateComponent,
+    ServiceDeleteComponent,
+    ServiceEditComponent
 
   ],
   entryComponents: [EmployeeDeleteComponent],
@@ -63,7 +74,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatStepperModule,
     MatSnackBarModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
